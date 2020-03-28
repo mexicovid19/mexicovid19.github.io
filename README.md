@@ -2,6 +2,8 @@
 
 En este repositorio se encuentra toda la documentación para [la página utilizada para el monitoreo del Coronavirus en México](https://mexicovid19.github.io/Mexico/). Todos los datos usados en la página se encuentran en [este repositorio](https://github.com/mexicovid19/Mexico-datos). 
 
+**Este repositorio es actualizado a diario.** La fecha y hora de la última actualización la encontrarás [aquí](https://github.com/mexicovid19/Mexico-datos/blob/master/datos/last_updated.csv).
+
 Si tienes algún comentario, queja o sugerencia, por favor escríbenos al correo mexicovid19contacto@gmail.com o realiza un pull request.  
 
 Los objetivos de esta página son: 
