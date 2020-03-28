@@ -1,11 +1,12 @@
 // SUMMON
 // URL
-var urlTotal="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_casos_totales.csv",
-   urlRecu="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_recuperados.csv",
-   urlActivos="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_casos_activos.csv",
-   urlMuertes="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_muertes.csv",
-   urlNuevos="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_casos_nuevos.csv",
-   urlUpdateTime="https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/last_updated.csv";
+var prefix="https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/data/" 
+  urlTotal=prefix+"series_tiempo/covid19_mex_casos_totales.csv",
+   urlRecu=prefix+"series_tiempo/covid19_mex_recuperados.csv",
+   urlActivos=prefix+"series_tiempo/covid19_mex_casos_activos.csv",
+   urlMuertes=prefix+"series_tiempo/covid19_mex_muertes.csv",
+   urlNuevos=prefix+"series_tiempo/covid19_mex_casos_nuevos.csv",
+   urlUpdateTime=prefix+"last_updated.csv";
 
 //totales
 d3.csv(urlTotal,function(data) {
