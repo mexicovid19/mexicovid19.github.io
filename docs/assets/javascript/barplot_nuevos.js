@@ -1,10 +1,22 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 0, left: 30},
-   // width = 460 - margin.left - margin.right,
-    //height = 400 - margin.top - margin.bottom;
-    width=$("#barplot_nuevos").width(),
-    height=width/1.5;
-var urlNuevos = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_casos_nuevos.csv";
+    var w = 600,
+        h = 400,
+        w_full = w,
+        h_full = h;
+
+    if (w > $( window ).width()) {
+      w = $( window ).width();
+    }
+
+    var margin = {
+            top: 10,
+            right: 10,
+            bottom: 50,
+            left: 40
+        },
+   w = (w- (margin.left + margin.right) );
+    h = (h - (margin.top + margin.bottom));
+var urlNuevos = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/series_de_tiempo/covid19_mex_casos_nuevos.csv";
 
 var widthBar = 6;
 
@@ -14,11 +26,11 @@ var tipH = d3.select("#barplot_nuevos").append("div")
 // append the svg object to the body of the page
 var svgBar = d3.select("#barplot_nuevos")
   .append("svg")
-  .attr("width", width+margin.left+margin.right+0)
-  .attr("height",height+margin.top+margin.bottom+70)
+  .attr("width", w_full)
+  .attr("height",h_full)
   .append("g")
   .attr("transform",
-        "translate(" + (0+margin.left )+ "," + margin.top + ")");
+        "translate(" + (margin.left )+ "," + margin.top + ")");
 
 // Parse the Data
 d3.csv(urlNuevos, function(data) {
@@ -42,10 +54,10 @@ d3.csv(urlNuevos, function(data) {
   // Add X axis --> it is a date format
   var x = d3.scaleTime()
             .domain([mindate,today])
-            .range([ 0, width ]);
+            .range([ 0, w ]);
 
   svgBar.append("g")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + h + ")")
         .attr("class","graph_date")
         .call(d3.axisBottom(x))
         .selectAll("text")
@@ -57,7 +69,7 @@ d3.csv(urlNuevos, function(data) {
   // Add Y axis
   var y = d3.scaleLinear()
             .domain([0, d3.max(data, function(d){return d.México;  })])
-            .range([ height, 0]);
+            .range([ h, 0]);
 
   svgBar.append("g")
         .call(d3.axisLeft(y));
@@ -73,7 +85,7 @@ d3.csv(urlNuevos, function(data) {
           //.attr("height", function(d) { return height - y(+d.México); })
           .attr("fill", '#1f9bcf')
           // no bar at the beginning thus:
-          .attr("height", function(d) { return height - y(0); }) // always equal to 0
+          .attr("height", function(d) { return h - y(0); }) // always equal to 0
           .attr("y", function(d) { return y(0); })
           .on("mouseover", function(d) {    
             tipH.transition()    
@@ -110,7 +122,8 @@ var fase12=new Date(2020,2,23);
       .attr("dy", "1em")
       .style("text-anchor", "end")
       .text("Comienza la fase 2")
-      .attr("stroke", "#000");     
+      .attr("stroke", "#000")
+      .attr("font-family","sans-serif");     
 
 
   // Animation
@@ -118,7 +131,7 @@ var fase12=new Date(2020,2,23);
   .transition()
   .duration(400)
   .attr("y", function(d) { return y(+d.México); })
-  .attr("height", function(d) { return height - y(+d.México); })
+  .attr("height", function(d) { return h - y(+d.México); })
   .delay(function(d,i){ return(i*100)})
 
 
