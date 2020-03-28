@@ -1,6 +1,6 @@
 // SUMMON
 // URL
-var prefix="https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/data/" 
+var prefix="https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/data/", 
   urlTotal=prefix+"series_tiempo/covid19_mex_casos_totales.csv",
    urlRecu=prefix+"series_tiempo/covid19_mex_recuperados.csv",
    urlActivos=prefix+"series_tiempo/covid19_mex_casos_activos.csv",
