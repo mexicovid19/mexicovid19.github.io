@@ -146,7 +146,6 @@ d3.csv(url, function(data) {
             .y(function(d) {
                 return y(+d.Susana_00)
             })
-            .filter(function(d) { return d.Susana_00 == 0; }).remove()
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
@@ -164,7 +163,6 @@ d3.csv(url, function(data) {
             .y(function(d) {
                 return y(+d.Susana_20)
             })
-            .filter(function(d) { return d.Susana_00 == 0; }).remove()
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
@@ -180,10 +178,6 @@ d3.csv(url, function(data) {
             .y(function(d) {
                 return y(+d.Susana_50)
             })
-            .filter(function(d) { return d.Susana_00 == 0; }).remove()
-            /*.defined(function(d) {
-                return d.Susana_50 !== 0;
-            })*/
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
