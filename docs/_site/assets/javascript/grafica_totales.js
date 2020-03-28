@@ -256,7 +256,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","1,1")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaísla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda susi_20
 svgT.append("line")
@@ -268,7 +268,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","5,5")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaísla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda susi_50
 svgT.append("line")
@@ -279,7 +279,7 @@ svgT.append("line")
     .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaísla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda datos SSA
 svgT.append('circle')
