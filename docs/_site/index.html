@@ -13,9 +13,9 @@
  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
+<title>Metodología | COVID-19 México</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="COVID-19 México" />
+<meta property="og:title" content="Metodología" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Monitoreo constante del COVID-19 en México." />
 <meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="COVID-19 México" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/","headline":"COVID-19 México","name":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebSite","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/","headline":"Metodología","name":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebSite","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
   <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
@@ -61,9 +61,9 @@
         <li class="nav-item">
           <a class="nav-link" href="proyecciones.html">Proyecciones</a>
         </li>
-        <li class="nav-item">
+        <!---li class="nav-item">
           <a class="nav-link" href="metodologia.html">Metodología</a>
-        </li>
+        </li--->
         <li class="nav-item">
           <a class="nav-link" href="about.html">Acerca de</a>
         </li>
@@ -78,7 +78,7 @@
       <div class="container page-content">
 <div class="alert alert-dismissible alert-info">
   <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
-  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID" class="alert-link">COVID al 51515</a>.</p>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID" class="alert-link" style="color:#FF8654 !important;">COVID al 51515</a>.</p>
 </div>
           <script src="/assets/javascript/summon.js"></script>
 
@@ -126,6 +126,7 @@
 
 <!--INICIA MAPA-->
 <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
+<p id="tiempo_actualizacion_6"> </p>
 <div class="justify-content-center row d-flex">
 <div id="mapa"></div>
 </div>
@@ -135,7 +136,7 @@
 <form method="get" action="estados.html">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
 </form>
- <!--INICIA SECCION DE GRAFICAS-->
+ <!--INICIA SECCION DE GRAFICAS-->  
 <!--INICIA EL PLOT-->
 <!-- Initialize a select button -->
 <!--select id="selectButton"></select-->
@@ -143,13 +144,13 @@
 
 <!-- Create a div where the graph will take place -->
 
-<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1></div>
+<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1><p id="tiempo_actualizacion_3"> </p></div>
 
-<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1></div>
+<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1><p id="tiempo_actualizacion_4"> </p></div>
 <script src="/assets/javascript/barplot_nuevos.js"></script>
 
 <script src="/assets/javascript/grafica_totales.js"></script>
-<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1></div>
+<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
 
 <!--INICIA EL POBLACIONAL-->
@@ -172,7 +173,7 @@ pyramidBuilder(exampleData, '#pir', options);
 
 <!--BOTÓN DE DESCARGA-->
 
-<form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
+<form method="get" action="https://github.com/mexicovid19/Mexico-datos/archive/master.zip">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
 </form>
 
@@ -180,6 +181,8 @@ pyramidBuilder(exampleData, '#pir', options);
   <section>
     
   </section></div>
+
+
 
       </div>
     </div>
