@@ -4,6 +4,8 @@ En este repositorio se encuentra toda la documentación para [la página utiliza
 
 **Este repositorio es actualizado a diario.** La fecha y hora de la última actualización la encontrarás [aquí](https://github.com/mexicovid19/Mexico-datos/blob/master/datos/last_updated.csv).
 
+Puedes conocer a los integrantes de este equipo [aquí](https://mexicovid19.github.io/Mexico/about.html)
+
 Si tienes algún comentario, queja o sugerencia, por favor escríbenos al correo mexicovid19contacto@gmail.com o realiza un pull request.  
 
 Los objetivos de esta página son: 
