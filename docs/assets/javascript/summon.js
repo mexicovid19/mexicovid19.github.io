@@ -53,7 +53,7 @@ d3.csv(urlNuevos,function(data) {
     data[tope]["updated_at"] = new Date(data[tope]["updated_at"]) ;
     for (var i = 0 ; i <= 5; i++) {
       var div = document.getElementById('tiempo_actualizacion_'+i);
-       div.innerHTML = "<p><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
+       div.innerHTML = "<p class='text-center'><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
        " @ "+formatHour(data[tope]["updated_at"])+":"+formatMin(data[tope]["updated_at"])+ "</small></p>";
     }
    /* 
