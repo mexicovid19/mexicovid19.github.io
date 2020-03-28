@@ -1,12 +1,17 @@
 //set dimensions
 var urlTotal = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_casos_totales.csv",
     urlRecu = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/series_tiempo/covid19_mex_recuperados.csv",
-    w = 700,
-    h = 400;
-    var w = $(".page-content").width(); //map.node().getBoundingClientRect().width;
-    var h = w / 2;
-/*var  adjust = window.innerWidth;
-$('#mapa').scrollLeft(adjust/2);*/
+    w = 900,
+    h = 515,
+    w_full = w,
+    h_full = h;
+    if (w > $( window ).width()) {
+      w = $( window ).width();
+      h = w/1.75;
+    }
+    /*var w = $(".page-content").width(); //map.node().getBoundingClientRect().width;
+    var h = w / 2;*/
+
 var navMap = d3.select("#mapa").append("div") 
     .attr("class", "nav_map")       
     .style("opacity", 0);
@@ -15,7 +20,7 @@ var navMap = d3.select("#mapa").append("div")
 var projection = d3.geoMercator()
     .center([-100, 22])
     .translate([w / 1.85, h / 1.7])
-    .scale([w / .7]);
+    .scale([w / .6]);
 
 //define path generator
 var path = d3.geoPath()
@@ -28,7 +33,7 @@ var mapSvg = d3.select("#mapa")
     .attr("height", h);
 
 //load GeoJson data
-d3.json("https://raw.githubusercontent.com/LeonardoCastro/COVID-20/master/assets/javascript/mexico.geojson", function(json) {
+d3.json("https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/geograficos/mexico.geojson", function(json) {
     feat = json.features;
     // bind data
     mapSvg.selectAll("path")

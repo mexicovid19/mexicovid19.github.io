@@ -53,6 +53,7 @@ layout: default
 
 <!--INICIA MAPA-->
 <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
+<p id="tiempo_actualizacion_6"> </p>
 <div class="justify-content-center row d-flex">
 <div id="mapa"></div>
 </div>
@@ -62,7 +63,7 @@ layout: default
 <form method="get" action="estados.html">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
 </form>
- <!--INICIA SECCION DE GRAFICAS-->
+ <!--INICIA SECCION DE GRAFICAS-->  
 <!--INICIA EL PLOT-->
 <!-- Initialize a select button -->
 <!--select id="selectButton"></select-->
@@ -70,13 +71,13 @@ layout: default
 
 <!-- Create a div where the graph will take place -->
 
-<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1></div>
+<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1><p id="tiempo_actualizacion_3"> </p></div>
 
-<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1></div>
+<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1><p id="tiempo_actualizacion_4"> </p></div>
 <script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
 
 <script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
-<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1></div>
+<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
 
 <!--INICIA EL POBLACIONAL-->
@@ -99,7 +100,7 @@ pyramidBuilder(exampleData, '#pir', options);
 
 <!--BOTÓN DE DESCARGA-->
 
-<form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
+<form method="get" action="https://github.com/mexicovid19/Mexico-datos/archive/master.zip">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
 </form>
 
@@ -138,3 +139,5 @@ pyramidBuilder(exampleData, '#pir', options);
   {%- endif -%}
 
 </div>
+
+

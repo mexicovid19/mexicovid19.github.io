@@ -180,12 +180,22 @@ function pyramidBuilder(data, target, options) {
     pyramid.append('g')
         .attr('class', 'axis x left')
         .attr('transform', translation(0, h))
-        .call(xAxisLeft);
+        .call(xAxisLeft)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", "-.5em")
+        .attr("transform", "rotate(-90)");
 
     pyramid.append('g')
         .attr('class', 'axis x right')
         .attr('transform', translation(rightBegin, h))
-        .call(xAxisRight);
+        .call(xAxisRight)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", "-.5em")
+        .attr("transform", "rotate(-90)");;
 
     // DRAW BARS
     leftBarGroup.selectAll('.bar.left')
