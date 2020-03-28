@@ -36,7 +36,7 @@ var svgT = d3.select("#grafica_totales")
 
 //Read the data
 d3.csv(url, function(data) {
-
+    console.log(data);
     var tope = data.length - 1;
 
     data.forEach(function(d) {
@@ -147,7 +147,7 @@ d3.csv(url, function(data) {
                 return y(+d.Susana_00)
             })
             .defined(function(d) {
-                return d.Susana_00 !== 0;
+                return d.Susana_00 || d.Susana_00 === 0;
             })
         )
         .attr("stroke", "#000000")
