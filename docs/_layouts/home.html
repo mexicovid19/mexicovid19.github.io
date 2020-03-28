@@ -1,0 +1,140 @@
+---
+layout: default
+---
+<script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
+
+
+
+<div>
+{% comment %}
+  {%- if page.title -%}
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+  {%- endif -%}
+{% endcomment %}
+
+
+<!--INICIA SEMÁFORO-->
+<h1 class="text-center" style='text-transform: none;'>Casos nacionales</h1>
+<div class="row d-flex justify-content-center">
+  <div class="card text-white bg-danger mb-3 col-md-4" style="max-width: 20rem;">
+    <div class="card-header text-center" style='text-transform: none;'>Totales</div>
+    <div class="card-body">
+      <h4 class="card-title text-center" id="totales"></h4>
+      <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+    </div>
+    <div class="card-footer d-flex">
+      <small class="text-white" style='height: 1rem;' id='tiempo_actualizacion_0'></small>
+    </div>
+  </div>
+  <div class="card text-white bg-warning mb-3 col-md-4" style="max-width: 20rem;">
+    <div class="card-header text-center" style='text-transform: none;'>Últimas 24h</div>
+    <div class="card-body">
+      <h4 class="card-title text-center" id="nuevos"></h4>
+      <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+    </div>
+    <div class="card-footer d-flex">
+      <small class="text-white" style='height: 1rem;' id='tiempo_actualizacion_1'></small>
+    </div>
+  </div>
+  <div class="card text-white bg-dark mb-3 col-md-4" style="max-width: 20rem;">
+    <div class="card-header text-center" style='text-transform: none;'>Muertes</div>
+    <div class="card-body">
+      <h4 class="card-title text-center" id="muertes"></h4>
+      <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+    </div>
+    <div class="card-footer d-flex">
+      <small class="text-white" style='height: 1rem;' id='tiempo_actualizacion_2'></small>
+    </div>
+  </div>
+</div>
+<script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
+
+<!--INICIA MAPA-->
+<h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
+<div class="justify-content-center row d-flex">
+<div id="mapa"></div>
+</div>
+
+<script src="{{ "/assets/javascript/mapa.js" | relative_url }}"></script>
+
+<form method="get" action="estados.html">
+<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
+</form>
+ <!--INICIA SECCION DE GRAFICAS-->
+<!--INICIA EL PLOT-->
+<!-- Initialize a select button -->
+<!--select id="selectButton"></select-->
+<div class="row d-flex justify-content-center" id="cont_graf">
+
+<!-- Create a div where the graph will take place -->
+
+<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1></div>
+
+<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1></div>
+<script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
+
+<script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
+<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1></div>
+</div>
+
+<!--INICIA EL POBLACIONAL-->
+<script>
+// data must be in a format with age, male, and female in each object
+var exampleData = [{ age: '0-4', male: 1, female: 0 }, { age: '5-9', male: 0, female: 0 }, { age: '10-14', male: 2, female: 1 }, { age: '15-19', male: 7, female: 13 }, { age: '19-24', male: 19, female: 18 }, {age: '25-29', male: 32, female: 21 }, { age: '30-34', male: 38, female: 25 }, {age: '35-40', male: 35, female: 15 }, { age: '41-44', male: 35, female: 11 }, {age: '45-49', male: 29, female: 18 }, {age: '50-54', male: 25, female: 17 }, {age: '55-59', male: 21, female: 15 }, {age: '60-64', male: 16, female: 15 }, {age: '65-69', male: 5, female: 7 }, {age: '70-74', male: 14, female: 6 }, {age: '75-79', male: 7, female: 3 }, {age: '80-84', male: 1, female: 2 }, {age: '85-89', male: 1, female: 0 }];
+
+var options = {
+  height: 400,
+  width: 600,
+  style: {
+    leftBarColor: "#1F9BCF",
+    rightBarColor: "#07918A"
+  }
+}
+pyramidBuilder(exampleData, '#pir', options);
+</script>
+
+
+
+<!--BOTÓN DE DESCARGA-->
+
+<form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
+<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
+</form>
+
+
+  <section>
+    {% comment %}
+    index.md va aca
+    {{ content }}
+    }
+    {% endcomment %}
+  </section>
+
+
+  {%- if site.posts.size > 0 -%}
+    <p class="h4">{{ page.list_title | default: "Posts" }}</p>
+    <ul class="list-unstyled">
+      {%- for post in site.posts -%}
+      <li>
+        <span class="text-muted">
+          {%- assign date_format = "%b %-d, %Y" -%}
+          {{ post.date | date: date_format }}
+        </span>
+        <p class="h5">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </p>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>
