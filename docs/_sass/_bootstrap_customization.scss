@@ -201,33 +201,7 @@ margin-right: 5px;
     pointer-events: none;     
 }
 
-@media only screen and (max-width: 600px) {
- #grafica_totales {
 
-max-width:320px; //Por verse
-}
-  #barplot_nuevos {
-
-max-width:320px; //Por verse
-}
-
-}
-
-@media only screen and (min-width: 600px) {
-
-#grafica_totales {
-overflow: auto;
-min-width:420px;
-max-width:650px; //Por verse
-}
-
-#barplot_nuevos {
-overflow: auto;
-min-width:420px;
-max-width:650px; //Por verse
-}
-
-}
 
 #barplot_nuevos .tipH { 
     position: absolute;     
@@ -312,3 +286,5 @@ circle:hover{
 .fa-sort {
   float:right;
 }
+
+svg {max-width:100%}
