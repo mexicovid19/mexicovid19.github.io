@@ -188,48 +188,59 @@ margin-right: 5px;
 }
 // Graficas ==================================================================
 
-#grafica_totales .tip { 
-    position: absolute;     
-    text-align: center;     
-    width: 70px;          
-    height: 50px;       
-    padding: 2px;       
-    font: 12px;    
-    background: #c0e3f2; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none;     
+#grafica_totales .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
 }
 
+#grafica_met .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
 
-
-#barplot_nuevos .tipH { 
-    position: absolute;     
-    text-align: center;     
-    width: 70px;          
-    height: 50px;       
-    padding: 2px;       
-    font: 12px;    
-    background: #c0e3f2; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none;     
+#barplot_nuevos .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
 }
 circle:hover{
   fill: #07918A;
 }
 
-#grafica_recu .tip { 
-    position: absolute;     
-    text-align: center;     
-    width: 70px;          
-    height: 110px;         
-    padding: 2px;       
-    font: 12px;    
-    background: #c0e3f2; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none;     
+#grafica_recu .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 110px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
 }
 #grafica_recu {
   overflow:auto;
@@ -267,19 +278,19 @@ circle:hover{
       fill: #07918A;
     }
 
-#mapa .nav_map { 
-    position: absolute;     
-    text-align: center;     
-    width: 150px;          
-    min-height: 160px;         
-    padding: 2px;       
-    font: 12px;    
-    background: #c0e3f2; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none; 
-    font-weight:900;    
-}    
+#mapa .nav_map {
+    position: absolute;
+    text-align: center;
+    width: 150px;
+    min-height: 160px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-weight:900;
+}
 
 // Estados ==================================================================
 

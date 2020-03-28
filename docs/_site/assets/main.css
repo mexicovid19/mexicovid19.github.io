@@ -2746,10 +2746,8 @@ th { font-size: 0.765625rem; text-transform: uppercase; }
 
 #grafica_totales .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
-@media only screen and (max-width: 600px) { #grafica_totales { max-width: 320px; }
-  #barplot_nuevos { max-width: 320px; } }
-@media only screen and (min-width: 600px) { #grafica_totales { overflow: auto; min-width: 420px; max-width: 650px; }
-  #barplot_nuevos { overflow: auto; min-width: 420px; max-width: 650px; } }
+#grafica_met .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
 #barplot_nuevos .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
 circle:hover { fill: #07918A; }
@@ -2773,3 +2771,5 @@ circle:hover { fill: #07918A; }
 #mapa .nav_map { position: absolute; text-align: center; width: 150px; min-height: 160px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; font-weight: 900; }
 
 .fa-sort { float: right; }
+
+svg { max-width: 100%; }

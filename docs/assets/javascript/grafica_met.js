@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 
-    var w = 600,
-        h = 400,
+    var w = 1100,
+        h = 700,
         w_full = w,
         h_full = h;
 
@@ -19,14 +19,14 @@
     h = (h - (margin.top + margin.bottom));
 var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
 
-var tip = d3.select("#grafica_totales").append("div")
+var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
     .style("opacity", 0);
 
-    d3.select("#grafica_totales").append('style')
+    d3.select("#grafica_met").append('style')
     .text('svg {max-width:100%}')
 
-var svgT = d3.select("#grafica_totales")
+var svgT = d3.select("#grafica_met")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
     .attr("height", h_full)//height + margin.top + margin.bottom + 70)
@@ -81,9 +81,9 @@ d3.csv(url, function(data) {
 
     /*
   // text label for the x axis
-  svgT.append("text")             
+  svgT.append("text")
       .attr("transform",
-            "translate(" + (width/2) + " ," + 
+            "translate(" + (width/2) + " ," +
                            (height + margin.top + 50) + ")")
       .style("text-anchor", "middle")
       .text("Fecha");
@@ -91,7 +91,7 @@ d3.csv(url, function(data) {
     var fase12 = new Date(2020, 2, 23);
 
 
-    // Add Y axis      
+    // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
             return +d.Susana_00;
@@ -111,7 +111,7 @@ d3.csv(url, function(data) {
           //.attr("x",0 - (height / 2))
           .attr("dy", "1em")
           .style("text-anchor", "middle")
-          .text("Casos");   
+          .text("Casos");
       */
 
 
