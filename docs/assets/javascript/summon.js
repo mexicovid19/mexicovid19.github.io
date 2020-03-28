@@ -51,13 +51,19 @@ d3.csv(urlNuevos,function(data) {
     var largo = data.length;
     var tope = largo-1;
     data[tope]["updated_at"] = new Date(data[tope]["updated_at"]) ;
-    var div = document.getElementById('tiempo_actualizacion_0');
+    for (var i = 0 ; i <= 5; i++) {
+      var div = document.getElementById('tiempo_actualizacion_'+i);
        div.innerHTML = "<p><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
        " @ "+formatHour(data[tope]["updated_at"])+":"+formatMin(data[tope]["updated_at"])+ "</small></p>";
+    }
+   /* 
    var div = document.getElementById('tiempo_actualizacion_1');
       div.innerHTML = "<p><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
       " @ "+formatHour(data[tope]["updated_at"])+":"+formatMin(data[tope]["updated_at"])+ "</small></p>";
     var div = document.getElementById('tiempo_actualizacion_2');
        div.innerHTML = "<p><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
        " @ "+formatHour(data[tope]["updated_at"])+":"+formatMin(data[tope]["updated_at"])+ "</small></p>";
+       var div = document.getElementById('tiempo_actualizacion_2');
+       div.innerHTML = "<p><small>Actualizado el: "+formatDay(data[tope]["updated_at"])+ "/"+formatMonth(data[tope]["updated_at"])+
+       " @ "+formatHour(data[tope]["updated_at"])+":"+formatMin(data[tope]["updated_at"])+ "</small></p>";*/
     });
