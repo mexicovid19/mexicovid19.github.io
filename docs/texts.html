@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="row d-flex justify-content-center">
+	<div id="pir"></div>
+<script>
+// data must be in a format with age, male, and female in each object
+var exampleData = [{ age: '0-4', male: 1, female: 0 }, { age: '5-9', male: 0, female: 0 }, { age: '10-14', male: 2, female: 1 }, { age: '15-19', male: 7, female: 13 }, { age: '19-24', male: 19, female: 18 }, {age: '25-29', male: 32, female: 21 }, { age: '30-34', male: 38, female: 25 }, {age: '35-40', male: 35, female: 15 }, { age: '41-44', male: 35, female: 11 }, {age: '45-49', male: 29, female: 18 }, {age: '50-54', male: 25, female: 17 }, {age: '55-59', male: 21, female: 15 }, {age: '60-64', male: 16, female: 15 }, {age: '65-69', male: 5, female: 7 }, {age: '70-74', male: 14, female: 6 }, {age: '75-79', male: 7, female: 3 }, {age: '80-84', male: 1, female: 2 }, {age: '85-89', male: 1, female: 0 }];
+
+var options = {
+  height: 400,
+  width: 600,
+  style: {
+    leftBarColor: "#229922",
+    rightBarColor: "#992222"
+  }
+}
+pyramidBuilder(exampleData, '#pir', options);
+</script>
+ 
