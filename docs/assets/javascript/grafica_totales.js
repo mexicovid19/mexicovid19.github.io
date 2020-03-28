@@ -147,7 +147,7 @@ d3.csv(url, function(data) {
                 return y(+d.Susana_00)
             })
             .defined(function(d) {
-                return d.Susana_00 || d.Susana_00 === 0;
+                return  d.Susana_00 == 0;
             })
         )
         .attr("stroke", "#000000")
@@ -167,7 +167,7 @@ d3.csv(url, function(data) {
                 return y(+d.Susana_20)
             })
             .defined(function(d) {
-                return d.Susana_20 !== 0;
+                return d.Susana_20 == 0;
             })
         )
         .attr("stroke", "#000000")
@@ -185,7 +185,7 @@ d3.csv(url, function(data) {
                 return y(+d.Susana_50)
             })
             .defined(function(d) {
-                return d.Susana_50 !== 0;
+                return d.Susana_50 == 0;
             })
         )
         .attr("stroke", "#000000")
