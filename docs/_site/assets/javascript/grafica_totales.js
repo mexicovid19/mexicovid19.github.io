@@ -16,7 +16,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/proyecciones/covid19_mex_proyecciones_29-03-20.csv";
+var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
 
 var tip = d3.select("#grafica_totales").append("div")
     .attr("class", "tip")
@@ -86,8 +86,16 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
+<<<<<<< HEAD
+<<<<<<< HEAD
         .attr("d", d3.line()
             .defined(function (d) { return d.Susana_00; })
+=======
+        .attr("d", d3.line().defined(function (d) { return d.Susana_00; })
+>>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
+=======
+        .attr("d", d3.line()
+>>>>>>> 0ccc669d71fca384ead8edb476b32203f9ae495b
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -104,8 +112,16 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
+<<<<<<< HEAD
+<<<<<<< HEAD
         .attr("d", d3.line()
             .defined(function (d) { return d.Susana_20; })
+=======
+        .attr("d", d3.line().defined(function (d) { return d.Susana_20; })
+>>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
+=======
+        .attr("d", d3.line()
+>>>>>>> 0ccc669d71fca384ead8edb476b32203f9ae495b
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -120,8 +136,16 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
+<<<<<<< HEAD
+<<<<<<< HEAD
         .attr("d", d3.line()
             .defined(function (d) { return d.Susana_20; })
+=======
+        .attr("d", d3.line().defined(function (d) { return d.Susana_50  ; })
+>>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
+=======
+        .attr("d", d3.line()
+>>>>>>> 0ccc669d71fca384ead8edb476b32203f9ae495b
             .x(function(d) {
                 return x(d.Fecha)
             })
