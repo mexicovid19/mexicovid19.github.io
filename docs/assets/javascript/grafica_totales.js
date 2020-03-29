@@ -183,7 +183,6 @@ d3.csv(url, function(data) {
         .style("stroke-width", 1.5)
         .style("fill", "none")
 
-
     // Puntos de datos
     var dot = svgT.selectAll('circle')
         .data(data)
