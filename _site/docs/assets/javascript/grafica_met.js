@@ -1,6 +1,7 @@
 // set the dimensions and margins of the graph
-    var w = 600,
-        h = 400,
+
+    var w = 1100,
+        h = 700,
         w_full = w,
         h_full = h;
 
@@ -16,16 +17,16 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/proyecciones/covid19_mex_proyecciones_29-03-20.csv";
+var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
 
-var tip = d3.select("#grafica_totales").append("div")
+var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
     .style("opacity", 0);
 
-    d3.select("#grafica_totales").append('style')
+    d3.select("#grafica_met").append('style')
     .text('svg {max-width:100%}')
 
-var svgT = d3.select("#grafica_totales")
+var svgT = d3.select("#grafica_met")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
     .attr("height", h_full)//height + margin.top + margin.bottom + 70)
@@ -46,6 +47,7 @@ d3.csv(url, function(data) {
     // define the x scale (horizontal)
 
     var today = new Date();
+
     formatMonth = d3.timeFormat("%b"), //%m
         formatDay = d3.timeFormat("%d");
 
@@ -57,7 +59,7 @@ d3.csv(url, function(data) {
     // Add X axis --> it is a date format
     var x = d3.scaleTime()
         .domain([mindate, data[tope]['Fecha']])
-        .range([0, w]);//width - 10]);
+        .range([0, w*0.9]);//width - 10]);
 
 
     svgT.append("g")
@@ -86,12 +88,7 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
-<<<<<<< HEAD
         .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_00; })
-=======
-        .attr("d", d3.line().defined(function (d) { return d.Susana_00; })
->>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -108,12 +105,7 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
-<<<<<<< HEAD
         .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-=======
-        .attr("d", d3.line().defined(function (d) { return d.Susana_20; })
->>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -128,12 +120,7 @@ d3.csv(url, function(data) {
     var line = svgT.append('g')
         .append("path")
         .datum(data)
-<<<<<<< HEAD
         .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-=======
-        .attr("d", d3.line().defined(function (d) { return d.Susana_50  ; })
->>>>>>> 7b16ed0848092ee8467218e417a4e9690dcb4662
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -144,6 +131,7 @@ d3.csv(url, function(data) {
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("fill", "none")
+
 
     // Puntos de datos
     var dot = svgT.selectAll('circle')
@@ -175,6 +163,11 @@ d3.csv(url, function(data) {
                 .duration(500)
                 .style("opacity", 0);
         });
+
+
+
+
+
 
     //Añade línea de fase 2
     var fase = svgT.append("line")
