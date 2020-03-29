@@ -81,9 +81,9 @@ d3.csv(url, function(data) {
 
     /*
   // text label for the x axis
-  svgT.append("text")             
+  svgT.append("text")
       .attr("transform",
-            "translate(" + (width/2) + " ," + 
+            "translate(" + (width/2) + " ," +
                            (height + margin.top + 50) + ")")
       .style("text-anchor", "middle")
       .text("Fecha");
@@ -91,7 +91,7 @@ d3.csv(url, function(data) {
     var fase12 = new Date(2020, 2, 23);
 
 
-    // Add Y axis      
+    // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
             return +d.Susana_00;
@@ -111,7 +111,7 @@ d3.csv(url, function(data) {
           //.attr("x",0 - (height / 2))
           .attr("dy", "1em")
           .style("text-anchor", "middle")
-          .text("Casos");   
+          .text("Casos");
       */
 
 
@@ -256,7 +256,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","1,1")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se auto aisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda susi_20
 svgT.append("line")
@@ -268,7 +268,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","5,5")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se auto aisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda susi_50
 svgT.append("line")
@@ -279,7 +279,7 @@ svgT.append("line")
     .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se auto aisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda datos SSA
 svgT.append('circle')

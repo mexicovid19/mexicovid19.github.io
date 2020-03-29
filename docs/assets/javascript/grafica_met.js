@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 
-    var w = 600,
-        h = 400,
+    var w = 1100,
+        h = 700,
         w_full = w,
         h_full = h;
 
@@ -19,14 +19,14 @@
     h = (h - (margin.top + margin.bottom));
 var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
 
-var tip = d3.select("#grafica_totales").append("div")
+var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
     .style("opacity", 0);
 
-    d3.select("#grafica_totales").append('style')
+    d3.select("#grafica_met").append('style')
     .text('svg {max-width:100%}')
 
-var svgT = d3.select("#grafica_totales")
+var svgT = d3.select("#grafica_met")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
     .attr("height", h_full)//height + margin.top + margin.bottom + 70)
@@ -47,11 +47,6 @@ d3.csv(url, function(data) {
     // define the x scale (horizontal)
 
     var today = new Date();
-    /*var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    //today = mm + '/' + dd + '/' + yyyy; */
 
     formatMonth = d3.timeFormat("%b"), //%m
         formatDay = d3.timeFormat("%d");
@@ -64,7 +59,7 @@ d3.csv(url, function(data) {
     // Add X axis --> it is a date format
     var x = d3.scaleTime()
         .domain([mindate, data[tope]['Fecha']])
-        .range([0, w]);//width - 10]);
+        .range([0, w*0.9]);//width - 10]);
 
 
     svgT.append("g")
@@ -77,17 +72,6 @@ d3.csv(url, function(data) {
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");
 
-
-
-    /*
-  // text label for the x axis
-  svgT.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," +
-                           (height + margin.top + 50) + ")")
-      .style("text-anchor", "middle")
-      .text("Fecha");
-*/
     var fase12 = new Date(2020, 2, 23);
 
 
@@ -100,41 +84,6 @@ d3.csv(url, function(data) {
     svgT.append("g")
         .call(d3.axisLeft(y));
 
-
-
-
-    /*
-        // text label for the y axis
-      svgT.append("text")
-          //.attr("transform", "rotate(-90)")
-          .attr("y", -15)//-0 - margin.left
-          //.attr("x",0 - (height / 2))
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .text("Casos");
-      */
-
-
-    // Initialize line with group a
- /*   var line = svgT
-        .append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.México)
-            })
-            .defined(function(d) {
-                return d.México !== 0;
-            })
-        )
-        .attr("stroke", "#1f9bcf")
-        .style("stroke-width", 3)
-        .style("fill", "none")
-*/
     // SUSANAS
     var line = svgT.append('g')
         .append("path")

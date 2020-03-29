@@ -3,7 +3,7 @@ layout: home
 title: COVID-19 México
 ---
 
-{:.text-muted .h3} 
+{:.text-muted .h3}
 En construcción
 
 # Objetivos
@@ -22,8 +22,8 @@ totales | recuperados | en las últimas 24 hrs.
 
 # Llamado a la comunidad para resolución de conflictos
 
-- Necesitamos verificar que los datos sean correctos usados sean correctos. 
-- Necesitamos ayuda con el diseño web de la página. 
+- Necesitamos verificar que los datos sean correctos usados sean correctos.
+- Necesitamos ayuda con el diseño web de la página.
 
 # Fuentes
 
