@@ -17,7 +17,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/proyecciones/covid19_mex_proyecciones_29-03-20.csv";
 
 var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
@@ -89,6 +89,7 @@ d3.csv(url, function(data) {
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_00; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -106,6 +107,7 @@ d3.csv(url, function(data) {
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_20; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -121,6 +123,7 @@ d3.csv(url, function(data) {
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_50; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -163,10 +166,6 @@ d3.csv(url, function(data) {
                 .duration(500)
                 .style("opacity", 0);
         });
-
-
-
-
 
 
     //Añade línea de fase 2
