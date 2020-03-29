@@ -63,7 +63,7 @@ layout: default
 <form method="get" action="estados.html">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
 </form>
- <!--INICIA SECCION DE GRAFICAS-->  
+ <!--INICIA SECCION DE GRAFICAS-->
 <!--INICIA EL PLOT-->
 <!-- Initialize a select button -->
 <!--select id="selectButton"></select-->
@@ -77,7 +77,7 @@ layout: default
 <script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
 
 <script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
-<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y género</h1><p id="tiempo_actualizacion_5"> </p></div>
+<div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
 
 <!--INICIA EL POBLACIONAL-->
@@ -139,5 +139,3 @@ pyramidBuilder(exampleData, '#pir', options);
   {%- endif -%}
 
 </div>
-
-
