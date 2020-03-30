@@ -144,21 +144,30 @@
 
 <!-- Create a div where the graph will take place -->
 
+<div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+  <h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4>
+  <p class="mb-0"> El carácter de nuestras proyecciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos.
+<a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">Lee esto</a> si te interesa saber cómo las hicimos.</p>
+</div>
+
 <div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1><p id="tiempo_actualizacion_3"> </p></div>
 
 
-      <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
-        <h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4>
-        <p class="mb-0"> El carácter de nuestras proyecciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos. 
-<a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">Lee esto</a> si te interesa saber cómo las hicimos.</p>
-      </div>
-  
+
+
 <div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1><p id="tiempo_actualizacion_4"> </p></div>
 <script src="/assets/javascript/barplot_nuevos.js"></script>
+
+<div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+  <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
+  <p class="mb-0"> Los puntos corresponden al total de casos reportados oficialmente. Las líneas muestran diferentes proyecciones dependiendo de cuánta gente se guarde en casa. Las predicciones nunca son 100% certeras, el área sombreada muestra esta incertidumbre. El ritmo reproductivo del virus no se conoce con certeza. Se estima con datos de otros países. </p>
+</div>
 
 <script src="/assets/javascript/grafica_totales.js"></script>
 <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
+
+
 
 <!--INICIA EL POBLACIONAL-->
 <script>
@@ -201,8 +210,8 @@ pyramidBuilder(exampleData, '#pir', options);
       <div class="col-sm">
         <ul class="list-unstyled">
           <li>COVID-19 México</li><li>
-              <a href="mailto:dvc501@york.ac.uk">
-                dvc501@york.ac.uk
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
               </a>
             </li></ul>
       </div>
