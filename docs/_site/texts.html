@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162067378-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162067378-1');
+</script>
+
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="COVID-19 México" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monitoreo constante del COVID-19 en México." />
+<meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
+<link rel="canonical" href="http://localhost:4000/texts.html" />
+<meta property="og:url" content="http://localhost:4000/texts.html" />
+<meta property="og:site_name" content="COVID-19 México" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/texts.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+   <script src="/assets/javascript/popPyramid.js"></script>
+  <script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script src="  https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://use.fontawesome.com/10d4ff9df7.js"></script>
+  <!--WIDGET ZONE-->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!--homebrew-->
+
+
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="/">COVID-19 México</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/">Nacional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="estados.html">Estados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyecciones.html">Proyecciones</a>
+        </li>
+        <!---li class="nav-item">
+          <a class="nav-link" href="metodologia.html">Metodología</a>
+        </li--->
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/nicolas-van/bootstrap-4-github-pages">Fork me on Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="py-5">
+      <div class="container page-content">
+<div class="alert alert-dismissible alert-info">
+  <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID19" class="alert-link" style="color:#FF8654 !important;">COVID19 al 51515</a>.</p>
+</div>
+          <div class="row d-flex justify-content-center">
+	<div id="pir"></div>
+<script>
+// data must be in a format with age, male, and female in each object
+var exampleData = [{ age: '0-4', male: 1, female: 0 }, { age: '5-9', male: 0, female: 0 }, { age: '10-14', male: 2, female: 1 }, { age: '15-19', male: 7, female: 13 }, { age: '19-24', male: 19, female: 18 }, {age: '25-29', male: 32, female: 21 }, { age: '30-34', male: 38, female: 25 }, {age: '35-40', male: 35, female: 15 }, { age: '41-44', male: 35, female: 11 }, {age: '45-49', male: 29, female: 18 }, {age: '50-54', male: 25, female: 17 }, {age: '55-59', male: 21, female: 15 }, {age: '60-64', male: 16, female: 15 }, {age: '65-69', male: 5, female: 7 }, {age: '70-74', male: 14, female: 6 }, {age: '75-79', male: 7, female: 3 }, {age: '80-84', male: 1, female: 2 }, {age: '85-89', male: 1, female: 0 }];
+
+var options = {
+  height: 400,
+  width: 600,
+  style: {
+    leftBarColor: "#229922",
+    rightBarColor: "#992222"
+  }
+}
+pyramidBuilder(exampleData, '#pir', options);
+</script>
+ 
+      </div>
+    </div>
+<div class="py-5 border-top">
+  <div class="container">
+
+    <p class="h5 mb-3">COVID-19 México</p>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <ul class="list-unstyled">
+          <li>COVID-19 México</li><li>
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
+              </a>
+            </li></ul>
+      </div>
+
+
+      <div class="col-sm text-right">
+        <p>Monitoreo constante del COVID-19 en México.</p>
+
+        <p>
+          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+
+</html>
