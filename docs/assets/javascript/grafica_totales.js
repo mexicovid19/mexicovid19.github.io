@@ -208,7 +208,7 @@ d3.csv(url, function(data) {
         .attr("x1", x(fase12))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+17)
+        .attr("y2", y(y.domain()[1])+37)
         .attr("stroke", "#000000") //fd7e14
         .style("stroke-width", 1)
         .style("fill", "none")
@@ -217,15 +217,38 @@ d3.csv(url, function(data) {
     // texto fase 12
     svgT.append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
         .attr("x", x(fase12) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
+        .style("font-size","10px")
         .text("Comienza la fase 2")
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
 
-    // texto fase extraordinaria    
+var faseExt=new Date(2020, 2, 30);;
+ //Añade línea de emergencia
+    var fase = svgT.append("line")
+        .attr("x1", x(faseExt))
+        .attr("y1", y(y.domain()[0]))
+        .attr("x2", x(faseExt))
+        .attr("y2", y(y.domain()[1])+17)
+        .attr("stroke", "#000000") //fd7e14
+        .style("stroke-width", 1)
+        .style("fill", "none")
+        .style("stroke-dasharray", "5,5");
+
+    // texto emergencia
+    svgT.append("text")
+        //.attr("transform", "rotate(-90)")
+        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("x", x(faseExt) - 5)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size","10px")
+        .text("Emergencia sanitaria")
+        .attr("stroke", "#000000")
+        .attr("font-family", "sans-serif");
  //Leyenda
 var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
