@@ -84,6 +84,40 @@ d3.csv(url, function(data) {
     svgT.append("g")
         .call(d3.axisLeft(y));
 
+        // Show confidence interval
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#cfe5cc")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_00_min) })
+                  .y1(function(d) { return y(d.Susana_00_max) })
+                  )
+
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#ccd2e5")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_20_min) })
+                  .y1(function(d) { return y(d.Susana_20_max) })
+                  )
+
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#cce5df")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_50_min) })
+                  .y1(function(d) { return y(d.Susana_50_max) })
+                  )
+
     // SUSANAS
     var line = svgT.append('g')
         .append("path")
