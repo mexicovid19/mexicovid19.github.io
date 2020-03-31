@@ -224,6 +224,8 @@ d3.csv(url, function(data) {
         .text("Comienza la fase 2")
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
+
+    // texto fase extraordinaria    
  //Leyenda
 var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
