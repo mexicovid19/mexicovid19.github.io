@@ -1,6 +1,6 @@
 # Monitoreo del COVID-19 en México
 
-En este repositorio se encuentra toda la documentación para [la página utilizada para el monitoreo del Coronavirus en México](https://mexicovid19.github.io/Mexico/). Todos los datos usados en la página se encuentran en [este repositorio](https://github.com/mexicovid19/Mexico-datos). 
+En este repositorio se encuentra toda la documentación para [la página utilizada para el monitoreo del Coronavirus en México](https://mexicovid19.github.io/Mexico/). Todos los datos usados en la página se encuentran en [este repositorio](https://github.com/mexicovid19/Mexico-datos). Nuestra implementación del modelo de [Arenas, Cota et al (2020)]()https://covid-19-risk.github.io/map/model.pdf la puedes [encontrar aquí](https://github.com/blas-ko/Mexico-modelo).
 
 **Este repositorio es actualizado a diario.** La fecha y hora de la última actualización la encontrarás [aquí](https://github.com/mexicovid19/Mexico-datos/blob/master/datos/last_updated.csv).
 
