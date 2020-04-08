@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="COVID-19 México" />
 <script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","name":"COVID-19 México","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/","name":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebSite","headline":"COVID-19 México","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
   <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
@@ -124,9 +124,14 @@
 </div>
 <script src="/assets/javascript/summon.js"></script>
 
+<form method="get" action="https://github.com/mexicovid19/Mexico-datos/archive/master.zip">
+<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
+</form>
+
 <!--INICIA MAPA-->
 <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
 <p id="tiempo_actualizacion_6"> </p>
+<p class='text-center'>Los colores son generados a partir de los casos totales por cada 100 mil habitantes</p>
 <div class="justify-content-center row d-flex">
 <div id="mapa"></div>
 </div>
@@ -194,7 +199,7 @@ d3.json(urlPyr, function(data) {
 <!--BOTÓN DE DESCARGA-->
 
 <form method="get" action="https://github.com/mexicovid19/Mexico-datos/archive/master.zip">
-<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block btn-info" style='top-margin: 5%'>Descarga los datos</button>
 </form>
 
 
