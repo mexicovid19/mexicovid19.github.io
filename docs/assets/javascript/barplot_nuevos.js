@@ -121,33 +121,10 @@ var fase12=new Date(2020,2,23);
       .attr("x",x(fase12)-5)
       .attr("dy", "1em")
       .style("text-anchor", "end")
-      .style("font-size","10px")
       .text("Comienza la fase 2")
       .attr("stroke", "#000")
       .attr("font-family","sans-serif");     
-var faseExt=new Date(2020, 2, 30);
- //Añade línea de emergencia
-    var fase = svgBar.append("line")
-        .attr("x1", x(faseExt))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+2)
-        .attr("stroke", "#000000") //fd7e14
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
 
-    // texto emergencia
-    svgBar.append("text")
-        //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])-8) //-0 - margin.left
-        .attr("x", x(faseExt) - 15)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Emergencia sanitaria")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
 
   // Animation
   svgBar.selectAll("rect")

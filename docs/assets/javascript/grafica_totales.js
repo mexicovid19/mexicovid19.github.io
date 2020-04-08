@@ -24,7 +24,7 @@ var tip = d3.select("#grafica_totales").append("div")
 
     d3.select("#grafica_totales").append('style')
     .text('svg {max-width:100%}')
-//Crea el SVG
+
 var svgT = d3.select("#grafica_totales")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
@@ -32,13 +32,6 @@ var svgT = d3.select("#grafica_totales")
     .append("g")
     .attr("transform",
     "translate(" + ( margin.left) + "," + (margin.top) + ")");
-
-//Crea el switch de log
-/*var logSw = d3.select("#grafica_totales").append("div")
-            .attr("class","custom-control custom-switch log text-center");
- 
- logSw.html('<input type="checkbox" class="custom-control-input" id="logSw" checked=""><label class="custom-control-label" for="customSwitch1">Log</label>')
-*/
 
 //Read the data
 d3.csv(url, function(data) {
@@ -233,7 +226,7 @@ d3.csv(url, function(data) {
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
 
-var faseExt=new Date(2020, 2, 30);
+var faseExt=new Date(2020, 2, 30);;
  //Añade línea de emergencia
     var fase = svgT.append("line")
         .attr("x1", x(faseExt))
@@ -305,36 +298,12 @@ svgT.append('circle')
         .style("fill", "#1F9BCF")
 svgT.append("text").attr("x", coordX).attr("y", coordY+3*offset).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
 
-//Switch de log
-/*d3.select("#logSw").on("click", function() {
-      if(this.checked) {
-          yScale = d3.scaleLog()
-            .domain([400,40000])
-            .range([margin.left, w - margin.left - margin.right]);
-      } else {
-        yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function(d) { return d.flights; })])
-            .range([margin.left, w - margin.left - margin.right]);
-      }
-      xAxis.scale(xScale);
-      d3.select("g.axis.x")
-        .transition()
-        .duration(500)
-        .call(xAxis);
-      
-      d3.selectAll("circle")
-        .transition()
-        .delay(400)
-        .duration(600)
-        .attr("cx", function(d) { return xScale(d.flights); })
-    })
-*/
     // Animation
     /* Add 'curtain' rectangle to hide entire graph */
     var curtain = svgT.append('rect')
         .attr('x', -1 * w_full)//width
         .attr('y', -1 * h_full)//height
-        .attr('height', h_full+20)//height
+        .attr('height', h_full)//height
         .attr('width', w_full)//width
         .attr('class', 'curtain')
         .attr('transform', 'rotate(180)')
