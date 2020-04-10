@@ -16,7 +16,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_proyecciones.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_fit.csv";
 
 var tip = d3.select("#grafica_totales").append("div")
     .attr("class", "tip")
@@ -83,34 +83,14 @@ d3.csv(url, function(data) {
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
-            return +d.Susana_00;
+            return +d.Fit_max;
         }) * 1.1])
         .range([h, 0]);//height - 10
     svgT.append("g")
         .call(d3.axisLeft(y));
 
         // Show confidence interval
-    var ci = svgT.append("path")
-                .datum(data)
-                .attr("fill", "#cfe5cc")
-                .attr("stroke", "none")
-                .attr("opacity",0.7)
-                .attr("d", d3.area()
-                  .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_00_min) })
-                  .y1(function(d) { return y(d.Susana_00_max) })
-                  )
-
-    var ci = svgT.append("path")
-                .datum(data)
-                .attr("fill", "#ccd2e5")
-                .attr("stroke", "none")
-                .attr("opacity",0.7)
-                .attr("d", d3.area()
-                  .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_20_min) })
-                  .y1(function(d) { return y(d.Susana_20_max) })
-                  )
+    //#cfe5cc #ccd2e5
 
     var ci = svgT.append("path")
                 .datum(data)
@@ -119,65 +99,28 @@ d3.csv(url, function(data) {
                 .attr("opacity",0.7)
                 .attr("d", d3.area()
                   .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_50_min) })
-                  .y1(function(d) { return y(d.Susana_50_max) })
+                  .y0(function(d) { return y(d.Fit_min) })
+                  .y1(function(d) { return y(d.Fit_max) })
                   )
 
 
-    // SUSANAS
+    // Fit
     var line = svgT.append('g')
         .append("path")
         .datum(data)
         .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_00; })
+            .defined(function (d) { return d.Fit; })
             .x(function(d) {
                 return x(d.Fecha)
             })
             .y(function(d) {
-                return y(+d.Susana_00)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none");
-
-
-
-
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_20)
+                return y(+d.Fit)
             })
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","10,10")
         .style("fill", "none")
-
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_50)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-
 
     // Puntos de datos
     var dot = svgT.selectAll('circle')
