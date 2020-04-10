@@ -204,19 +204,7 @@ var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
 offset=30;
 
-//Leyenda susi_00
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_20
+//Leyenda Fit
 svgT.append("line")
     .attr("x1",coordX-5)
     .attr("y1",coordY+offset)
@@ -226,18 +214,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","5,5")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_50
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY+2*offset)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY+2*offset).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("Ajuste exponencial").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda datos SSA
 svgT.append('circle')
