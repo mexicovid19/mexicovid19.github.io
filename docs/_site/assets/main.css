@@ -521,8 +521,6 @@ pre code { font-size: inherit; color: inherit; word-break: normal; }
 .table-dark.table-striped tbody tr:nth-of-type(odd) { background-color: rgba(255, 255, 255, 0.05); }
 .table-dark.table-hover tbody tr:hover { color: #fff; background-color: rgba(255, 255, 255, 0.075); }
 
-.headcol { position: absolute; width: 5em; left: 0; top: auto; border-top-width: 1px; /*only relevant for first row*/ margin-top: -1px; /*compensate for top border*/ }
-
 @media (max-width: 575.98px) { .table-responsive-sm { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .table-responsive-sm > .table-bordered { border: 0; } }
 @media (max-width: 767.98px) { .table-responsive-md { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -2698,7 +2696,7 @@ a.text-dark:hover, a.text-dark:focus { color: #121416 !important; }
 .page-content img { max-width: 100%; }
 
 .navbar { font-size: 0.765625rem; font-weight: 600; }
-.navbar-nav .nav-link { padding-top: .715rem; padding-bottom: .715rem; }
+.nav .navbar-nav .nav-link { padding-top: .715rem; padding-bottom: .715rem; }
 .navbar-brand { margin-right: 2rem; }
 
 .bg-primary { background-color: #1a1a1a !important; }
@@ -2723,11 +2721,11 @@ a.text-dark:hover, a.text-dark:focus { color: #121416 !important; }
 
 body { font-weight: 200; letter-spacing: 1px; }
 
-h1, h2, h3, h4, h5, h6 { letter-spacing: 3px; }
+h1, h2, h3, h4, h5, h6 { text-transform: uppercase; letter-spacing: 3px; }
 
 .text-secondary { color: #55595c !important; }
 
-th { font-size: 0.765625rem; }
+th { font-size: 0.765625rem; text-transform: uppercase; }
 
 .table th, .table td { padding: 1.5rem; }
 .table-sm th, .table-sm td { padding: 0.75rem; }
@@ -2741,22 +2739,37 @@ th { font-size: 0.765625rem; }
 
 .list-group-item h1, .list-group-item h2, .list-group-item h3, .list-group-item h4, .list-group-item h5, .list-group-item h6, .list-group-item .h1, .list-group-item .h2, .list-group-item .h3, .list-group-item .h4, .list-group-item .h5, .list-group-item .h6 { color: inherit; }
 
-.card-title, .card-header { color: inherit; font-weight: 900; font-size: 1.3rem; margin-right: -15px; margin-left: -15px; }
+.card { margin-left: 5px; margin-right: 5px; }
+.card-title, .card-header { color: inherit; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; margin-right: -15px; margin-left: -15px; }
 
-#grafica_totales { overflow: auto; }
+.card-footer { margin-right: -15px; margin-left: -15px; }
+
+#grafica_totales .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
+#grafica_met .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
+#barplot_nuevos .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
+circle:hover { fill: #07918A; }
+
+#grafica_recu .tip { position: absolute; text-align: center; width: 70px; height: 110px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
 #grafica_recu { overflow: auto; }
 
 #pob_pyr { overflow: auto; }
 
-#mapa { overflow: auto; }
+#totales { font-size: 3.3rem; }
 
-#mapa path { stroke-width: 0.3; stroke: #2B2B2B; fill: #1F9BCF; }
+#nuevos { font-size: 3.3rem; }
+
+#muertes { font-size: 3.3rem; }
+
+#mapa path { stroke-width: 0.3; stroke: #2B2B2B; }
 
 #mapa path:hover { fill: #07918A; }
 
-/* MARK II
-.boundary { fill: none; stroke: #888; stroke-linejoin: round; }
- #tooltip{ position: absolute; z-index: 2; background: #1F9BCF; width:130px; height:40px; color:white; font-size: 0.765625rem; text-transform: uppercase; padding:5px; top:-150px; left:-150px; font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ; }
- */
-.line { fill: none; stroke: green; stroke-width: 5px; }
+#mapa .nav_map { position: absolute; text-align: center; width: 150px; min-height: 160px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; font-weight: 900; }
+
+.fa-sort { float: right; }
+
+svg { max-width: 100%; }
