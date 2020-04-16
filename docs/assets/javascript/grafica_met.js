@@ -17,7 +17,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/blas-ko/COVID-19_Coupled-Epidemics/master/results/covid19_mex_proyecciones_31-03-20.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_proyecciones.csv";
 
 var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")

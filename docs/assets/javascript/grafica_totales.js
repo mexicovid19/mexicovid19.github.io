@@ -16,7 +16,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/blas-ko/COVID-19_Coupled-Epidemics/master/results/covid19_mex_proyecciones_31-03-20.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_fit.csv";
 
 var tip = d3.select("#grafica_totales").append("div")
     .attr("class", "tip")
@@ -76,34 +76,14 @@ d3.csv(url, function(data) {
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
-            return +d.Susana_00;
+            return +d.Fit_max;
         }) * 1.1])
         .range([h, 0]);//height - 10
     svgT.append("g")
         .call(d3.axisLeft(y));
 
         // Show confidence interval
-    var ci = svgT.append("path")
-                .datum(data)
-                .attr("fill", "#cfe5cc")
-                .attr("stroke", "none")
-                .attr("opacity",0.7)
-                .attr("d", d3.area()
-                  .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_00_min) })
-                  .y1(function(d) { return y(d.Susana_00_max) })
-                  )
-
-    var ci = svgT.append("path")
-                .datum(data)
-                .attr("fill", "#ccd2e5")
-                .attr("stroke", "none")
-                .attr("opacity",0.7)
-                .attr("d", d3.area()
-                  .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_20_min) })
-                  .y1(function(d) { return y(d.Susana_20_max) })
-                  )
+    //#cfe5cc #ccd2e5
 
     var ci = svgT.append("path")
                 .datum(data)
@@ -112,65 +92,28 @@ d3.csv(url, function(data) {
                 .attr("opacity",0.7)
                 .attr("d", d3.area()
                   .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Susana_50_min) })
-                  .y1(function(d) { return y(d.Susana_50_max) })
+                  .y0(function(d) { return y(d.Fit_min) })
+                  .y1(function(d) { return y(d.Fit_max) })
                   )
 
 
-    // SUSANAS
+    // Fit
     var line = svgT.append('g')
         .append("path")
         .datum(data)
         .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_00; })
+            .defined(function (d) { return d.Fit; })
             .x(function(d) {
                 return x(d.Fecha)
             })
             .y(function(d) {
-                return y(+d.Susana_00)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none");
-
-
-
-
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_20)
+                return y(+d.Fit)
             })
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","10,10")
         .style("fill", "none")
-
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .defined(function (d) { return d.Susana_20; })
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_50)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-
 
     // Puntos de datos
     var dot = svgT.selectAll('circle')
@@ -254,19 +197,7 @@ var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
 offset=30;
 
-//Leyenda susi_00
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_20
+//Leyenda Fit
 svgT.append("line")
     .attr("x1",coordX-5)
     .attr("y1",coordY+offset)
@@ -276,18 +207,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","5,5")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_50
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY+2*offset)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY+2*offset).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("Ajuste exponencial").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda datos SSA
 svgT.append('circle')
