@@ -17,7 +17,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_proyecciones.csv";
 
 var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
@@ -84,11 +84,46 @@ d3.csv(url, function(data) {
     svgT.append("g")
         .call(d3.axisLeft(y));
 
+        // Show confidence interval
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#cfe5cc")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_00_min) })
+                  .y1(function(d) { return y(d.Susana_00_max) })
+                  )
+
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#ccd2e5")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_20_min) })
+                  .y1(function(d) { return y(d.Susana_20_max) })
+                  )
+
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#cce5df")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Susana_50_min) })
+                  .y1(function(d) { return y(d.Susana_50_max) })
+                  )
+
     // SUSANAS
     var line = svgT.append('g')
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_00; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -106,6 +141,7 @@ d3.csv(url, function(data) {
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_20; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -121,6 +157,7 @@ d3.csv(url, function(data) {
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Susana_50; })
             .x(function(d) {
                 return x(d.Fecha)
             })
@@ -163,10 +200,6 @@ d3.csv(url, function(data) {
                 .duration(500)
                 .style("opacity", 0);
         });
-
-
-
-
 
 
     //Añade línea de fase 2

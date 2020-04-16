@@ -91,7 +91,15 @@
 
     <h1 class='text-center' style='margin-bottom: 2%'>Proyecciones y metodología</h1>
 
+    <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+      <p class="mb-0">Hemos dejado de usar la metodología descrita en la sección 'Modelo' encontrada abajo, 
+        esto dado que es imposible conocer con certeza cuánta gente está en aislamiento.
+      </p>
+    </div>
+    
+    
 
+    <h2 class='text-center' style='margin-bottom: 5%'>Modelo</h1>
     <div id='grafica_met'></div>
     <script src="/assets/javascript/grafica_met.js"></script>
 
@@ -102,15 +110,13 @@
         Estas predicciones fueron hechas utilizando un modelo matemático.</p>
     <p style='text-align: justify'>El modelo que utilizamos en este sitio es una simplificación del propuesto por <a href="https://covid-19-risk.github.io/map/">Alex Arenas, Jesús Gómez-Gardeñes</a> y sus colaboradores. Para ver el detalle técnico puedes ir <a href="https://covid-19-risk.github.io/map/model.pdf">aquí</a>. Escogimos seguir esta propuesta debido a la precisión con la que describe el caso español.
     A continuación presentamos una breve explicación de la versión que hemos implementado.</p>
+    
+    <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+      <h4 class="alert-heading" style="text-transform:none;">Descargo de responsabilidades</h4>	
+      <p class="mb-0"> El carácter de nuestras predicciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos.</p>
+  </div>
 
-    <div class='card d-inline-flex' style='margin-top: 2%; margin-bottom; 2%'>
-      <div class="card-body">
-        <h5 class="card-title">Descargo de responsabilidades</h5>
-        <p class="card-text"> El carácter de nuestras predicciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos.</p>
-      </div>
-    </div>
-
-    <h2 class='text-center' style='margin-top: 2%; margin-bottom; 5%'>¿Cómo predecir el número de infectados?</h2>
+    <h2 class='text-center' style='margin-top: 2%; margin-bottom; 5%'>¿Cómo proyectar el número de infectados?</h2>
     <p style='text-align: justify'>La dinámica de una epidemia es un fenómeno azaroso. Las personas se contagian entre sí sin darse cuenta. Basta con que alguna partícula del virus encuentre su camino hacia los ojos o la boca para que una persona nueva sea infectada. Una vez que una persona se infecta empezará la progresión de la enfermedad dentro de ella. Para poder modelar entonces cómo se propaga el virus dentro de una población es necesario conocer no sólo cómo afecta a un individuo, sino también es importante conocer cómo el comportamiento humano beneficia o perjudica la propagación del virus. Cualquier modelo epidemiológico tomará en cuenta estos dos factores. Por un lado, hay que tener claras las diferentes etapas que atraviesa un individuo afectado, es decir si genera síntomas o no, si requiere de atención médica o no y qué tan pronto se recuperará. Por otro lado, hay que estimar a cuántas personas un individuo infectado puede contagiar. Esto dependerá fuertemente del tamaño de la población, de cómo esté distribuida y de los hábitos de las personas en el día a día. Entender la relación entre estos dos elementos es lo que nos permite generar una predicción de cómo aumentará el número de casos.</p>
     <p style='text-align: justify'>Siempre que se modela una epidemia (o cualquier fenómeno en general) es necesario hacer simplificaciones de la realidad. De alguna forma esto equivale a escribir una buena historia muy estructurada no necesariamente idéntica a la realidad pero que se le parezca lo suficiente para que nos permita hacer predicciones razonables. Por ende, nuestro modelo matemático equivale a contar una versión simplificada de cómo se contagia el coronavirus de persona a persona y de cómo afecta a la persona que lo contrae.
     Lo más difícil es saber qué tan probable es que un portador del virus contagie a alguien más. Es muy complicado sobretodo porque los encuentros en el día a día entre personas son muy diferentes de persona a persona. Por eso, en vez de concentrarnos en un modelo que describa individuos, nos centramos en un modelo que describe a toda una población al mismo tiempo.  Ésta es nuestra primera simplificación. Es muy útil ya que el comportamiento de un grupo es más predecible que el de un individuo. La segunda aproximación es que asumimos que los portadores del virus están bien mezclados en la población. Es decir, que la probabilidad de que alguien que me encuentre sea infectado es siempre la misma, dónde y cuándo sea que lo vea. Esta aproximación puede sonar exagerada, pero sin ella es difícil hacer la predicción. Con estas suposiciones es fácil estimar el número de nuevos contagios en un día.</p>
@@ -130,12 +136,11 @@
       <li><b>F</b>allecidos  - Las personas que han fallecido <i>por</i> coronavirus después de estar en cuidados intensivos.</li>
     </ul>
 
-    <div class='card d-inline-flex' style='margin-top: 2%; margin-bottom; 4%'>
-      <div class="card-body">
-        <p class="card-text"> Las anteriores definiciones son sólo para el modelo de coronavirus, NO son características generales de una enfermedad.</p>
-      </div>
+    <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+      <h4 class="alert-heading" style="text-transform:none;">Nota</h4>	
+      <p class="mb-0"> Las anteriores definiciones son sólo para el modelo de coronavirus, NO son características generales de una enfermedad.</p>
     </div>
-
+      
     <img src="diagrama.jpeg" class='resposive' style='width: 80%' align="middle">
 
         <p style='text-align: justify'>Representando a cada grupo por la primera letra de su nombre, el modelo se puede representar con el diagrama a continuación.  Las flechas sólidas indican las etapas que puede atravesar un individuo y los textos indican los tiempos y probabilidades para pasar de una a la otra.</p>

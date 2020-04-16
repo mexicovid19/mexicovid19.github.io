@@ -43,5 +43,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - update_boostrap.sh
+  - vendor/bundle
 
 theme: jekyll-theme-slate

@@ -1,5 +1,4 @@
 // set the dimensions and margins of the graph
-
     var w = 600,
         h = 400,
         w_full = w,
@@ -17,7 +16,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/LeonardoCastro/COVID19-Mexico/master/data/proyecciones_04abril.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_fit.csv";
 
 var tip = d3.select("#grafica_totales").append("div")
     .attr("class", "tip")
@@ -47,12 +46,6 @@ d3.csv(url, function(data) {
     // define the x scale (horizontal)
 
     var today = new Date();
-    /*var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    //today = mm + '/' + dd + '/' + yyyy; */
-
     formatMonth = d3.timeFormat("%b"), //%m
         formatDay = d3.timeFormat("%d");
 
@@ -77,112 +70,50 @@ d3.csv(url, function(data) {
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");
 
-
-
-    /*
-  // text label for the x axis
-  svgT.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," +
-                           (height + margin.top + 50) + ")")
-      .style("text-anchor", "middle")
-      .text("Fecha");
-*/
     var fase12 = new Date(2020, 2, 23);
 
 
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
-            return +d.Susana_00;
+            return +d.Fit_max;
         }) * 1.1])
         .range([h, 0]);//height - 10
     svgT.append("g")
         .call(d3.axisLeft(y));
 
+        // Show confidence interval
+    //#cfe5cc #ccd2e5
+
+    var ci = svgT.append("path")
+                .datum(data)
+                .attr("fill", "#cce5df")
+                .attr("stroke", "none")
+                .attr("opacity",0.7)
+                .attr("d", d3.area()
+                  .x(function(d) { return x(d.Fecha) })
+                  .y0(function(d) { return y(d.Fit_min) })
+                  .y1(function(d) { return y(d.Fit_max) })
+                  )
 
 
-
-    /*
-        // text label for the y axis
-      svgT.append("text")
-          //.attr("transform", "rotate(-90)")
-          .attr("y", -15)//-0 - margin.left
-          //.attr("x",0 - (height / 2))
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .text("Casos");
-      */
-
-
-    // Initialize line with group a
- /*   var line = svgT
-        .append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.México)
-            })
-            .defined(function(d) {
-                return d.México !== 0;
-            })
-        )
-        .attr("stroke", "#1f9bcf")
-        .style("stroke-width", 3)
-        .style("fill", "none")
-*/
-    // SUSANAS
+    // Fit
     var line = svgT.append('g')
         .append("path")
         .datum(data)
         .attr("d", d3.line()
+            .defined(function (d) { return d.Fit; })
             .x(function(d) {
                 return x(d.Fecha)
             })
             .y(function(d) {
-                return y(+d.Susana_00)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none");
-
-
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_20)
+                return y(+d.Fit)
             })
         )
         .attr("stroke", "#000000")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","10,10")
         .style("fill", "none")
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Susana_50)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-
 
     // Puntos de datos
     var dot = svgT.selectAll('circle')
@@ -215,17 +146,12 @@ d3.csv(url, function(data) {
                 .style("opacity", 0);
         });
 
-
-
-
-
-
     //Añade línea de fase 2
     var fase = svgT.append("line")
         .attr("x1", x(fase12))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+17)
+        .attr("y2", y(y.domain()[1])+37)
         .attr("stroke", "#000000") //fd7e14
         .style("stroke-width", 1)
         .style("fill", "none")
@@ -234,11 +160,36 @@ d3.csv(url, function(data) {
     // texto fase 12
     svgT.append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
         .attr("x", x(fase12) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
+        .style("font-size","10px")
         .text("Comienza la fase 2")
+        .attr("stroke", "#000000")
+        .attr("font-family", "sans-serif");
+
+var faseExt=new Date(2020, 2, 30);;
+ //Añade línea de emergencia
+    var fase = svgT.append("line")
+        .attr("x1", x(faseExt))
+        .attr("y1", y(y.domain()[0]))
+        .attr("x2", x(faseExt))
+        .attr("y2", y(y.domain()[1])+17)
+        .attr("stroke", "#000000") //fd7e14
+        .style("stroke-width", 1)
+        .style("fill", "none")
+        .style("stroke-dasharray", "5,5");
+
+    // texto emergencia
+    svgT.append("text")
+        //.attr("transform", "rotate(-90)")
+        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("x", x(faseExt) - 5)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size","10px")
+        .text("Emergencia sanitaria")
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
  //Leyenda
@@ -246,19 +197,7 @@ var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
 offset=30;
 
-//Leyenda susi_00
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","1,1")
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY).text("0% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_20
+//Leyenda Fit
 svgT.append("line")
     .attr("x1",coordX-5)
     .attr("y1",coordY+offset)
@@ -268,18 +207,7 @@ svgT.append("line")
         .style("stroke-width", 1.5)
         .style("stroke-dasharray","5,5")
         .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("20% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
-
-//Leyenda susi_50
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY+2*offset)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY+2*offset).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+2*offset).text("50% se autoaisla").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("Ajuste exponencial").style("font-size", "10px").attr("alignment-baseline","middle")
 
 //Leyenda datos SSA
 svgT.append('circle')

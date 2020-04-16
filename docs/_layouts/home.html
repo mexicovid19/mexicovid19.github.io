@@ -51,9 +51,22 @@ layout: default
 </div>
 <script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
 
+ <p class="mb-0"style='margin-left:5%; margin-right:5%;'>*Hemos dejado de actualizar los casos recuperados.
+  Encontramos distintas inconsistencias en el número de estos casos reportados en los medios.
+  Estas inconsistencias, junto con la falta de fuentes confiables hacen que cualquier dato reportado sobre los casos recuperados carezca de certeza.
+  Por ejemplo, <a href="https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449" class="alert-link" style="color:#FF8654 !important;">la Secretaría de Salud Pública</a>
+  no está reportando este tipo de casos,
+  mientras que páginas especializadas como el
+  <a href="http://iigea.com/amag/covid-19/" class="alert-link" style="color:#FF8654 !important;">IIGEA</a> y
+  <a href="https://www.worldometers.info/coronavirus/country/mexico/" class="alert-link" style="color:#FF8654 !important;">Worldometers</a>
+   reportan cifras inconsistentes sin fuentes accesibles.
+ </p>
+
 <!--INICIA MAPA-->
 <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
 <p id="tiempo_actualizacion_6"> </p>
+<p class='text-center'>Los colores no representan los casos totales, sino que son generados a partir de los casos totales por cada 100 mil habitantes</p>
+
 <div class="justify-content-center row d-flex">
 <div id="mapa"></div>
 </div>
@@ -71,29 +84,56 @@ layout: default
 
 <!-- Create a div where the graph will take place -->
 
+<div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+  <h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4>
+  <!--p class="mb-0"> Aviso: A partir del 10 de abril empezaremos a mostrar un ajuste exponencial de los datos en vez de las proyecciones dado que es imposible conocer con certeza cuánta gente está en aislamiento.</p-->
+  <p class="mb-0"> El carácter de nuestras proyecciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos.
+    <a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">Lee esto</a> si te interesa saber cómo las hicimos o si quieres revisar nuestras
+    <a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">proyecciones anteriores.</a>
+  </p>
+</div>
+
 <div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1><p id="tiempo_actualizacion_3"> </p></div>
+
+<div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+  <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
+  <p class="mb-0"> Los puntos azules corresponden al número de casos reportados día por día por las autoridades.
+    Con una línea negra mostramos un proyección de los datos con un ajuste exponencial. Un ajuste nunca es 100% certero.
+    En este caso mostramos la tendencia de los últimos siete días proyectada dos días más.
+    El área sombreada muesta la incertidumbre de esta proyección.
+  </p>
+</div>
+
 
 <div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1><p id="tiempo_actualizacion_4"> </p></div>
 <script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
 
+
+
 <script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
+
 <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
 
+
+
 <!--INICIA EL POBLACIONAL-->
 <script>
-// data must be in a format with age, male, and female in each object
-var exampleData = [{ age: '0-4', male: 1, female: 0 }, { age: '5-9', male: 0, female: 0 }, { age: '10-14', male: 2, female: 1 }, { age: '15-19', male: 7, female: 13 }, { age: '19-24', male: 19, female: 18 }, {age: '25-29', male: 32, female: 21 }, { age: '30-34', male: 38, female: 25 }, {age: '35-40', male: 35, female: 15 }, { age: '41-44', male: 35, female: 11 }, {age: '45-49', male: 29, female: 18 }, {age: '50-54', male: 25, female: 17 }, {age: '55-59', male: 21, female: 15 }, {age: '60-64', male: 16, female: 15 }, {age: '65-69', male: 5, female: 7 }, {age: '70-74', male: 14, female: 6 }, {age: '75-79', male: 7, female: 3 }, {age: '80-84', male: 1, female: 2 }, {age: '85-89', male: 1, female: 0 }];
+var urlPyr = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/demograficos_variables/piramide_sexo_edad.json";
 
-var options = {
-  height: 400,
-  width: 600,
-  style: {
-    leftBarColor: "#1F9BCF",
-    rightBarColor: "#07918A"
-  }
-}
-pyramidBuilder(exampleData, '#pir', options);
+d3.json(urlPyr, function(data) {
+
+  var options = {
+    height: 400,
+    width: 600,
+    style: {
+            leftBarColor: "#1F9BCF",
+            rightBarColor: "#07918A"
+            }
+          };
+  pyramidBuilder(data, '#pir', options);
+});
+
 </script>
 
 
@@ -101,7 +141,7 @@ pyramidBuilder(exampleData, '#pir', options);
 <!--BOTÓN DE DESCARGA-->
 
 <form method="get" action="https://github.com/mexicovid19/Mexico-datos/archive/master.zip">
-<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block btn-info" style='top-margin: 5%'>Descarga los datos</button>
 </form>
 
 
