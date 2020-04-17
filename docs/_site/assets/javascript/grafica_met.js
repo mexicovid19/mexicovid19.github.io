@@ -17,7 +17,7 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/blas-ko/COVID-19_Coupled-Epidemics/master/results/covid19_mex_proyecciones_31-03-20.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_proyecciones.csv";
 
 var tip = d3.select("#grafica_met").append("div")
     .attr("class", "tip")
@@ -220,31 +220,7 @@ d3.csv(url, function(data) {
         .attr("x", x(fase12) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .style("font-size","10px")
         .text("Comienza la fase 2")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
-        var faseExt=new Date(2020, 2, 30);
- //Añade línea de emergencia
-    var fase = svgT.append("line")
-        .attr("x1", x(faseExt))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+17)
-        .attr("stroke", "#000000") //fd7e14
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
-
-    // texto emergencia
-    svgT.append("text")
-        //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])) //-0 - margin.left
-        .attr("x", x(faseExt) - 5)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Emergencia sanitaria")
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
  //Leyenda
@@ -301,7 +277,7 @@ svgT.append("text").attr("x", coordX).attr("y", coordY+3*offset).text("Datos SSA
     var curtain = svgT.append('rect')
         .attr('x', -1 * w_full)//width
         .attr('y', -1 * h_full)//height
-        .attr('height', h_full+20)//height
+        .attr('height', h_full)//height
         .attr('width', w_full)//width
         .attr('class', 'curtain')
         .attr('transform', 'rotate(180)')
