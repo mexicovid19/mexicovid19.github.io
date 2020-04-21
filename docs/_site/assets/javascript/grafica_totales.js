@@ -12,8 +12,9 @@
             top: 10,
             right: 10,
             bottom: 50,
-            left: 40
+            left: 45
         },
+
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
 var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_fit.csv";
@@ -146,6 +147,30 @@ d3.csv(url, function(data) {
                 .style("opacity", 0);
         });
 
+        var fase3=new Date(2020,3,20);
+        //Añade línea de fase 2
+        var fase = svgT.append("line")
+            .attr("x1", x(fase3))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase3))
+            .attr("y2", y(y.domain()[1])+17)
+            .attr("stroke", "#000000") //fd7e14
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+        // texto fase 12
+        svgT.append("text")
+            //.attr("transform", "rotate(-90)")
+            .attr("y", y(y.domain()[1])) //-0 - margin.left
+            .attr("x", x(fase3) - 35)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 3")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
     //Añade línea de fase 2
     var fase = svgT.append("line")
         .attr("x1", x(fase12))
@@ -222,8 +247,8 @@ svgT.append("text").attr("x", coordX).attr("y", coordY+3*offset).text("Datos SSA
     /* Add 'curtain' rectangle to hide entire graph */
     var curtain = svgT.append('rect')
         .attr('x', -1 * w_full)//width
-        .attr('y', -1 * h_full)//height
-        .attr('height', h_full)//height
+        .attr('y', -1 * y(y.domain()[0]))//height
+        .attr('height', y(y.domain()[0]))//height
         .attr('width', w_full)//width
         .attr('class', 'curtain')
         .attr('transform', 'rotate(180)')

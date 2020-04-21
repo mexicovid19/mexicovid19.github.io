@@ -16,15 +16,15 @@
         },
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var urlNuevos = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/series_de_tiempo/covid19_mex_casos_nuevos.csv";
+var urlNuevos = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/series_de_tiempo/covid19_mex_muertes_nuevas.csv";
 
 var widthBar = 6;
 
-var tipH = d3.select("#barplot_nuevos").append("div")
+var tipH = d3.select("#barplot_muertes").append("div")
     .attr("class", "tipH")
     .style("opacity", 0);
 // append the svg object to the body of the page
-var svgBar = d3.select("#barplot_nuevos")
+var svgBar = d3.select("#barplot_muertes")
   .append("svg")
   .attr("width", w_full)
   .attr("height",h_full)
@@ -49,7 +49,7 @@ d3.csv(urlNuevos, function(data) {
   //today = mm + '/' + dd + '/' + yyyy;
 
 
-  var mindate = new Date(2020,1,28);
+  var mindate = new Date(2020,2,18);
 
   // Add X axis --> it is a date format
   var x = d3.scaleTime()
@@ -68,7 +68,7 @@ d3.csv(urlNuevos, function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-            .domain([0, 1.1*d3.max(data, function(d){return d.México;  })])
+            .domain([0, d3.max(data, function(d){return d.México;  })])
             .range([ h, 0]);
 
   svgBar.append("g")
@@ -101,29 +101,6 @@ d3.csv(urlNuevos, function(data) {
                 .style("opacity", 0);
         });
 
-        var fase3=new Date(2020,3,20);
-        //Añade línea de fase 2
-        var fase = svgBar.append("line")
-            .attr("x1", x(fase3))
-            .attr("y1", y(y.domain()[0]))
-            .attr("x2", x(fase3))
-            .attr("y2", y(y.domain()[1])+17)
-            .attr("stroke", "#000000") //fd7e14
-            .style("stroke-width", 1)
-            .style("fill", "none")
-            .style("stroke-dasharray", "5,5");
-
-        // texto fase 12
-        svgBar.append("text")
-            //.attr("transform", "rotate(-90)")
-            .attr("y", y(y.domain()[1])) //-0 - margin.left
-            .attr("x", x(fase3) - 30)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("font-size","10px")
-            .text("Comienza la fase 3")
-            .attr("stroke", "#000000")
-            .attr("font-family", "sans-serif");
 
 var fase12=new Date(2020,2,23);
 //Añade línea de fase 2
@@ -150,13 +127,12 @@ svgBar.append("text")
     .attr("font-family", "sans-serif");
 
 var faseExt=new Date(2020, 2, 30);;
-
 //Añade línea de emergencia
 var fase = svgBar.append("line")
     .attr("x1", x(faseExt))
     .attr("y1", y(y.domain()[0]))
     .attr("x2", x(faseExt))
-    .attr("y2", y(y.domain()[1])+17)
+    .attr("y2", y(y.domain()[1])+37)
     .attr("stroke", "#000000") //fd7e14
     .style("stroke-width", 1)
     .style("fill", "none")
@@ -165,7 +141,7 @@ var fase = svgBar.append("line")
 // texto emergencia
 svgBar.append("text")
     //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])) //-0 - margin.left
+    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
     .attr("x", x(faseExt) - 5)
     .attr("dy", "1em")
     .style("text-anchor", "middle")

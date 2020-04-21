@@ -19,11 +19,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Monitoreo constante del COVID-19 en México." />
 <meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
-<link rel="canonical" href="http://localhost:4000/metodologia.html" />
-<meta property="og:url" content="http://localhost:4000/metodologia.html" />
+<link rel="canonical" href="http://localhost:4000/muertes.html" />
+<meta property="og:url" content="http://localhost:4000/muertes.html" />
 <meta property="og:site_name" content="COVID-19 México" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/metodologia.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/muertes.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
   <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
@@ -91,7 +91,69 @@
 
 
   <section>
+    <script src="/assets/javascript/summon.js"></script>
 
+    <h1 class='text-center' style='margin-bottom: 2%'>Muertes nacionales por COVID-19</h1>
+
+    <p class='text-justify' style='margin-bottom: 2%'>El manejo de datos relacionados con decesos nunca es sencillo, y probablemente menos en estas condiciones que atraviesa México. El equipo nunca pensará de cada muerte como <i>un dato más</i>.</p>
+
+    <h1 class="text-center" style='text-transform: none;'>Muertes nacionales</h1>
+    <div class="row d-flex justify-content-center">
+      <div class="card text-white bg-dark mb-3 col-md-4" style="max-width: 20rem;">
+        <div class="card-header text-center" style='text-transform: none;'>Muertes</div>
+        <div class="card-body">
+          <h4 class="card-title text-center" id="muertes"></h4>
+        </div>
+        <div class="card-footer d-flex">
+          <small class="text-white" style='height: 1rem;' id='tiempo_actualizacion_6'></small>
+        </div>
+      </div>
+
+      <div class="card text-white bg-warning mb-3 col-md-4" style="max-width: 20rem;">
+        <div class="card-header text-center" style='text-transform: none;'>Muertes últimas 24h</div>
+        <div class="card-body">
+          <h4 class="card-title text-center" id="muertes_nuevas"></h4>
+        </div>
+        <div class="card-footer d-flex">
+          <small class="text-white" style='height: 1rem;' id='tiempo_actualizacion_7'></small>
+        </div>
+      </div>
+    </div>
+
+
+    <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
+    <p id="tiempo_actualizacion_8"> </p>
+    <p class='text-center'>Los colores no representan los casos totales, sino que son generados a partir de los casos totales por cada 100 mil habitantes</p>
+
+    <div class="justify-content-center row d-flex">
+    <div id="mapa_muertes"></div>
+    </div>
+
+    <script src="/assets/javascript/mapa_muertes.js"></script>
+
+    <form method="get" action="estados.html">
+    <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
+    </form>
+
+
+    <div class="row d-flex justify-content-center" id="cont_graf">
+      <div class="justify-content-center" id="grafica_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Muertes totales</h1><p id="tiempo_actualizacion_9"> </p></div>
+      <script src="/assets/javascript/grafica_muertes.js"></script>
+
+      <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+        <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
+        <p class="mb-0"> Los puntos azules corresponden al número total de muertes reportadas día por día por las autoridades.
+          Las barras verticales azules corresponden al incremento diario de muertes nacionales.
+        </p>
+      </div>
+
+      <div class="justify-content-center" id="barplot_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Muertes diarias</h1><p id="tiempo_actualizacion_10"> </p></div>
+      <script src="/assets/javascript/barplot_muertes.js"></script>
+    </div>
+
+    <form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
+      <button type="submit" class="btn btn-primary btn-lg btn-block btn-info" >Descarga los datos</button>
+    </form>
   </section></article>
 
       </div>

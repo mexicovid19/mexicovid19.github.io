@@ -23,7 +23,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username:  mexicovid19
 markdown: kramdown
 
-repository: "nicolas-van/bootstrap-4-github-pages"
+repository: "mexicovid19/Mexico"
 
 # Build settings
 plugins:

@@ -12,21 +12,20 @@
             top: 10,
             right: 10,
             bottom: 50,
-            left: 45
+            left: 40
         },
-
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
-var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-modelo/master/results/covid19_mex_fit.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/series_de_tiempo/covid19_mex_muertes.csv";
 
-var tip = d3.select("#grafica_totales").append("div")
+var tip = d3.select("#grafica_muertes").append("div")
     .attr("class", "tip")
     .style("opacity", 0);
 
-    d3.select("#grafica_totales").append('style')
+    d3.select("#grafica_muertes").append('style')
     .text('svg {max-width:100%}')
 
-var svgT = d3.select("#grafica_totales")
+var svgT = d3.select("#grafica_muertes")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
     .attr("height", h_full)//height + margin.top + margin.bottom + 70)
@@ -54,7 +53,7 @@ d3.csv(url, function(data) {
     formatMes = d3.timeFormat("%b"),
         formatDia = d3.timeFormat("%d");
 
-    var mindate = new Date(2020, 1, 28);
+    var mindate = new Date(2020, 2, 18);
     // Add X axis --> it is a date format
     var x = d3.scaleTime()
         .domain([mindate, data[tope]['Fecha']])
@@ -77,44 +76,11 @@ d3.csv(url, function(data) {
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
-            return +d.Fit_max;
+            return +d.México;
         }) * 1.1])
         .range([h, 0]);//height - 10
     svgT.append("g")
         .call(d3.axisLeft(y));
-
-        // Show confidence interval
-    //#cfe5cc #ccd2e5
-
-    var ci = svgT.append("path")
-                .datum(data)
-                .attr("fill", "#cce5df")
-                .attr("stroke", "none")
-                .attr("opacity",0.7)
-                .attr("d", d3.area()
-                  .x(function(d) { return x(d.Fecha) })
-                  .y0(function(d) { return y(d.Fit_min) })
-                  .y1(function(d) { return y(d.Fit_max) })
-                  )
-
-
-    // Fit
-    var line = svgT.append('g')
-        .append("path")
-        .datum(data)
-        .attr("d", d3.line()
-            .defined(function (d) { return d.Fit; })
-            .x(function(d) {
-                return x(d.Fecha)
-            })
-            .y(function(d) {
-                return y(+d.Fit)
-            })
-        )
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","10,10")
-        .style("fill", "none")
 
     // Puntos de datos
     var dot = svgT.selectAll('circle')
@@ -147,30 +113,6 @@ d3.csv(url, function(data) {
                 .style("opacity", 0);
         });
 
-        var fase3=new Date(2020,3,20);
-        //Añade línea de fase 2
-        var fase = svgT.append("line")
-            .attr("x1", x(fase3))
-            .attr("y1", y(y.domain()[0]))
-            .attr("x2", x(fase3))
-            .attr("y2", y(y.domain()[1])+17)
-            .attr("stroke", "#000000") //fd7e14
-            .style("stroke-width", 1)
-            .style("fill", "none")
-            .style("stroke-dasharray", "5,5");
-
-        // texto fase 12
-        svgT.append("text")
-            //.attr("transform", "rotate(-90)")
-            .attr("y", y(y.domain()[1])) //-0 - margin.left
-            .attr("x", x(fase3) - 35)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("font-size","10px")
-            .text("Comienza la fase 3")
-            .attr("stroke", "#000000")
-            .attr("font-family", "sans-serif");
-
     //Añade línea de fase 2
     var fase = svgT.append("line")
         .attr("x1", x(fase12))
@@ -200,7 +142,7 @@ var faseExt=new Date(2020, 2, 30);;
         .attr("x1", x(faseExt))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+17)
+        .attr("y2", y(y.domain()[1])+37)
         .attr("stroke", "#000000") //fd7e14
         .style("stroke-width", 1)
         .style("fill", "none")
@@ -209,7 +151,7 @@ var faseExt=new Date(2020, 2, 30);;
     // texto emergencia
     svgT.append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
         .attr("x", x(faseExt) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -222,26 +164,14 @@ var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
 offset=30;
 
-//Leyenda Fit
-svgT.append("line")
-    .attr("x1",coordX-5)
-    .attr("y1",coordY+offset)
-    .attr("x2",coordX-20)
-    .attr("y2",coordY+offset).style("fill", "#69b3a2")
-    .attr("stroke", "#000000")
-        .style("stroke-width", 1.5)
-        .style("stroke-dasharray","5,5")
-        .style("fill", "none")
-svgT.append("text").attr("x", coordX).attr("y", coordY+offset).text("Ajuste exponencial").style("font-size", "10px").attr("alignment-baseline","middle")
-
 //Leyenda datos SSA
 svgT.append('circle')
-        .attr("cx", coordX-12)
-        .attr("cy", coordY+3*offset)
+        .attr("cx", coordX-62)
+        .attr("cy", coordY+3*offset-70)
         .attr("r", 5)
         .attr("opacity",0.7)
         .style("fill", "#1F9BCF")
-svgT.append("text").attr("x", coordX).attr("y", coordY+3*offset).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX-50).attr("y", coordY+3*offset-70).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
 
     // Animation
     /* Add 'curtain' rectangle to hide entire graph */

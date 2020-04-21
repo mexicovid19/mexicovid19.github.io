@@ -230,6 +230,32 @@ circle:hover{
   fill: #07918A;
 }
 
+#grafica_muertes .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#barplot_muertes .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
 #grafica_recu .tip {
     position: absolute;
     text-align: center;
@@ -262,6 +288,10 @@ circle:hover{
   font-size:3.3rem;
 }
 
+#muertes_nuevas {
+  font-size:3.3rem;
+}
+
 // Mapa ==================================================================
 
 #mapa {
@@ -279,6 +309,34 @@ circle:hover{
     }
 
 #mapa .nav_map {
+    position: absolute;
+    text-align: center;
+    width: 150px;
+    min-height: 160px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-weight:900;
+}
+
+#mapa_muertes {
+  //overflow:auto;
+}
+
+#mapa_muertes path {
+      stroke-width: 0.3;
+      stroke:#2B2B2B;
+      //fill: #1F9BCF;
+    }
+
+   #mapa_muertes path:hover {
+      fill: #07918A;
+    }
+
+#mapa_muertes .nav_map {
     position: absolute;
     text-align: center;
     width: 150px;

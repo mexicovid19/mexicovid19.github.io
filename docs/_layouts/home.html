@@ -51,7 +51,20 @@ layout: default
 </div>
 <script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
 
- <p class="mb-0"style='margin-left:5%; margin-right:5%;'>*Hemos dejado de actualizar los casos recuperados.
+
+<div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+  <h4 class="alert-heading" style="text-transform:none;">Aviso: ¿Hay inconsistencias en los datos?</h4>
+  <p>
+    <a href="https://verificovid.mx/" class="alert-link">Distintas páginas</a>
+      han reportado inconsistencias en el número de casos reportados desde el 19 de abril.
+    Analizamos la nueva base de datos publicada por la
+    <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link">Dirección General de Epidemiología</a>
+    y no hemos encontrado ninguna inonsistencia, sino una actualización de datos retroactiva.
+    <a href="datos_abiertos.html" class="alert-link" style="color:#FF8654 !important;">Aquí</a>
+    te explicamos por qué puedes seguir confiando en los datos presentados abajo.
+</div>
+
+ <!--p class="mb-0"style='margin-left:5%; margin-right:5%;'>*Hemos dejado de actualizar los casos recuperados.
   Encontramos distintas inconsistencias en el número de estos casos reportados en los medios.
   Estas inconsistencias, junto con la falta de fuentes confiables hacen que cualquier dato reportado sobre los casos recuperados carezca de certeza.
   Por ejemplo, <a href="https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449" class="alert-link" style="color:#FF8654 !important;">la Secretaría de Salud Pública</a>
@@ -60,7 +73,7 @@ layout: default
   <a href="http://iigea.com/amag/covid-19/" class="alert-link" style="color:#FF8654 !important;">IIGEA</a> y
   <a href="https://www.worldometers.info/coronavirus/country/mexico/" class="alert-link" style="color:#FF8654 !important;">Worldometers</a>
    reportan cifras inconsistentes sin fuentes accesibles.
- </p>
+ </p--->
 
 <!--INICIA MAPA-->
 <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Mapa</h1>
@@ -85,15 +98,17 @@ layout: default
 <!-- Create a div where the graph will take place -->
 
 <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
-  <h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4>
-  <!--p class="mb-0"> Aviso: A partir del 10 de abril empezaremos a mostrar un ajuste exponencial de los datos en vez de las proyecciones dado que es imposible conocer con certeza cuánta gente está en aislamiento.</p-->
-  <p class="mb-0"> El carácter de nuestras proyecciones es meramente ilustrativo, nuestro equipo <i>NO</i> está formado por epidemiólogos.
-    <a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">Lee esto</a> si te interesa saber cómo las hicimos o si quieres revisar nuestras
-    <a href="proyecciones.html" class="alert-link" style="color:#FF8654 !important;">proyecciones anteriores.</a>
-  </p>
+  <h4 class="alert-heading" style="text-transform:none;">Aviso</h4>
+  <ul class='justify-content-center'>
+    <li>Las gráficas a continuación presentan la información conocida por el gobierno el día de publicación.</li>
+    <li>Dado el tiempo de procesamiento de una prueba, los totales diarios son actualizados constantemente.</li>
+    <li>Esta información actualizada posteriormente es publicada por la
+      <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link">Dirección General de Epidemiología.</a>
+      <a href="datos_abiertos.html" class="alert-link" style="color:#FF8654 !important;">Consulta nuestro análisis para esta información.</a></li>
+  </ul>
 </div>
 
-<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales</h1><p id="tiempo_actualizacion_3"> </p></div>
+<div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales reportados por día</h1><p id="tiempo_actualizacion_3"> </p></div>
 
 <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
   <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
@@ -105,7 +120,7 @@ layout: default
 </div>
 
 
-<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos diarios</h1><p id="tiempo_actualizacion_4"> </p></div>
+<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Confirmaciones de casos por día</h1><p id="tiempo_actualizacion_4"> </p></div>
 <script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
 
 

@@ -4,6 +4,9 @@
 <loc>http://localhost:4000/about.html</loc>
 </url>
 <url>
+<loc>http://localhost:4000/datos_abiertos.html</loc>
+</url>
+<url>
 <loc>http://localhost:4000/estados.html</loc>
 </url>
 <url>
@@ -11,6 +14,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/metodologia.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/muertes.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/proyecciones.html</loc>
