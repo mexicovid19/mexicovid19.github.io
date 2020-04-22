@@ -83,136 +83,140 @@ d3.csv(urlNuevos, function(data) {
   svgBar.append("g")
         .call(d3.axisLeft(y));
 
-        // color palette = one color per subgroup
-         var color = d3.scaleOrdinal()
-           .domain(subgroups)
-           .range(['darkolivegreen','steelblue','darkorange'])
+  // color palette = one color per subgroup
+   var color = d3.scaleOrdinal()
+     .domain(subgroups)
+     .range(['darkolivegreen','steelblue','darkorange'])
 
 
-        var stackedData = d3.stack()
-                            .keys(subgroups)
-                            (data)
-console.log(stackedData);
-        // Show the bars
-        svgBar.append("g")
-              .selectAll("g")
-              // Enter in the stack data = loop key per key = group per group
-              .data(stackedData)
-              .enter().append("g")
-              .attr("fill", function(d) { return color(d.key); })
-              .selectAll("rect")
-              // enter a second time = loop subgroup per subgroup to add all rectangles
-              .data(function(d) { return d; })
-              .enter().append("rect")
-              .attr("x", function(d) { return x(d.data.Fecha); })
-              .attr("y", function(d) { return y(d[1]); })
-              .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-              .attr("width",widthBar)
-              .on("mouseover", function(d) {
-                    tipH.transition()
-                        .duration(200)
-                        .style("opacity", .9);
-                    tipH.html("<h6>" + formatDay(d.data.Fecha) + "/" + formatMonth(d.data.Fecha) + "</h6>"+ " <p class='text-primary'>"  + (d[1]-d[0]) + "</p>")
-                        .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
-                  })
-              .on("mouseout", function(d) {
+  var stackedData = d3.stack()
+                      .keys(subgroups)
+                      (data)
+  console.log(stackedData);
+          // Show the bars
+          svgBar.append("g")
+                .selectAll("g")
+                // Enter in the stack data = loop key per key = group per group
+                .data(stackedData)
+                .enter().append("g")
+                .attr("fill", function(d) { return color(d.key); })
+                .selectAll("rect")
+                // enter a second time = loop subgroup per subgroup to add all rectangles
+                .data(function(d) { return d; })
+                .enter().append("rect")
+                .attr("x", function(d) { return x(d.data.Fecha); })
+                .attr("y", function(d) { return y(d[1]); })
+                .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+                .attr("width",widthBar)
+                .on("mouseover", function(d) {
+                      tipH.transition()
+                          .duration(200)
+                          .style("opacity", .9);
+                      tipH.html("<h6>" + formatDay(d.data.Fecha) + "/" + formatMonth(d.data.Fecha) + "</h6>"+
+                      //" <p class='text-primary'>"  + Object.keys(d[0]) + "</p>" +
+                      " <p class='text-primary'>"  + (d[1]-d[0]) + "</p>")
+                          .style("left", (d3.event.pageX) + "px")
+                          .style("top", (d3.event.pageY - 28) + "px");
+                        })
+                .on("mouseout", function(d) {
                     tipH.transition()
                         .duration(500)
                         .style("opacity", 0);
                   });
 
 
-                  var dot = svgBar.selectAll('dot')
-                      .data(data)
-                      .enter()
-                      .append('circle')
-                      .attr("cx", function(d) {
-                          return x(d.Fecha)+widthBar/2
-                      })
-                      .attr("cy", function(d) {
-                          return y(d.positivos+d.pendientes+d.negativos+33)
-                      })
-                      .attr("r", 3)
-                      .attr("opacity",0.95)
-                      .attr("visibility", function(d, i) {
-                          if (d.Fecha < mindate) return "hidden";
-                      })
-                      .style("fill", "darkmagenta")
-                      .on("mouseover", function(d) {
-                          tip.transition()
-                              .duration(200)
-                              .style("opacity", .9);
-                          tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + (d.positivos+d.pendientes+d.negativos) + "</p>")
-                              .style("left", (d3.event.pageX) + "px")
-                              .style("top", (d3.event.pageY - 30) + "px");
-                      })
-                      .on("mouseout", function(d) {
-                          tip.transition()
-                              .duration(500)
-                              .style("opacity", 0);
-                      });
+  var dot = svgBar.selectAll('dot')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr("cx", function(d) {
+          return x(d.Fecha)+widthBar/2
+      })
+      .attr("cy", function(d) {
+          return y(d.positivos+d.pendientes+d.negativos+33)
+      })
+      .attr("r", 3)
+      .attr("opacity",0.95)
+      .attr("visibility", function(d, i) {
+          if (d.Fecha < mindate) return "hidden";
+      })
+      .style("fill", "darkmagenta")
+      .on("mouseover", function(d) {
+          tip.transition()
+              .duration(200)
+              .style("opacity", .9);
+          tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                    " <p class='text-primary'>Pruebas totales" + "</p>" +
+                    " <p class='text-primary'>" + (d.positivos+d.pendientes+d.negativos) + "</p>")
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+          tip.transition()
+              .duration(500)
+              .style("opacity", 0);
+      });
 
-        var fase3=new Date(2020,3,20);
-        //Añade línea de fase 2
-        var fase = svgBar.append("line")
-            .attr("x1", x(fase3))
-            .attr("y1", y(y.domain()[0]))
-            .attr("x2", x(fase3))
-            .attr("y2", y(y.domain()[1])+17)
-            .attr("stroke", "#000000") //fd7e14
-            .style("stroke-width", 1)
-            .style("fill", "none")
-            .style("stroke-dasharray", "5,5");
+  var fase3=new Date(2020,3,20);
+  //Añade línea de fase 2
+  var fase = svgBar.append("line")
+      .attr("x1", x(fase3))
+      .attr("y1", y(y.domain()[0]))
+      .attr("x2", x(fase3))
+      .attr("y2", y(y.domain()[1])+17)
+      .attr("stroke", "#000000") //fd7e14
+      .style("stroke-width", 1)
+      .style("fill", "none")
+      .style("stroke-dasharray", "5,5");
 
-        // texto fase 12
-        svgBar.append("text")
-            //.attr("transform", "rotate(-90)")
-            .attr("y", y(y.domain()[1])) //-0 - margin.left
-            .attr("x", x(fase3) - 30)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .style("font-size","10px")
-            .text("Comienza la fase 3")
-            .attr("stroke", "#000000")
-            .attr("font-family", "sans-serif");
+      // texto fase 12
+      svgBar.append("text")
+          //.attr("transform", "rotate(-90)")
+          .attr("y", y(y.domain()[1])) //-0 - margin.left
+          .attr("x", x(fase3) - 30)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("font-size","10px")
+          .text("Comienza la fase 3")
+          .attr("stroke", "#000000")
+          .attr("font-family", "sans-serif");
 
-var fase12=new Date(2020,2,23);
-//Añade línea de fase 2
-var fase = svgBar.append("line")
-    .attr("x1", x(fase12))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(fase12))
-    .attr("y2", y(y.domain()[1])+37)
-    .attr("stroke", "#000000") //fd7e14
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
+  var fase12=new Date(2020,2,23);
+  //Añade línea de fase 2
+  var fase = svgBar.append("line")
+      .attr("x1", x(fase12))
+      .attr("y1", y(y.domain()[0]))
+      .attr("x2", x(fase12))
+      .attr("y2", y(y.domain()[1])+37)
+      .attr("stroke", "#000000") //fd7e14
+      .style("stroke-width", 1)
+      .style("fill", "none")
+      .style("stroke-dasharray", "5,5");
 
-// texto fase 12
-svgBar.append("text")
-    //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-    .attr("x", x(fase12) - 5)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Comienza la fase 2")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
+  // texto fase 12
+  svgBar.append("text")
+      //.attr("transform", "rotate(-90)")
+      .attr("y", y(y.domain()[1])+20) //-0 - margin.left
+      .attr("x", x(fase12) - 5)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("font-size","10px")
+      .text("Comienza la fase 2")
+      .attr("stroke", "#000000")
+      .attr("font-family", "sans-serif");
 
-var faseExt=new Date(2020, 2, 30);;
+  var faseExt=new Date(2020, 2, 30);;
 
-//Añade línea de emergencia
-var fase = svgBar.append("line")
-    .attr("x1", x(faseExt))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(faseExt))
-    .attr("y2", y(y.domain()[1])+17)
-    .attr("stroke", "#000000") //fd7e14
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
+  //Añade línea de emergencia
+  var fase = svgBar.append("line")
+      .attr("x1", x(faseExt))
+      .attr("y1", y(y.domain()[0]))
+      .attr("x2", x(faseExt))
+      .attr("y2", y(y.domain()[1])+17)
+      .attr("stroke", "#000000") //fd7e14
+      .style("stroke-width", 1)
+      .style("fill", "none")
+      .style("stroke-dasharray", "5,5");
 
     // texto emergencia
     svgBar.append("text")
@@ -232,14 +236,24 @@ var fase = svgBar.append("line")
        coordY =  (y(y.domain()[1])+margin.top+25);
        offset=30;
 
+
+     //Leyenda Negativas
+     svgBar.append('circle')
+             .attr("cx", coordX-50)
+             .attr("cy", coordY-20)
+             .attr("r", 5)
+             .attr("opacity",0.95)
+             .style("fill", "darkmagenta")
+     svgBar.append("text").attr("x", coordX-40).attr("y", coordY-20).text("Pruebas totales").style("font-size", "10px").attr("alignment-baseline","middle")
+
     //Leyenda Negativas
     svgBar.append('circle')
             .attr("cx", coordX-50)
-            .attr("cy", coordY-20)
+            .attr("cy", coordY)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkorange")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY-20).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Positivas
     svgBar.append('circle')
@@ -247,17 +261,17 @@ var fase = svgBar.append("line")
             .attr("cy", coordY+20)
             .attr("r", 5)
             .attr("opacity",0.95)
-            .style("fill", "darkolivegreen")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+            .style("fill", "steelblue")
+    svgBar.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Pendientes
     svgBar.append('circle')
             .attr("cx", coordX-50)
-            .attr("cy", coordY)
+            .attr("cy", coordY+40)
             .attr("r", 5)
             .attr("opacity",0.95)
-            .style("fill", "steelblue")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
+            .style("fill", "darkolivegreen")
+    svgBar.append("text").attr("x", coordX-40).attr("y", coordY+40).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
 
 });
