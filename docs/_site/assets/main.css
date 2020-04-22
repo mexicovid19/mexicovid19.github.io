@@ -2746,11 +2746,19 @@ th { font-size: 0.765625rem; text-transform: uppercase; }
 
 #grafica_totales .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
+#grafica_abiertos_acumulados .tip { position: absolute; text-align: center; width: 70px; min-height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
 #grafica_met .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
 #barplot_nuevos .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
+#barplot_abiertos_nuevos .tipH { position: absolute; text-align: center; width: 70px; min-height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
 circle:hover { fill: #07918A; }
+
+#grafica_muertes .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
+#barplot_muertes .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
 #grafica_recu .tip { position: absolute; text-align: center; width: 70px; height: 110px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
@@ -2764,11 +2772,19 @@ circle:hover { fill: #07918A; }
 
 #muertes { font-size: 3.3rem; }
 
+#muertes_nuevas { font-size: 3.3rem; }
+
 #mapa path { stroke-width: 0.3; stroke: #2B2B2B; }
 
 #mapa path:hover { fill: #07918A; }
 
 #mapa .nav_map { position: absolute; text-align: center; width: 150px; min-height: 160px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; font-weight: 900; }
+
+#mapa_muertes path { stroke-width: 0.3; stroke: #2B2B2B; }
+
+#mapa_muertes path:hover { fill: #07918A; }
+
+#mapa_muertes .nav_map { position: absolute; text-align: center; width: 150px; min-height: 160px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; font-weight: 900; }
 
 .fa-sort { float: right; }
 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162067378-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162067378-1');
+</script>
+
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="COVID-19 México" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monitoreo constante del COVID-19 en México." />
+<meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
+<link rel="canonical" href="http://localhost:4000/datos_abiertos.html" />
+<meta property="og:url" content="http://localhost:4000/datos_abiertos.html" />
+<meta property="og:site_name" content="COVID-19 México" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/datos_abiertos.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+   <script src="/assets/javascript/popPyramid.js"></script>
+  <script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script src="  https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://use.fontawesome.com/10d4ff9df7.js"></script>
+  <!--WIDGET ZONE-->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!--homebrew-->
+
+
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="/">COVID-19 México</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/">Nacional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="datos_abiertos.html">Datos abiertos</a>
+        </li>
+        <!--li class="nav-item">
+          <a class="nav-link" href="muertes.html">Muertes</a>
+        </li-->
+        <li class="nav-item">
+          <a class="nav-link" href="estados.html">Estados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyecciones.html">Proyecciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/mexicovid19/Mexico">Fork me on Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="py-5">
+      <div class="container page-content">
+<div class="alert alert-dismissible alert-info">
+  <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID19" class="alert-link" style="color:#FF8654 !important;">COVID19 al 51515</a>.</p>
+</div>
+          <article>
+
+  <header>
+    <h1></h1>
+  </header>
+
+
+  <section>
+
+    <h1 class='text-center' style='margin-top:5%'>Los datos abiertos del gobierno</h1>
+
+    <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+      <h4 class="alert-heading text-center" style="text-transform:none;">¿Hay inconsistencias en los datos que el gobierno publicó recientemente?</h4>
+      <h4 class='text-center'>NO</h4>
+      <!--p class='text-justify'>A simple vista, parecería que los
+        <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link" style="color:#FF8654 !important;">datos publicados por la Dirección General de Epidemiología </a>
+        contradicen la información presentada hasta ahora, por ejemplo, en conferencias vespertinas pasadas.
+        Hemos encontrado que este nuevo formato por parte de la DGE no contradice los números presentados anteriormente.
+      </p-->
+      <p class='text-justify'>Hasta el 13 de abril, la manera en la que el gobierno daba a conocer el número de casos confirmados era con respecto a las pruebas positivas conocidas hasta ese día.
+      Es decir, el 12 de abril se contabilizaron como nuevos confirmados todos aquellos casos antes sospechosos pero cuyas pruebas resultaron postivas entre el 11 y el 12 de abril.
+      </p>
+      <p class='text-justify mb-0'>
+      Sin embargo, a partir del 13 de abril, la
+      <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link" style="color:#FF8654 !important;">Dirección General de Epidemiología (DGE) </a>
+       comenzó a publicar una base de datos con una mayor cantidad de información con respecto a los casos sospechosos y positivos.
+      Dentro de la nueva información publicada, se puede encontrar la fecha en la que el caso sospechoso visitó la Unidad Médica y se le realizó la prueba para detectar coronavirus.
+      </p>
+      <p class='text-justify'>Esto permite contabilizar los casos contagiados no con respecto a la fecha del resultado de la prueba, sino con respecto a la fecha de su realización.
+      Es este nuevo enfoque el que está tomando el gobierno, como se puede ver no solo en la base de datos, sino también
+      <a href="https://coronavirus.gob.mx/datos/#DOView" class="alert-link" style="color:#FF8654 !important;">aquí</a>.
+      </p>
+      <p class='text-justify'> Esto tiene como consecuencia que
+        <a class="alert-link" style="color:#FF8654 !important;">TODA</a>
+        la base de datos de la DGE está sujeta a cambios con respecto a nuevos resultados de pruebas aparezcan.
+      Ambas maneras de interpretar cuándo contar un caso (el día que se realizó la prueba o el día que se conoce el resultado positivo) son complementarias y aportan distintas formas de interpretar la misma información.
+      Es por esto que hemos decidido mantener una pestaña con visualizaciones para ambas.
+      </p>
+      <p class='text-justify mb-0'>La primer manera (casos nuevos con respecto al día del resultado) es la que se encuentra en nuestra página principal y representa la que se ha usado hasta el momento y que sigue la línea de las conferencias vespertinas,
+      así como otras páginas importantes como el trabajo de la
+      <a href="https://coronavirus.jhu.edu/map.html" class="alert-link" style="color:#FF8654 !important;">John Hopkins University</a>,
+      <a href="https://ourworldindata.org/coronavirus" class="alert-link" style="color:#FF8654 !important;">Our World in Data</a>
+      de la Universidad de Oxford, o
+      <a href="https://www.worldometers.info/coronavirus/#countries" class="alert-link" style="color:#FF8654 !important;">worldometers</a>.
+      La segunda, presentada en esta página, son los datos abiertos actualizados al día por la DGE y que se pueden encontrar abajo.
+      </p>
+    </div>
+
+
+<div class="row d-flex justify-content-center">
+    <img src="esquema.jpeg" class='resposive' style='width: 80%' style="float: middle">
+
+    <div class="justify-content-center" id="grafica_abiertos_acumulados"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas acumuladas</h1><p id="tiempo_actualizacion_1"> </p></div>
+      <script src="/assets/javascript/grafica_abiertos_acumulados.js"></script>
+
+    <div class="justify-content-center" id="barplot_abiertos_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas diarias</h1><p id="tiempo_actualizacion_2"> </p></div>
+      <script src="/assets/javascript/barplot_abiertos_nuevos.js"></script>
+
+    <script src="/assets/javascript/summon_abiertos.js"></script>
+</div>
+  </section></article>
+
+      </div>
+    </div>
+<div class="py-5 border-top">
+  <div class="container">
+
+    <p class="h5 mb-3">COVID-19 México</p>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <ul class="list-unstyled">
+          <li>COVID-19 México</li><li>
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
+              </a>
+            </li></ul>
+      </div>
+
+
+      <div class="col-sm text-right">
+        <p>Monitoreo constante del COVID-19 en México.</p>
+
+        <p>
+          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+
+</html>
