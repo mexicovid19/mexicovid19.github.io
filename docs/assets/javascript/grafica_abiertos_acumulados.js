@@ -211,7 +211,7 @@ d3.csv(url, function(data) {
                 .duration(200)
                 .style("opacity", .9);
             tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
-                      " <p class='text-primary'> Pruebas pendientes" + "</p>" + 
+                      " <p class='text-primary'> Pruebas pendientes" + "</p>" +
                       " <p class='text-primary'>" + d.pendientes + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
@@ -256,14 +256,14 @@ d3.csv(url, function(data) {
         .attr("x1", x(fase12))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+37)
+        .attr("y2", y(y.domain()[1])+57)
         .attr("stroke", "#000000")
         .style("stroke-width", 1)
         .style("fill", "none")
         .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", y(y.domain()[1])+20)
+        .attr("y", y(y.domain()[1])+40)
         .attr("x", x(fase12) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -279,14 +279,14 @@ d3.csv(url, function(data) {
         .attr("x1", x(faseExt))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+17)
+        .attr("y2", y(y.domain()[1])+37)
         .attr("stroke", "#000000")
         .style("stroke-width", 1)
         .style("fill", "none")
         .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", y(y.domain()[1]))
+        .attr("y", y(y.domain()[1])+20)
         .attr("x", x(faseExt) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -304,30 +304,30 @@ d3.csv(url, function(data) {
 
     //Leyenda Negativas
     svgT.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY-20)
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+40)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkorange")
-    svgT.append("text").attr("x", coordX-40).attr("y", coordY-20).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
-
-    //Leyenda Positivas
-    svgT.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY+20)
-            .attr("r", 5)
-            .attr("opacity",0.95)
-            .style("fill", "darkolivegreen")
-    svgT.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+40).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Pendientes
     svgT.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY)
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+60)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "steelblue")
-    svgT.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+60).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+
+    //Leyenda positivas
+    svgT.append('circle')
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+80)
+            .attr("r", 5)
+            .attr("opacity",0.95)
+            .style("fill", "darkolivegreen")
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+80).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     // Animation
     /* Add 'curtain' rectangle to hide entire graph */

@@ -113,7 +113,7 @@ d3.csv(urlNuevos, function(data) {
                           .duration(200)
                           .style("opacity", .9);
                       tipH.html("<h6>" + formatDay(d.data.Fecha) + "/" + formatMonth(d.data.Fecha) + "</h6>"+
-                      //" <p class='text-primary'>"  + Object.keys(d[0]) + "</p>" +
+                      //" <p class='text-primary'>"  + Object.keys(d.data) + "</p>" +
                       " <p class='text-primary'>"  + (d[1]-d[0]) + "</p>")
                           .style("left", (d3.event.pageX) + "px")
                           .style("top", (d3.event.pageY - 28) + "px");
@@ -158,7 +158,7 @@ d3.csv(urlNuevos, function(data) {
       });
 
   var fase3=new Date(2020,3,20);
-  //Añade línea de fase 2
+  //Añade línea de fase 3
   var fase = svgBar.append("line")
       .attr("x1", x(fase3))
       .attr("y1", y(y.domain()[0]))
@@ -187,7 +187,7 @@ d3.csv(urlNuevos, function(data) {
       .attr("x1", x(fase12))
       .attr("y1", y(y.domain()[0]))
       .attr("x2", x(fase12))
-      .attr("y2", y(y.domain()[1])+37)
+      .attr("y2", y(y.domain()[1])+57)
       .attr("stroke", "#000000") //fd7e14
       .style("stroke-width", 1)
       .style("fill", "none")
@@ -196,7 +196,7 @@ d3.csv(urlNuevos, function(data) {
   // texto fase 12
   svgBar.append("text")
       //.attr("transform", "rotate(-90)")
-      .attr("y", y(y.domain()[1])+20) //-0 - margin.left
+      .attr("y", y(y.domain()[1])+40) //-0 - margin.left
       .attr("x", x(fase12) - 5)
       .attr("dy", "1em")
       .style("text-anchor", "middle")
@@ -212,7 +212,7 @@ d3.csv(urlNuevos, function(data) {
       .attr("x1", x(faseExt))
       .attr("y1", y(y.domain()[0]))
       .attr("x2", x(faseExt))
-      .attr("y2", y(y.domain()[1])+17)
+      .attr("y2", y(y.domain()[1])+37)
       .attr("stroke", "#000000") //fd7e14
       .style("stroke-width", 1)
       .style("fill", "none")
@@ -221,7 +221,7 @@ d3.csv(urlNuevos, function(data) {
     // texto emergencia
     svgBar.append("text")
     //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])) //-0 - margin.left
+    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
     .attr("x", x(faseExt) - 5)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
@@ -239,39 +239,39 @@ d3.csv(urlNuevos, function(data) {
 
      //Leyenda Negativas
      svgBar.append('circle')
-             .attr("cx", coordX-50)
-             .attr("cy", coordY-20)
+             .attr("cx", coordX-20)
+             .attr("cy", coordY+40)
              .attr("r", 5)
              .attr("opacity",0.95)
              .style("fill", "darkmagenta")
-     svgBar.append("text").attr("x", coordX-40).attr("y", coordY-20).text("Pruebas totales").style("font-size", "10px").attr("alignment-baseline","middle")
+     svgBar.append("text").attr("x", coordX-12).attr("y", coordY+40).text("Pruebas totales").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Negativas
     svgBar.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY)
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+60)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkorange")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+60).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Positivas
     svgBar.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY+20)
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+80)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "steelblue")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+80).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Pendientes
     svgBar.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY+40)
+            .attr("cx", coordX-20)
+            .attr("cy", coordY+100)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkolivegreen")
-    svgBar.append("text").attr("x", coordX-40).attr("y", coordY+40).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+100).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
 
 });
