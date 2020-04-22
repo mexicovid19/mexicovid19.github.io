@@ -37,7 +37,7 @@ d3.csv(urlNuevos, function(data) {
 
   data.forEach(function(d) {
              d.Fecha = new Date(d.Fecha);
-             d.México = +d.México;
+             d.Nacional = +d.Nacional;
           });
 
   // X axis
@@ -68,7 +68,7 @@ d3.csv(urlNuevos, function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-            .domain([0, 1.1*d3.max(data, function(d){return d.México;  })])
+            .domain([0, 1.1*d3.max(data, function(d){return d.Nacional;  })])
             .range([ h, 0]);
 
   svgBar.append("g")
@@ -91,7 +91,7 @@ d3.csv(urlNuevos, function(data) {
             tipH.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d.México + "</p>")
+            tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d.Nacional + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -179,8 +179,8 @@ svgBar.append("text")
   svgBar.selectAll("rect")
   .transition()
   .duration(400)
-  .attr("y", function(d) { return y(+d.México); })
-  .attr("height", function(d) { return h - y(+d.México); })
+  .attr("y", function(d) { return y(+d.Nacional); })
+  .attr("height", function(d) { return h - y(+d.Nacional); })
   .delay(function(d,i){ return(i*100)})
 
 

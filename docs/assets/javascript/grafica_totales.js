@@ -41,7 +41,7 @@ d3.csv(url, function(data) {
 
     data.forEach(function(d) {
         d.Fecha = new Date(d.Fecha);
-        d.México = +d.México;
+        d.Nacional = +d.Nacional;
     });
 
     // define the x scale (horizontal)
@@ -125,19 +125,19 @@ d3.csv(url, function(data) {
             return x(d.Fecha)
         })
         .attr("cy", function(d) {
-            return y(+d.México)
+            return y(+d.Nacional)
         })
         .attr("r", 5)
         .attr("opacity",0.7)
         .attr("visibility", function(d, i) {
-            if (d.México == 0) return "hidden";
+            if (d.Nacional == 0) return "hidden";
         })
         .style("fill", "#1F9BCF")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.México + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.Nacional + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })

@@ -201,6 +201,19 @@ margin-right: 5px;
     pointer-events: none;
 }
 
+#grafica_abiertos_acumulados .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    min-height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
 #grafica_met .tip {
     position: absolute;
     text-align: center;
@@ -226,6 +239,20 @@ margin-right: 5px;
     border-radius: 8px;
     pointer-events: none;
 }
+
+#barplot_abiertos_nuevos .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    min-height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
 circle:hover{
   fill: #07918A;
 }

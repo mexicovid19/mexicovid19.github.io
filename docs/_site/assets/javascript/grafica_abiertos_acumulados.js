@@ -73,9 +73,6 @@ d3.csv(url, function(data) {
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");
 
-    var fase12 = new Date(2020, 2, 23);
-
-
     // Add Y axis
     var y = d3.scaleLinear()
               .domain([0, d3.max(data, function(d) {
@@ -86,10 +83,48 @@ d3.csv(url, function(data) {
     svgT.append("g")
         .call(d3.axisLeft(y));
 
+    svgT.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 3.0)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+d.Fecha) })
+          .y(function(d) { return y(+d.pendientes) })
+          )
+        .attr("visibility", function(d, i) {
+            if (d.positivos < 7) return "hidden";
+        })
 
-/*
+    svgT.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "darkorange")
+        .attr("stroke-width", 3.0)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+d.Fecha) })
+          .y(function(d) { return y(+d.negativos) })
+          )
+        .attr("visibility", function(d, i) {
+            if (d.positivos < 7) return "hidden";
+        })
+
+    svgT.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "darkolivegreen")
+        .attr("stroke-width", 3.0)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+d.Fecha) })
+          .y(function(d) { return y(+d.positivos) })
+          )
+          .attr("visibility", function(d, i) {
+              if (d.positivos < 7) return "hidden";
+          })
+
+
         // Puntos de datos Negativas
-        var dot1 = svgT.selectAll('dot')
+        var dot = svgT.selectAll('dot')
             .data(data)
             .enter()
             .append('circle')
@@ -104,12 +139,14 @@ d3.csv(url, function(data) {
             .attr("visibility", function(d, i) {
                 if (d.Fecha < mindate) return "hidden";
             })
-            .style("fill", "#FF8654")
+            .style("fill", "darkorange")
             .on("mouseover", function(d) {
                 tip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.negativos + "</p>")
+                tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                          " <p class='text-primary'> Pruebas negativas" + "</p>" +
+                          " <p class='text-primary'>" + d.negativos + "</p>")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 30) + "px");
             })
@@ -135,12 +172,14 @@ d3.csv(url, function(data) {
         .attr("visibility", function(d, i) {
             if (d.Fecha < mindate) return "hidden";
         })
-        .style("fill", "#1F9BCF")
+        .style("fill", "darkolivegreen")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.positivos + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                      " <p class='text-primary'> Pruebas positivas" + "</p>" +
+                      " <p class='text-primary'>" + d.positivos + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })
@@ -150,75 +189,30 @@ d3.csv(url, function(data) {
                 .style("opacity", 0);
         });
 
-*/
-        svgT.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-width", 3.0)
-            .attr("d", d3.line()
-              .x(function(d) { return x(+d.Fecha) })
-              .y(function(d) { return y(+d.pendientes) })
-              )
-            .attr("visibility", function(d) {
-                if (d.Fecha < Date(2020,01,28)) return "hidden";
-            })
-
-        svgT.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "darkorange")
-            .attr("stroke-width", 3.0)
-            .attr("d", d3.line()
-              .x(function(d) { return x(+d.Fecha) })
-              .y(function(d) { return y(+d.negativos) })
-              )
-            .attr("visibility", function(d) {
-                if (d.Fecha < Date(2020,01,28)) return "hidden";
-            })
-
-        svgT.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "darkolivegreen")
-            .attr("stroke-width", 3.0)
-            .attr("d", d3.line()
-              .x(function(d) { return x(+d.Fecha) })
-              .y(function(d) { return y(+d.positivos) })
-              )
-              .attr("visibility", function(d) {
-                  if (d.Fecha < Date(2020,01,28)) return "hidden";
-              })
-
-              /*
     // Puntos de datos Pendientes
-    var dot = svgT.selectAll('line')
+    var dot = svgT.selectAll('dot')
         .data(data)
         .enter()
-        .append('line')
-        .attr('x', function(d, i){
-          d.Fecha;
-        }
-        .attr('y', function(d, i){
-          d.pendientes
-        }
-        //.attr("cx", function(d) {
-        //    return x(d.Fecha)
-        //})
-        //.attr("cy", function(d) {
-        //    return y(+d.pendientes)
-        //})
-        //.attr("r", 3)
+        .append('circle')
+        .attr("cx", function(d) {
+            return x(d.Fecha)
+        })
+        .attr("cy", function(d) {
+            return y(+d.pendientes)
+        })
+        .attr("r", 3)
         .attr("opacity",0.95)
         .attr("visibility", function(d, i) {
             if (d.Fecha < mindate) return "hidden";
         })
-        .style("fill", "#54ff71")
+        .style("fill", "steelblue")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.pendientes + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                      " <p class='text-primary'> Pruebas pendientes" + "</p>" + 
+                      " <p class='text-primary'>" + d.pendientes + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })
@@ -227,7 +221,6 @@ d3.csv(url, function(data) {
                 .duration(500)
                 .style("opacity", 0);
         });
-*/
 
 
 
@@ -257,6 +250,8 @@ d3.csv(url, function(data) {
         .attr("font-family", "sans-serif");
 
     //Fase 2
+    var fase12 = new Date(2020, 2, 23);
+
     var fase = svgT.append("line")
         .attr("x1", x(fase12))
         .attr("y1", y(y.domain()[0]))
@@ -306,34 +301,33 @@ d3.csv(url, function(data) {
         coordY =  (y(y.domain()[1])+margin.top+25);
         offset=30;
 
-    //Leyenda Positivas
-    svgT.append('circle')
-            .attr("cx", coordX-50)
-            .attr("cy", coordY)
-            .attr("r", 5)
-            .attr("opacity",0.7)
-            .style("fill", "#1F9BCF")
-    svgT.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Negativas
     svgT.append('circle')
             .attr("cx", coordX-50)
             .attr("cy", coordY-20)
             .attr("r", 5)
-            .attr("opacity",0.7)
-            .style("fill", "#FF8654")
+            .attr("opacity",0.95)
+            .style("fill", "darkorange")
     svgT.append("text").attr("x", coordX-40).attr("y", coordY-20).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
-    //Leyenda Pendientes
+    //Leyenda Positivas
     svgT.append('circle')
             .attr("cx", coordX-50)
             .attr("cy", coordY+20)
             .attr("r", 5)
-            .attr("opacity",0.7)
-            .style("fill", "#54ff71")
-    svgT.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+            .attr("opacity",0.95)
+            .style("fill", "darkolivegreen")
+    svgT.append("text").attr("x", coordX-40).attr("y", coordY).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
 
-
+    //Leyenda Pendientes
+    svgT.append('circle')
+            .attr("cx", coordX-50)
+            .attr("cy", coordY)
+            .attr("r", 5)
+            .attr("opacity",0.95)
+            .style("fill", "steelblue")
+    svgT.append("text").attr("x", coordX-40).attr("y", coordY+20).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     // Animation
     /* Add 'curtain' rectangle to hide entire graph */
