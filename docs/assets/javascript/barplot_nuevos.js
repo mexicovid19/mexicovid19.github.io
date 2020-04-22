@@ -37,11 +37,8 @@ d3.csv(urlNuevos, function(data) {
 
   data.forEach(function(d) {
              d.Fecha = new Date(d.Fecha);
-<<<<<<< HEAD
              d.Nacional = +d.Nacional;
-=======
-             d.México = +d.Nacional;
->>>>>>> a4d2f006392da52a749970ccdc79a56bb71886c6
+
           });
 
   // X axis
@@ -72,11 +69,7 @@ d3.csv(urlNuevos, function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-<<<<<<< HEAD
             .domain([0, 1.1*d3.max(data, function(d){return d.Nacional;  })])
-=======
-            .domain([0, d3.max(data, function(d){return d.Nacional;  })])
->>>>>>> a4d2f006392da52a749970ccdc79a56bb71886c6
             .range([ h, 0]);
 
   svgBar.append("g")
@@ -95,7 +88,6 @@ d3.csv(urlNuevos, function(data) {
           // no bar at the beginning thus:
           .attr("height", function(d) { return h - y(0); }) // always equal to 0
           .attr("y", function(d) { return y(0); })
-<<<<<<< HEAD
           .on("mouseover", function(d) {
             tipH.transition()
                 .duration(200)
@@ -108,20 +100,6 @@ d3.csv(urlNuevos, function(data) {
             tipH.transition()
                 .duration(500)
                 .style("opacity", 0);
-=======
-          .on("mouseover", function(d) {    
-            tipH.transition()    
-                .duration(200)    
-                .style("opacity", .9);    
-            tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d.Nacional + "</p>")  
-                .style("left", (d3.event.pageX) + "px")   
-                .style("top", (d3.event.pageY - 28) + "px");  
-            })          
-        .on("mouseout", function(d) {   
-            tipH.transition()    
-                .duration(500)    
-                .style("opacity", 0); 
->>>>>>> a4d2f006392da52a749970ccdc79a56bb71886c6
         });
 
         var fase3=new Date(2020,3,20);
