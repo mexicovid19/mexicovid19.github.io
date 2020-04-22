@@ -20,13 +20,17 @@ d3.csv(urlRecu,function(data) {
   var largo = data.length;
   var tope =largo-1;
   var div = document.getElementById('recuperados');
-      div.innerHTML = data[tope]["México"];
+      div.innerHTML = data[tope]["Nacional"];
   });
 
 d3.csv(urlMuertesNuevas,function(data) {
   var largo = data.length;
   var tope =largo-1;
+<<<<<<< HEAD
   var div = document.getElementById('muertes_nuevas');
+=======
+  var div = document.getElementById('activos');
+>>>>>>> a4d2f006392da52a749970ccdc79a56bb71886c6
       div.innerHTML = data[tope]["Nacional"];
   });
 */
