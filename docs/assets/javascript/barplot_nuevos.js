@@ -38,7 +38,6 @@ d3.csv(urlNuevos, function(data) {
   data.forEach(function(d) {
              d.Fecha = new Date(d.Fecha);
              d.Nacional = +d.Nacional;
-
           });
 
   // X axis

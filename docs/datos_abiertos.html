@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+
+<script src="{{ "/assets/javascript/summon_abiertos.js" | relative_url }}"></script>
+
 <article>
 
   <header>
@@ -53,13 +56,12 @@ layout: default
 <div class="row d-flex justify-content-center">
     <img src="esquema.jpeg" class='resposive' style='width: 80%' style="float: middle">
 
-    <div class="justify-content-center" id="grafica_abiertos_acumulados"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas acumuladas</h1><p id="tiempo_actualizacion_1"> </p></div>
+    <div class="justify-content-center" id="grafica_abiertos_acumulados"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas acumuladas</h1><p id="tiempo_actualizacion_0"> </p></div>
       <script src="{{ "/assets/javascript/grafica_abiertos_acumulados.js" | relative_url }}"></script>
 
-    <div class="justify-content-center" id="barplot_abiertos_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas diarias</h1><p id="tiempo_actualizacion_2"> </p></div>
+    <div class="justify-content-center" id="barplot_abiertos_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Pruebas diarias</h1><p id="tiempo_actualizacion_1"> </p></div>
       <script src="{{ "/assets/javascript/barplot_abiertos_nuevos.js" | relative_url }}"></script>
 
-    <script src="{{ "/assets/javascript/summon_abiertos.js" | relative_url }}"></script>
 </div>
   </section>
 
