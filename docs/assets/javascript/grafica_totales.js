@@ -176,7 +176,7 @@ d3.csv(url, function(data) {
         .attr("x1", x(fase12))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+37)
+        .attr("y2", y(y.domain()[1])+57)
         .attr("stroke", "#000000") //fd7e14
         .style("stroke-width", 1)
         .style("fill", "none")
@@ -185,7 +185,7 @@ d3.csv(url, function(data) {
     // texto fase 12
     svgT.append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
+        .attr("y", y(y.domain()[1])+40) //-0 - margin.left
         .attr("x", x(fase12) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -200,7 +200,7 @@ var faseExt=new Date(2020, 2, 30);;
         .attr("x1", x(faseExt))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+17)
+        .attr("y2", y(y.domain()[1])+37)
         .attr("stroke", "#000000") //fd7e14
         .style("stroke-width", 1)
         .style("fill", "none")
@@ -209,7 +209,7 @@ var faseExt=new Date(2020, 2, 30);;
     // texto emergencia
     svgT.append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])) //-0 - margin.left
+        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
         .attr("x", x(faseExt) - 5)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
