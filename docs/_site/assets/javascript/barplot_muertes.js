@@ -83,7 +83,7 @@ d3.csv(urlNuevos, function(data) {
           //.attr("y", function(d) { return y(+d.Nacional); })
           .attr("width", widthBar)
           //.attr("height", function(d) { return height - y(+d.Nacional); })
-          .attr("fill", '#1f9bcf')
+          .attr("fill", 'mediumorchid')
           // no bar at the beginning thus:
           .attr("height", function(d) { return h - y(0); }) // always equal to 0
           .attr("y", function(d) { return y(0); })

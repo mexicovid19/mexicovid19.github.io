@@ -98,7 +98,7 @@ d3.csv(url, function(data) {
         .attr("visibility", function(d, i) {
             if (d.Nacional == 0) return "hidden";
         })
-        .style("fill", "#1F9BCF")
+        .style("fill", "mediumorchid")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
@@ -195,7 +195,7 @@ svgT.append('circle')
         .attr("cy", coordY-20)
         .attr("r", 5)
         .attr("opacity",0.7)
-        .style("fill", "#1F9BCF")
+        .style("fill", "mediumorchid")
 svgT.append("text").attr("x", coordX-12).attr("y", coordY-20).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
 
     // Animation
