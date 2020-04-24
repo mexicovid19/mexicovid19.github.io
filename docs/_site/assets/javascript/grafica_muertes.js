@@ -40,7 +40,7 @@ d3.csv(url, function(data) {
 
     data.forEach(function(d) {
         d.Fecha = new Date(d.Fecha);
-        d.México = +d.México;
+        d.Nacional = +d.Nacional;
     });
 
     // define the x scale (horizontal)
@@ -76,7 +76,7 @@ d3.csv(url, function(data) {
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
-            return +d.México;
+            return +d.Nacional;
         }) * 1.1])
         .range([h, 0]);//height - 10
     svgT.append("g")
@@ -91,19 +91,19 @@ d3.csv(url, function(data) {
             return x(d.Fecha)
         })
         .attr("cy", function(d) {
-            return y(+d.México)
+            return y(+d.Nacional)
         })
         .attr("r", 5)
         .attr("opacity",0.7)
         .attr("visibility", function(d, i) {
-            if (d.México == 0) return "hidden";
+            if (d.Nacional == 0) return "hidden";
         })
         .style("fill", "#1F9BCF")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.México + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.Nacional + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })
@@ -113,52 +113,77 @@ d3.csv(url, function(data) {
                 .style("opacity", 0);
         });
 
-    //Añade línea de fase 2
-    var fase = svgT.append("line")
-        .attr("x1", x(fase12))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+37)
-        .attr("stroke", "#000000") //fd7e14
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
+        //Lineas fases
 
-    // texto fase 12
-    svgT.append("text")
-        //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-        .attr("x", x(fase12) - 5)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Comienza la fase 2")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
+        //Fase 3
+        var fase3=new Date(2020,3,20);
 
-var faseExt=new Date(2020, 2, 30);;
- //Añade línea de emergencia
-    var fase = svgT.append("line")
-        .attr("x1", x(faseExt))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+37)
-        .attr("stroke", "#000000") //fd7e14
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
+        var fase = svgT.append("line")
+            .attr("x1", x(fase3))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase3))
+            .attr("y2", y(y.domain()[1])+17)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
 
-    // texto emergencia
-    svgT.append("text")
-        //.attr("transform", "rotate(-90)")
-        .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-        .attr("x", x(faseExt) - 5)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Emergencia sanitaria")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
+        svgT.append("text")
+            .attr("y", y(y.domain()[1]))
+            .attr("x", x(fase3) - 50)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 3")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
+        //Fase 2
+        var fase12 = new Date(2020, 2, 23);
+
+        var fase = svgT.append("line")
+            .attr("x1", x(fase12))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase12))
+            .attr("y2", y(y.domain()[1])+57)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+        svgT.append("text")
+            .attr("y", y(y.domain()[1])+40)
+            .attr("x", x(fase12)+35)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 2")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
+        //Emergencia sanitaria
+        var faseExt=new Date(2020, 2, 30);;
+
+        var fase = svgT.append("line")
+            .attr("x1", x(faseExt))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(faseExt))
+            .attr("y2", y(y.domain()[1])+37)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+        svgT.append("text")
+            .attr("y", y(y.domain()[1])+20)
+            .attr("x", x(faseExt)+30)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Emergencia sanitaria")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
  //Leyenda
 var coordX =(x(x.domain()[1])-(margin.left+margin.right))*0.15,
 coordY =  (y(y.domain()[1])+margin.top+25);
@@ -166,12 +191,12 @@ offset=30;
 
 //Leyenda datos SSA
 svgT.append('circle')
-        .attr("cx", coordX-62)
-        .attr("cy", coordY+3*offset-70)
+        .attr("cx", coordX-20)
+        .attr("cy", coordY-20)
         .attr("r", 5)
         .attr("opacity",0.7)
         .style("fill", "#1F9BCF")
-svgT.append("text").attr("x", coordX-50).attr("y", coordY+3*offset-70).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
+svgT.append("text").attr("x", coordX-12).attr("y", coordY-20).text("Datos SSA").style("font-size", "10px").attr("alignment-baseline","middle")
 
     // Animation
     /* Add 'curtain' rectangle to hide entire graph */

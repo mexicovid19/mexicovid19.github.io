@@ -37,7 +37,7 @@ d3.csv(urlNuevos, function(data) {
 
   data.forEach(function(d) {
              d.Fecha = new Date(d.Fecha);
-             d.México = +d.México;
+             d.Nacional = +d.Nacional;
           });
 
   // X axis
@@ -68,7 +68,7 @@ d3.csv(urlNuevos, function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function(d){return d.México;  })])
+            .domain([0, d3.max(data, function(d){return d.Nacional;  })])
             .range([ h, 0]);
 
   svgBar.append("g")
@@ -80,9 +80,9 @@ d3.csv(urlNuevos, function(data) {
         .enter()
         .append("rect")
           .attr("x", function(d) { return x(+d.Fecha) - widthBar/2; })
-          //.attr("y", function(d) { return y(+d.México); })
+          //.attr("y", function(d) { return y(+d.Nacional); })
           .attr("width", widthBar)
-          //.attr("height", function(d) { return height - y(+d.México); })
+          //.attr("height", function(d) { return height - y(+d.Nacional); })
           .attr("fill", '#1f9bcf')
           // no bar at the beginning thus:
           .attr("height", function(d) { return h - y(0); }) // always equal to 0
@@ -91,7 +91,7 @@ d3.csv(urlNuevos, function(data) {
             tipH.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d.México + "</p>")
+            tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d.Nacional + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -102,62 +102,85 @@ d3.csv(urlNuevos, function(data) {
         });
 
 
-var fase12=new Date(2020,2,23);
-//Añade línea de fase 2
-var fase = svgBar.append("line")
-    .attr("x1", x(fase12))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(fase12))
-    .attr("y2", y(y.domain()[1])+37)
-    .attr("stroke", "#000000") //fd7e14
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
+        //Lineas fases
 
-// texto fase 12
-svgBar.append("text")
-    //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-    .attr("x", x(fase12) - 5)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Comienza la fase 2")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
+        //Fase 3
+        var fase3=new Date(2020,3,20);
 
-var faseExt=new Date(2020, 2, 30);;
-//Añade línea de emergencia
-var fase = svgBar.append("line")
-    .attr("x1", x(faseExt))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(faseExt))
-    .attr("y2", y(y.domain()[1])+37)
-    .attr("stroke", "#000000") //fd7e14
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
+        var fase = svgBar.append("line")
+            .attr("x1", x(fase3))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase3))
+            .attr("y2", y(y.domain()[1])+17)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
 
-// texto emergencia
-svgBar.append("text")
-    //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-    .attr("x", x(faseExt) - 5)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Emergencia sanitaria")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
+        svgBar.append("text")
+            .attr("y", y(y.domain()[1]))
+            .attr("x", x(fase3) - 50)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 3")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
+        //Fase 2
+        var fase12 = new Date(2020, 2, 23);
+
+        var fase = svgBar.append("line")
+            .attr("x1", x(fase12))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase12))
+            .attr("y2", y(y.domain()[1])+57)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+        svgBar.append("text")
+            .attr("y", y(y.domain()[1])+40)
+            .attr("x", x(fase12)+35)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 2")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
+
+        //Emergencia sanitaria
+        var faseExt=new Date(2020, 2, 30);;
+
+        var fase = svgBar.append("line")
+            .attr("x1", x(faseExt))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(faseExt))
+            .attr("y2", y(y.domain()[1])+37)
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+        svgBar.append("text")
+            .attr("y", y(y.domain()[1])+20)
+            .attr("x", x(faseExt)+30)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Emergencia sanitaria")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif");
 
 
   // Animation
   svgBar.selectAll("rect")
   .transition()
   .duration(400)
-  .attr("y", function(d) { return y(+d.México); })
-  .attr("height", function(d) { return h - y(+d.México); })
+  .attr("y", function(d) { return y(+d.Nacional); })
+  .attr("height", function(d) { return h - y(+d.Nacional); })
   .delay(function(d,i){ return(i*100)})
 
 
-})
+});
