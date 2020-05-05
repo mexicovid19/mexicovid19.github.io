@@ -69,6 +69,27 @@ layout: default
     <form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
       <button type="submit" class="btn btn-primary btn-lg btn-block btn-info" >Descarga los datos</button>
     </form>
+    
+    <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
+</div>
+      <!--INICIA EL POBLACIONAL-->
+  <script>
+  var urlPyr = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/demograficos_variables/defunciones_sexo_edad.json";
+
+  d3.json(urlPyr, function(data) {
+
+    var options = {
+      height: 400,
+      width: 600,
+      style: {
+              leftBarColor: "#1F9BCF",
+              rightBarColor: "#07918A"
+              }
+            };
+    pyramidBuilder(data, '#pir', options);
+  });
+
+  </script>
   </section>
 
 
