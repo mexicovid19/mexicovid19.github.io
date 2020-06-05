@@ -1,54 +1,15 @@
-<!DOCTYPE html>
-<html lang="en-US">
-
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=c5cc1bef8be57834ba599313f3ed5cce217cef21">
-
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="COVID-19 México" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Monitoreo constante del COVID-19 en México." />
-<meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
-<link rel="canonical" href="http://localhost:4000/defunciones.html" />
-<meta property="og:url" content="http://localhost:4000/defunciones.html" />
-<meta property="og:site_name" content="COVID-19 México" />
-<script type="application/ld+json">
-{"url":"http://localhost:4000/defunciones.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mexicovid19/Mexico">View on GitHub</a>
-
-          <h1 id="project_title">COVID-19 México</h1>
-          <h2 id="project_tagline">Monitoreo constante del COVID-19 en México.</h2>
-
-          
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <article>
+---
+layout: default
+---
+<article>
 
   <header>
-   <h1></h1>
+   <h1>{{ page.title | escape }}</h1>
   </header>
 
 
   <section>
-    <script src="/assets/javascript/summon_muertes.js"></script>
+    <script src="{{ "/assets/javascript/summon_muertes.js" | relative_url }}"></script>
 
     <h1 class='text-center' style='margin-bottom: 2%'>Defunciones nacionales por COVID-19</h1>
 
@@ -83,7 +44,7 @@
       <div id="mapa_muertes"></div>
     </div>
 
-    <script src="/assets/javascript/mapa_muertes.js"></script>
+    <script src="{{ "/assets/javascript/mapa_muertes.js" | relative_url }}"></script>
 
     <form method="get" action="estados.html">
       <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
@@ -92,10 +53,10 @@
 
     <div class="row d-flex justify-content-center" id="cont_graf">
       <div class="justify-content-center" id="grafica_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones totales</h1><p id="tiempo_actualizacion_3"> </p></div>
-      <script src="/assets/javascript/grafica_muertes.js"></script>
+      <script src="{{ "/assets/javascript/grafica_muertes.js" | relative_url }}"></script>
 
       <div class="justify-content-center" id="grafica_comparativo_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Comparativo</h1></div>
-      <script src="/assets/javascript/grafica_comparativo_muertes.js"></script>
+      <script src="{{ "/assets/javascript/grafica_comparativo_muertes.js" | relative_url }}"></script>
 
       <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
         <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
@@ -105,7 +66,7 @@
       </div>
 
       <div class="justify-content-center" id="barplot_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones diarias</h1><p id="tiempo_actualizacion_4"> </p></div>
-      <script src="/assets/javascript/barplot_muertes.js"></script>
+      <script src="{{ "/assets/javascript/barplot_muertes.js" | relative_url }}"></script>
 
       <div class="justfy-content-center" id="barplot_comparativo_muertes">
         <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Comparativo</h1>
@@ -116,7 +77,7 @@
           <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" onclick="update('Nuevas_abiertos')">Fecha de deceso</button>
         </div>
 
-          <script src="/assets/javascript/barplot_comparativo_muertes.js"></script>
+          <script src="{{ "/assets/javascript/barplot_comparativo_muertes.js" | relative_url }}"></script>
         </div>
 
 
@@ -144,21 +105,30 @@
     <form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
       <button type="submit" class="btn btn-primary btn-lg btn-block btn-info" >Descarga los datos</button>
     </form>
-  </section></article>
+  </section>
 
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        
-        <p class="copyright">COVID-19 México maintained by <a href="https://github.com/mexicovid19">mexicovid19</a></p>
-        
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+  {%- if site.posts.size > 0 -%}
+    <p class="h4">{{ page.list_title | default: "Posts" }}</p>
+    <ul class="list-unstyled">
+      {%- for post in site.posts -%}
+      <li>
+        <span class="text-muted">
+          {%- assign date_format = "%b %-d, %Y" -%}
+          {{ post.date | date: date_format }}
+        </span>
+        <p class="h5">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </p>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
 
-    
-  </body>
-</html>
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+</article>

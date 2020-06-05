@@ -1,46 +1,90 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162067378-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=c5cc1bef8be57834ba599313f3ed5cce217cef21">
+  gtag('config', 'UA-162067378-1');
+</script>
 
-<!-- Begin Jekyll SEO tag v2.6.1 -->
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v3.8.7" />
 <meta property="og:title" content="COVID-19 México" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Monitoreo constante del COVID-19 en México." />
 <meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
-<link rel="canonical" href="http://localhost:4000/defunciones.html" />
-<meta property="og:url" content="http://localhost:4000/defunciones.html" />
 <meta property="og:site_name" content="COVID-19 México" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/defunciones.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"COVID-19 México","url":"/defunciones.html","description":"Monitoreo constante del COVID-19 en México.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+   <script src="/assets/javascript/popPyramid.js"></script>
+  <script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script src="  https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://use.fontawesome.com/10d4ff9df7.js"></script>
+  <!--WIDGET ZONE-->
+  <script src="https://d3js.org/d3.v4.js"></script>
 
-  </head>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
-  <body>
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mexicovid19/Mexico">View on GitHub</a>
+<!--homebrew-->
 
-          <h1 id="project_title">COVID-19 México</h1>
-          <h2 id="project_tagline">Monitoreo constante del COVID-19 en México.</h2>
 
-          
-        </header>
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="/">COVID-19 México</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/">Nacional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="datos_abiertos.html">Datos abiertos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="defunciones.html">Defunciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="estados.html">Estados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyecciones.html">Proyecciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/mexicovid19/Mexico">Fork me on Github</a>
+        </li>
+      </ul>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <article>
+  </div>
+</nav>
+<div class="py-5">
+      <div class="container page-content">
+<div class="alert alert-dismissible alert-info">
+  <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID19" class="alert-link" style="color:#FF8654 !important;">COVID19 al 51515</a>.</p>
+</div>
+          <article>
 
   <header>
    <h1></h1>
@@ -110,6 +154,7 @@
       <div class="justfy-content-center" id="barplot_comparativo_muertes">
         <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Comparativo</h1>
 
+<<<<<<< HEAD:docs/_site/defunciones.html
         <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
           <!-- Add 2 buttons -->
           <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" onclick="update('Nuevas_JH')">Fecha registrada</button>
@@ -122,6 +167,10 @@
 
       <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
     </div>
+=======
+    <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
+  </div>
+>>>>>>> ffaaf37e45dfed46d7004d58bc7ee08c002e081c:_site/defunciones.html
       <!--INICIA EL POBLACIONAL-->
     <script>
     var urlPyr = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/demograficos_variables/defunciones_sexo_edad.json";
@@ -146,19 +195,37 @@
     </form>
   </section></article>
 
-      </section>
+      </div>
+    </div>
+<div class="py-5 border-top">
+  <div class="container">
+
+    <p class="h5 mb-3">COVID-19 México</p>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <ul class="list-unstyled">
+          <li>COVID-19 México</li><li>
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
+              </a>
+            </li></ul>
+      </div>
+
+
+      <div class="col-sm text-right">
+        <p>Monitoreo constante del COVID-19 en México.</p>
+
+        <p>
+          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
+        </p>
+      </div>
+
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        
-        <p class="copyright">COVID-19 México maintained by <a href="https://github.com/mexicovid19">mexicovid19</a></p>
-        
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+  </div>
+</div>
+</body>
 
-    
-  </body>
 </html>

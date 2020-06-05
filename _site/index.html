@@ -1,18 +1,95 @@
----
-layout: default
----
-<script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162067378-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162067378-1');
+</script>
+
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="COVID-19 México" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monitoreo constante del COVID-19 en México." />
+<meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
+<meta property="og:site_name" content="COVID-19 México" />
+<script type="application/ld+json">
+{"@type":"WebSite","headline":"COVID-19 México","url":"/","description":"Monitoreo constante del COVID-19 en México.","name":"COVID-19 México","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+   <script src="/assets/javascript/popPyramid.js"></script>
+  <script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script src="  https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://use.fontawesome.com/10d4ff9df7.js"></script>
+  <!--WIDGET ZONE-->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!--homebrew-->
+
+
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="/">COVID-19 México</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/">Nacional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="datos_abiertos.html">Datos abiertos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="defunciones.html">Defunciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="estados.html">Estados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyecciones.html">Proyecciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/mexicovid19/Mexico">Fork me on Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="py-5">
+      <div class="container page-content">
+<div class="alert alert-dismissible alert-info">
+  <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID19" class="alert-link" style="color:#FF8654 !important;">COVID19 al 51515</a>.</p>
+</div>
+          <script src="/assets/javascript/summon.js"></script>
 
 
 
 <div>
-{% comment %}
-  {%- if page.title -%}
-  <header>
-    <h1>{{ page.title }}</h1>
-  </header>
-  {%- endif -%}
-{% endcomment %}
+
 
 
 <!--INICIA SEMÁFORO-->
@@ -49,7 +126,7 @@ layout: default
     </div>
   </div>
 </div>
-<script src="{{ "/assets/javascript/summon.js" | relative_url }}"></script>
+<script src="/assets/javascript/summon.js"></script>
 
 
 <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
@@ -58,7 +135,7 @@ layout: default
     <li> <h6>6 mayo - ¿Qué significa aplanar la curva? Comentario en nuestro blog</h6>
       <p>
         Analizamos la mañanera del 5 de mayo, y decidimos escribir un pequeño texto para explicar qué significaba
-        aplanar la curva en el contexto de los datos publicados por la DGE. Este texto lo puedes encontrar
+        aplanar la curva en el contexto de los datos publicados por la DGE. Este texto lo puedes encontrar 
         <a href="https://mexicovid19.blogspot.com/2020/05/conferencia-del-5-de-mayo-poner-en.html" class="alert-link"  style="color:#FF8654 !important;">Aquí</a>.
       </p>
     </li>
@@ -93,7 +170,7 @@ layout: default
 <div id="mapa"></div>
 </div>
 
-<script src="{{ "/assets/javascript/mapa.js" | relative_url }}"></script>
+<script src="/assets/javascript/mapa.js"></script>
 
 <form method="get" action="estados.html">
 <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
@@ -129,11 +206,11 @@ layout: default
 
 
 <div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Confirmaciones de casos por día</h1><p id="tiempo_actualizacion_4"> </p></div>
-<script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
+<script src="/assets/javascript/barplot_nuevos.js"></script>
 
 
 
-<script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
+<script src="/assets/javascript/grafica_totales.js"></script>
 
 <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
 </div>
@@ -169,36 +246,40 @@ d3.json(urlPyr, function(data) {
 
 
   <section>
-    {% comment %}
-    index.md va aca
-    {{ content }}
-    }
-    {% endcomment %}
-  </section>
+    
+  </section></div>
+
+      </div>
+    </div>
+<div class="py-5 border-top">
+  <div class="container">
+
+    <p class="h5 mb-3">COVID-19 México</p>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <ul class="list-unstyled">
+          <li>COVID-19 México</li><li>
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
+              </a>
+            </li></ul>
+      </div>
 
 
-  {%- if site.posts.size > 0 -%}
-    <p class="h4">{{ page.list_title | default: "Posts" }}</p>
-    <ul class="list-unstyled">
-      {%- for post in site.posts -%}
-      <li>
-        <span class="text-muted">
-          {%- assign date_format = "%b %-d, %Y" -%}
-          {{ post.date | date: date_format }}
-        </span>
-        <p class="h5">
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
+      <div class="col-sm text-right">
+        <p>Monitoreo constante del COVID-19 en México.</p>
+
+        <p>
+          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
         </p>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+      </div>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+    </div>
 
+  </div>
 </div>
+</body>
+
+</html>

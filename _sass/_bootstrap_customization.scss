@@ -1,0 +1,488 @@
+// Lux 4.3.1
+// Bootswatch
+
+
+// Variables ===================================================================
+
+$web-font-path: "https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap" !default;
+@import url($web-font-path);
+
+// Navbar ======================================================================
+
+.navbar {
+  font-size: $font-size-sm;
+  font-weight: 600;
+.nav
+  &-nav {
+    .nav-link {
+      padding-top: .715rem;
+      padding-bottom: .715rem;
+    }
+  }
+
+  &-brand {
+    margin-right: 2rem;
+  }
+}
+
+.bg-primary {
+  background-color: theme-color("primary") !important;
+}
+
+.bg-light {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  &.navbar-fixed-top {
+    border-width: 0 0 1px 0;
+  }
+
+  &.navbar-bottom-top {
+    border-width: 1px 0 0 0;
+  }
+}
+
+.nav-item {
+  margin-right: 2rem;
+}
+
+// Buttons =====================================================================
+
+
+
+.btn {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.btn {
+  font-size: $font-size-sm;
+  text-transform: none;
+
+  &-sm {
+    font-size: 10px;
+  }
+
+  &-warning {
+    &,
+    &:hover,
+    &:not([disabled]):not(.disabled):active,
+    &:focus {
+      color: $white;
+    }
+  }
+}
+
+.btn-outline-secondary {
+  border-color: $gray-600;
+  color: $gray-600;
+
+  &:not([disabled]):not(.disabled):hover,
+  &:not([disabled]):not(.disabled):focus,
+  &:not([disabled]):not(.disabled):active {
+    background-color: $gray-400;
+    border-color: $gray-400;
+    color: $white;
+  }
+
+  &:not([disabled]):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem rgba($gray-400, 0.5);
+  }
+}
+
+[class*="btn-outline-"] {
+  border-width: 2px;
+}
+
+.border-secondary {
+  border: 1px solid $gray-400 !important;
+}
+
+// Typography ==================================================================
+
+body {
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.text-secondary {
+  color: $body-color !important;
+}
+
+// Tables ======================================================================
+
+th {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+}
+
+.table {
+  th, td {
+    padding: 1.5rem;
+  }
+
+  &-sm {
+    th, td {
+      padding: 0.75rem;
+    }
+  }
+}
+
+// Forms =======================================================================
+
+
+.custom-switch {
+
+  .custom-control-label {
+    &::after {
+      top: calc(0.15625rem + 2px);
+      left: calc(-2.25rem + 2px);
+      width: calc(1rem - 4px);
+      height: calc(1rem - 4px);
+    }
+  }
+}
+
+// Navs ========================================================================
+
+.dropdown-menu {
+  font-size: $font-size-sm;
+  text-transform: none;
+}
+
+// Indicators ==================================================================
+
+.badge {
+  padding-top: 0.28rem;
+
+  &-pill {
+    border-radius: 10rem;
+  }
+}
+
+// Progress bars ===============================================================
+
+// Containers ==================================================================
+
+.list-group-item {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+  }
+}
+
+.card {
+margin-left: 5px;
+margin-right: 5px;
+  &-title,
+  &-header {
+    color: inherit;
+	font-weight:900;
+	font-size:1.3rem;
+	text-transform: uppercase;
+  margin-right:-15px;
+  margin-left:-15px;
+  }
+}
+
+.card-footer{
+    margin-right:-15px;
+  margin-left:-15px;
+}
+// Graficas ==================================================================
+
+#grafica_totales .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#grafica_abiertos_acumulados .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    min-height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#grafica_met .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#barplot_nuevos .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#barplot_abiertos_nuevos .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    min-height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+circle:hover{
+  fill: #07918A;
+}
+
+#grafica_muertes .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#barplot_muertes .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#barplot_comparativo_muertes .tipH {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#grafica_recu .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 110px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#grafica_comparativo_muertes .tip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#grafica_recu {
+  overflow:auto;
+}
+
+#pob_pyr {
+  overflow:auto;
+}
+
+// Semaforo ==================================================================
+
+#totales {
+  font-size:3.3rem;
+}
+#nuevos {
+  font-size:3.3rem;
+}
+#muertes {
+  font-size:3.3rem;
+}
+
+#muertes_nuevas {
+  font-size:3.3rem;
+}
+
+// Mapa ==================================================================
+
+#mapa {
+  //overflow:auto;
+}
+
+#mapa path {
+      stroke-width: 0.3;
+      stroke:#2B2B2B;
+      //fill: #1F9BCF;
+    }
+
+   #mapa path:hover {
+      fill: #07918A;
+    }
+
+#mapa .nav_map {
+    position: absolute;
+    text-align: center;
+    width: 150px;
+    min-height: 160px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-weight:900;
+}
+
+#mapa_muertes {
+  //overflow:auto;
+}
+
+#mapa_muertes path {
+      stroke-width: 0.3;
+      stroke:#2B2B2B;
+      //fill: #1F9BCF;
+    }
+
+   #mapa_muertes path:hover {
+      fill: #07918A;
+    }
+
+#mapa_muertes .nav_map {
+    position: absolute;
+    text-align: center;
+    width: 150px;
+    min-height: 160px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-weight:900;
+}
+
+// Estados ==================================================================
+
+.fa-sort {
+  float:right;
+}
+
+svg {max-width:100%}
+
+// Social ===================================================================
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background: #55ACEE;
+  color: white;
+}
+
+/* Reddit */
+  .fa-reddit {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background: #ff5700;
+    color: white;
+  }
+
+/* Whatsapp */
+  .fa-whatsapp {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  background: #1DC143;
+  color: white;
+}
+/* Linkedin */
+.fa-linkedin {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background: #007bb5;
+  color: white;
+}

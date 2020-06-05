@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>/about.html</loc>
+</url>
+<url>
+<<<<<<< HEAD:docs/_site/sitemap.xml
+<loc>http://localhost:4000/posts/aplanar-la-curva.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/datos_abiertos.html</loc>
+=======
+<loc>/datos_abiertos.html</loc>
+>>>>>>> ffaaf37e45dfed46d7004d58bc7ee08c002e081c:_site/sitemap.xml
+</url>
+<url>
+<loc>/defunciones.html</loc>
+</url>
+<url>
+<loc>/estados.html</loc>
+</url>
+<url>
+<loc>/Mexico/</loc>
+</url>
+<url>
+<loc>/</loc>
+</url>
+<url>
+<loc>/metodologia.html</loc>
+</url>
+<url>
+<loc>/proyecciones.html</loc>
+</url>
+<url>
+<loc>/texts.html</loc>
+</url>
+</urlset>
