@@ -56,6 +56,9 @@
           <a class="nav-link" href="/">Nacional</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="datos_abiertos.html">Datos abiertos</a>
         </li>
         <li class="nav-item">
@@ -86,7 +89,7 @@
           <article>
 
   <header>
-    <h1></h1>
+   <h1></h1>
   </header>
 
 
@@ -123,19 +126,22 @@
     <p class='text-center'>Los colores no representan los casos totales, sino que son generados a partir de las defunciones por cada 100 mil habitantes</p>
 
     <div class="justify-content-center row d-flex">
-    <div id="mapa_muertes"></div>
+      <div id="mapa_muertes"></div>
     </div>
 
     <script src="/assets/javascript/mapa_muertes.js"></script>
 
     <form method="get" action="estados.html">
-    <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Consulta la información para cada estado</button>
     </form>
 
 
     <div class="row d-flex justify-content-center" id="cont_graf">
       <div class="justify-content-center" id="grafica_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones totales</h1><p id="tiempo_actualizacion_3"> </p></div>
       <script src="/assets/javascript/grafica_muertes.js"></script>
+
+      <div class="justify-content-center" id="grafica_comparativo_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Comparativo</h1></div>
+      <script src="/assets/javascript/grafica_comparativo_muertes.js"></script>
 
       <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
         <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
@@ -147,9 +153,21 @@
       <div class="justify-content-center" id="barplot_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones diarias</h1><p id="tiempo_actualizacion_4"> </p></div>
       <script src="/assets/javascript/barplot_muertes.js"></script>
 
+      <div class="justfy-content-center" id="barplot_comparativo_muertes">
+        <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Comparativo</h1>
 
-    <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Muertes por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
-  </div>
+        <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
+          <!-- Add 2 buttons -->
+          <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" onclick="update('Nuevas_JH')">Fecha registrada</button>
+          <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" onclick="update('Nuevas_abiertos')">Fecha de deceso</button>
+        </div>
+
+          <script src="/assets/javascript/barplot_comparativo_muertes.js"></script>
+        </div>
+
+
+      <div class="justify-content-center" id="pir"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones por edad y sexo</h1><p id="tiempo_actualizacion_5"> </p></div>
+    </div>
       <!--INICIA EL POBLACIONAL-->
     <script>
     var urlPyr = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos/demograficos_variables/defunciones_sexo_edad.json";

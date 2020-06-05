@@ -2707,7 +2707,9 @@ a.text-dark:hover, a.text-dark:focus { color: #121416 !important; }
 
 .nav-item { margin-right: 2rem; }
 
-.btn { font-size: 0.765625rem; text-transform: uppercase; }
+.btn { padding-top: 2%; padding-bottom: 2%; }
+
+.btn { font-size: 0.765625rem; text-transform: none; }
 .btn-sm, .btn-group-sm > .btn { font-size: 10px; }
 .btn-warning, .btn-warning:hover, .btn-warning:not([disabled]):not(.disabled):active, .btn-warning:focus { color: #fff; }
 
@@ -2760,7 +2762,11 @@ circle:hover { fill: #07918A; }
 
 #barplot_muertes .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
+#barplot_comparativo_muertes .tipH { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
 #grafica_recu .tip { position: absolute; text-align: center; width: 70px; height: 110px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
+
+#grafica_comparativo_muertes .tip { position: absolute; text-align: center; width: 70px; height: 50px; padding: 2px; font: 12px; background: #c0e3f2; border: 0px; border-radius: 8px; pointer-events: none; }
 
 #grafica_recu { overflow: auto; }
 
@@ -2789,3 +2795,25 @@ circle:hover { fill: #07918A; }
 .fa-sort { float: right; }
 
 svg { max-width: 100%; }
+
+/* Style all font awesome icons */
+.fa { padding: 20px; font-size: 30px; width: 50px; text-align: center; text-decoration: none; }
+
+/* Add a hover effect if you want */
+.fa:hover { opacity: 0.7; }
+
+/* Set a specific color for each brand */
+/* Facebook */
+.fa-facebook { margin-left: 0.5%; margin-right: 0.5%; margin-top: 1%; margin-bottom: 1%; background: #3B5998; color: white; }
+
+/* Twitter */
+.fa-twitter { margin-left: 0.5%; margin-right: 0.5%; margin-top: 1%; margin-bottom: 1%; background: #55ACEE; color: white; }
+
+/* Reddit */
+.fa-reddit { margin-left: 0.5%; margin-right: 0.5%; margin-top: 1%; margin-bottom: 1%; background: #ff5700; color: white; }
+
+/* Whatsapp */
+.fa-whatsapp { margin-left: 0.5%; margin-right: 0.5%; margin-top: 1%; margin-bottom: 1%; background: #1DC143; color: white; }
+
+/* Linkedin */
+.fa-linkedin { margin-left: 0.5%; margin-right: 0.5%; margin-top: 1%; margin-bottom: 1%; background: #007bb5; color: white; }

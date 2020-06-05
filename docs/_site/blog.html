@@ -19,11 +19,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Monitoreo constante del COVID-19 en México." />
 <meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
-<link rel="canonical" href="http://localhost:4000/estados.html" />
-<meta property="og:url" content="http://localhost:4000/estados.html" />
+<link rel="canonical" href="http://localhost:4000/blog.html" />
+<meta property="og:url" content="http://localhost:4000/blog.html" />
 <meta property="og:site_name" content="COVID-19 México" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/estados.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/blog.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
   <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
@@ -90,58 +90,41 @@
 
   <header>
     <h1></h1>
-    <!--script src="/assets/bootstrap/jquery.min.js"></script>
-    <script src="/assets/tablesorter-master/js/jquery.tablesorter.js"></script>
-    <script src="/assets/tablesorter-master/js/jquery.tablesorter.widgets.js"></script-->
   </header>
 
 
   <section>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    
-  <p class="mb-0">*Hemos dejado de actualizar los casos recuperados. 
-    Encontramos distintas inconsistencias en el número de estos casos reportados en los medios. 
-    Estas inconsistencias, junto con la falta de fuentes confiables hacen que cualquier dato reportado sobre los casos recuperados carezca de certeza. 
-    Por ejemplo, <a href="https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449" class="alert-link" style="color:#FF8654 !important;">la Secretaría de Salud Pública</a> 
-    no está reportando este tipo de casos, 
-    mientras que páginas especializadas como el 
-    <a href="http://iigea.com/amag/covid-19/" class="alert-link" style="color:#FF8654 !important;">IIGEA</a> y 
-    <a href="https://www.worldometers.info/coronavirus/country/mexico/" class="alert-link" style="color:#FF8654 !important;">Worldometers</a> 
-     reportan cifras inconsistentes sin fuentes accesibles. 
-    </p>
+    <!-- Add font awesome icons -->
 
+    <div class="row d-flex justify-content-center">
+        <div class="card text-white bg-dark mb-3 col-md-4" style='width:90%'>
+          <a href="posts/aplanar-la-curva.html" style='text-decoration: none; color: white;'>
+            <img src="posts/blog.png" class="card-img-top thumb-post" style='height: 250px; object-fit: cover; object-position: center;' alt="Card image cap"/>
+          <div class="card-header md-6" style='text-transform: none; max-width: 90%'>"Aplanar la curva" no se ve como una curva plana: la conferencia matutina del 5 de mayo en contexto</div>
+          </a>
+          <div class="card-body">
+          <p>6 de mayo del 2020</p>
+          <p>En la conferencia de prensa matutina del día martes 5 de mayo (aquí la nota que publicó El Universal),
+            el Dr Hugo López-Gattel explicó que México ha aplanado la curva ya que la velocidad a la que se propaga el virus
+            (medida con el tiempo de duplicación) ha disminuido. El subsecretario también presentó...</p>
+          </div>
+           <!-- stretched-link -->
+          <div class='row'>
+          <a href="https://api.whatsapp.com/send?&text=https://mexicovid19.github.io/Mexico" class="fa fa-whatsapp"></a>
+          <a href="https://www.facebook.com/share.php?u=https://mexicovid19.github.io/Mexico/&title=Mexicovid19" class="fa fa-facebook"></a>
+          <a href="https://twitter.com/intent/tweet?text=Check%20this%20awesome%20website&url=https://mexicovid19.github.io/Mexico/&title=Mexicovid19" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mexicovid19.github.io/Mexico/" class="fa fa-linkedin"></a>
+          <a href="http://www.reddit.com/submit?url=https://mexicovid19.github.io/Mexico/&title=Mexicovid19" class="fa fa-reddit"></a>
+          </div>
+        </div>
 
-    <!----------------------------------- Tabla de estados --------------------------------------->
-
-    <!---Esto inicia una tabla--->
-
-<div id='my_table'></div>
-<!---Create a div where the table will take place--->
-<!--div class="row d-flex justify-content-center"-->
-<div id="DirectEditPreserve" class="databaseTable_title"><h1 class="text-center">Estadisticas por estado</h1></div>
-
-  <script src="/assets/javascript/databaseTable.js"></script>
-
-  <div id="DirectEditPreserve" class="wow fadeInUp databaseTable_holder 122860">
-    <div id="DirectEditPreserve" class="databaseTable_heading">
-      <input id="DirectEditPreserve" class="databaseTable_search form-control text-center text-uppercase" type="text" width="200" placeholder="Busca un estado">
     </div>
-    <div class='table-responsive justify-content-center table-striped' style='text-align: center;'>
-    <div id="DirectEditPreserve" class="databaseTable">
-      <div id="DirectEditPreserve" class="databaseTable_import_wrap" style="display: block;">
-    </div>
-      <div id="DirectEditPreserve" class="databaseTable_UI_scrollLeft databaseTable_UI_button" style="display: none;"><!-- JS shows/hides by appending the .hidden class --></div>
-      <div id="DirectEditPreserve" class="databaseTable_UI_scrollRight databaseTable_UI_button" style="display: none;"><!-- JS shows/hides by appending the .hidden class --></div>
-    </div>
-  </div>
-  </div>
 
 
-    <!----------------------------------- Boton para descargar --------------------------------------->
-
-<form method="get" action="https://github.com/LeonardoCastro/COVID19-Mexico/archive/master/data/series_tiempo.zip">
-<button type="submit" class="btn btn-primary btn-lg btn-block btn-info">Descarga los datos</button>
-</form></article>
+  </section></article>
 
       </div>
     </div>

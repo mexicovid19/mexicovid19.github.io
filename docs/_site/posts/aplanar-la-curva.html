@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162067378-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162067378-1');
+</script>
+
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>COVID-19 México | Monitoreo constante del COVID-19 en México.</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="COVID-19 México" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monitoreo constante del COVID-19 en México." />
+<meta property="og:description" content="Monitoreo constante del COVID-19 en México." />
+<link rel="canonical" href="http://localhost:4000/posts/aplanar-la-curva.html" />
+<meta property="og:url" content="http://localhost:4000/posts/aplanar-la-curva.html" />
+<meta property="og:site_name" content="COVID-19 México" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/posts/aplanar-la-curva.html","headline":"COVID-19 México","description":"Monitoreo constante del COVID-19 en México.","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="COVID-19 México" /><script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+  <script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+   <script src="/assets/javascript/popPyramid.js"></script>
+  <script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script src="  https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://use.fontawesome.com/10d4ff9df7.js"></script>
+  <!--WIDGET ZONE-->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!--homebrew-->
+
+
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="/">COVID-19 México</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/">Nacional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="datos_abiertos.html">Datos abiertos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="defunciones.html">Defunciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="estados.html">Estados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyecciones.html">Proyecciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/mexicovid19/Mexico">Fork me on Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="py-5">
+      <div class="container page-content">
+<div class="alert alert-dismissible alert-info">
+  <h4 class="alert-heading" style="text-transform: none;">Línea de contacto oficial</h4>
+  <p class="mb-0">Si crees estar <abbr title="Fiebre, tos, estornudos, malestar general, dolor de cabeza y dificultad para respirar">infectado</abbr>, por favor aíslate y manda un mensaje con la palabra <a href="sms:51515;?&body=COVID19" class="alert-link" style="color:#FF8654 !important;">COVID19 al 51515</a>.</p>
+</div>
+          <article>
+
+  <header>
+    <h1></h1>
+  </header>
+
+
+  <section>
+
+    <h3 style='text-transform: none; margin-top: 5%;'>"Aplanar la curva" no se ve como una curva plana: la conferencia matutina del 5 de mayo en contexto</h3>
+
+    <h5 style='text-transform: none;'>6 de mayo del 2020</h5>
+
+    <p class='text-justify' style='margin-top: 3%'>En la conferencia de prensa matutina del día martes 5 de mayo (aquí la nota que publicó El Universal),
+      el Dr Hugo López-Gattel explicó que México ha aplanado la curva ya que la velocidad a la que se propaga el virus
+      (medida con el tiempo de duplicación) ha disminuido.</p>
+
+    <p class='text-justify'>El subsecretario también presentó dos gráficas que hablan de la evolución de la pandemia,
+      y a nuestro parecer lo hizo de forma confusa. En una de ellas se puede ver que las curvas "se aplanan",
+      pero esto se debe a la manera en que se contabilizan los casos y no tiene que ver con la velocidad de la pandemia.
+      Hace falta más contexto para entender estas dos gráficas a fondo.</p>
+
+    <p class='text-justify'>La primera gráfica compara la evolución del número de casos positivos de Covid-19 en México y en otros países,
+      y se puede ver al inicio del video. La segunda se puede ver a partir del minuto 1:32 del video y
+      en ella se comparan las 32 entidades federativas entre sí (ver Fig. 1).
+      Ambas gráficas presentan en el eje "x" los días que han transcurrido desde que se contabilizaron 100 casos (en cada país o estado),
+      y en el eje "y" el número acumulado de casos confirmados (en escala logarítmica).</p>
+
+    <p class='text-justify'>El eje horizontal que representa el tiempo es el que nos interesa aquí.
+      Si bien el eje no es diferente entre las dos gráficas,
+      sí hay una diferencia en el contexto de cómo se cuentan los casos en uno y otro caso.</p>
+
+    <p class='text-justify'>La Secretaría de Salud a través de la Dirección General de Epidemiología (DGE) publica todos los días un archivo
+      de "datos abiertos" con la información de todos los pacientes a los que se les ha hecho una prueba para detectar el virus.
+      Para cada paciente es posible saber la fecha en que visitaron una Unidad Médica
+      (y asumimos que esta es también la fecha en que la prueba se lleva a cabo).</p>
+
+    <p class='text-justify'>La prueba para detectar el virus tarda varios días y cuando se conoce un resultado positivo,
+      tenemos dos maneras de contabilizar el caso. La primera opción es contar el caso el día que se conoce el resultado.
+      Por ejemplo, el día de ayer (5 de mayo) se dieron a conocer 1120 pruebas positivas.
+      Podemos asignar este número al día 5 de mayo, y este número nunca vuelve a cambiar.</p>
+
+    <p class='text-justify'>La segunda opción es contar los casos confirmados el día que se les realizó la prueba a los paciente.
+      De esta manera, los números cambian de forma retroactiva para los días anteriores y
+      es normal que incrementen hasta que haya pasado bastante más de una semana.
+      Esto se debe a que la mayoría de las pruebas tardan entre 3 y 7 días.</p>
+
+    <p class='text-justify'>La primera forma de contabilizar los casos que llamaremos la forma "diaria" es la que se utiliza para
+      la primer gráfica de la conferencia matutina Es común en el ámbito internacional y se utiliza por Worldometers y la Universidad Johns Hopkins.
+      También se encuentra en el tablero de Mexicovid aquí.</p>
+
+    <p class='text-justify'>La segunda forma que llamaremos "retroactiva" se utiliza para la gráfica que compara los estados y
+      también en el tablero oficial del gobierno. Mexicovid tiene una pestaña dedicada aquí.</p>
+
+    <p class='text-justify'>Utilizando el recuento retroactivo hemos replicado la gráfica de la conferencia a continuación.
+      Esto es posible gracias a que la DGE publica la información de cada caso (pocos países publican información tan detallada). </p>
+
+    <p class='text-justify'>Podemos notar que las curvas se aplanan hacia el final, del lado derecho, pero esto se debe a la manera
+      en que se contabilizan los casos. Puesto que aún no conocemos el resultado de las pruebas que se hicieron ayer, anteayer, etc,
+      el número de casos acumulados es poco más alto que el de hace una semana.</p>
+
+    <p class='text-justify'>Es muy importante entender que López-Gatell no se refiere a las "planicies" que vemos arriba
+      cuando dice que México ha aplanado la curva. Él está hablando de la pendiente que tiene la curva antes de llegar a las planicies
+      (que en realidad no contienen mucha información). La pendiente mide el tiempo de duplicación, el número de días que tienen que
+      pasar para que los casos confirmados aumenten al doble, y si el tiempo de duplicación se hace más y más largo,
+      quiere decir que la propagación del virus se está desacelerando.</p>
+
+    <p class='text-justify'>Si ahora utilizamos el recuento diario y contabilizamos los casos el día que se conoce el resultado, la gráfica luce distinto.</p>
+
+    <p class='text-justify'>Abajo comparamos tres estados para observar como se ven las curvas lado a lado y resaltamos algunos aspectos que tienen interpretación epidemiológica.</p>
+
+    <p class='text-justify'>En conclusión, ambas formas de contabilizar los casos tienen ventajas y desventajas,
+      y no hay una que sea correcta y la otra incorrecta.  Es importante entender que las gráficas y los datos tienen asociado un contexto,
+      y aquí hemos explicado lo que no se mencionó en la conferencia matutina.</p>
+
+    <p class='text-justify'>Obviamente, corresponde a Salud y al Dr López-Gatell determinar si México ha aplanado o no la curva y lo harán utilizando el tiempo de duplicación.</p>
+  </section></article>
+
+      </div>
+    </div>
+<div class="py-5 border-top">
+  <div class="container">
+
+    <p class="h5 mb-3">COVID-19 México</p>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <ul class="list-unstyled">
+          <li>COVID-19 México</li><li>
+              <a href="mailto:mexicovid19contacto@gmail.com">
+                mexicovid19contacto@gmail.com
+              </a>
+            </li></ul>
+      </div>
+
+
+      <div class="col-sm text-right">
+        <p>Monitoreo constante del COVID-19 en México.</p>
+
+        <p>
+          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+
+</html>
