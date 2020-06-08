@@ -63,10 +63,10 @@ d3.json(url, function(json) {
                 .duration(200)
                 .style("opacity", .9);
             navMap.html("<h6>" + d.properties.name + "</h6>"+
-                        "<p class='text-danger'> Totales: "+ d.properties.totales + "</p>" +
+                        "<p class='text-danger'> Totales: "+ (+d.properties.totales).toLocaleString() + "</p>" +
                         "<p class='text-danger'> Totales por cada 100 mil habitantes: "+ Math.round(d.properties.totales_100k*100)/100 + "</p>" +
-                        "<p class='text-warning'> <span style='color:#fd7e14 !important;'>Últimas 24h: "+ d.properties.nuevos + "</span></p>"+
-                        "<p class='text-primary'> Defunciones: " + d.properties.muertes + "</p>" +
+                        "<p class='text-warning'> <span style='color:#fd7e14 !important;'>Últimas 24h: "+ (+d.properties.nuevos).toLocaleString() + "</span></p>"+
+                        "<p class='text-primary'> Defunciones: " + (+d.properties.muertes).toLocaleString() + "</p>" +
                         "<p><small>Actualizado el: "+formatDay(d.properties.updated_at)+ "/"+formatMonth(d.properties.updated_at)+
                         " @ "+formatHour(d.properties.updated_at)+":"+formatMin(d.properties.updated_at)+ "</small></p>")
                         .style("left", (d3.event.pageX) + "px")

@@ -61,7 +61,7 @@ d3.json(url, function(json) {
                 .duration(200)
                 .style("opacity", .9);
             navMap.html("<h6>" + d.properties.name + "</h6>"+
-                        "<p class='text-danger'> Defunciones: "+ d.properties.muertes + "</p>" +
+                        "<p class='text-danger'> Defunciones: "+ (+d.properties.muertes).toLocaleString() + "</p>" +
                         "<p class='text-danger'> Defunciones por cada 100 mil habitantes: "+ Math.round(d.properties.muertes_100k*100)/100 + "</p>" +
                         "<p class='text-warning'> <span style='color:#fd7e14 !important;'>Defunciones últimas 24h: "+ d.properties.muertes_nuevas + "</span></p>"+
                         "<p><small>Actualizado el: "+formatDay(d.properties.updated_at)+ "/"+formatMonth(d.properties.updated_at)+
