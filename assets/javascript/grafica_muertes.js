@@ -103,7 +103,7 @@ d3.csv(url, function(data) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + d.Nacional + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + (+d.Nacional).toLocaleString() + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })

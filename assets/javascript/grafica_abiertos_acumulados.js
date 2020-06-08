@@ -146,7 +146,7 @@ d3.csv(url, function(data) {
                     .style("opacity", .9);
                 tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                           " <p class='text-primary'> Pruebas negativas" + "</p>" +
-                          " <p class='text-primary'>" + d.negativos + "</p>")
+                          " <p class='text-primary'>" + (+d.negativos).toLocaleString() + "</p>")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 30) + "px");
             })
@@ -179,7 +179,7 @@ d3.csv(url, function(data) {
                 .style("opacity", .9);
             tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                       " <p class='text-primary'> Pruebas positivas" + "</p>" +
-                      " <p class='text-primary'>" + d.positivos + "</p>")
+                      " <p class='text-primary'>" + (+d.positivos).toLocaleString() + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })
@@ -212,7 +212,7 @@ d3.csv(url, function(data) {
                 .style("opacity", .9);
             tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                       " <p class='text-primary'> Pruebas pendientes" + "</p>" +
-                      " <p class='text-primary'>" + d.pendientes + "</p>")
+                      " <p class='text-primary'>" + (+d.pendientes).toLocaleString() + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })

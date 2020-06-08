@@ -96,7 +96,7 @@ function update(selectedVar) {
           tipH.transition()
               .duration(200)
               .style("opacity", .9);
-          tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d[selectedVar] + "</p>")
+          tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + (+d[selectedVar]).toLocaleString() + "</p>")
               .style("left", (d3.event.pageX) + "px")
               .style("top", (d3.event.pageY - 28) + "px");
             })

@@ -114,7 +114,7 @@ d3.csv(urlNuevos, function(data) {
                           .style("opacity", .9);
                       tipH.html("<h6>" + formatDay(d.data.Fecha) + "/" + formatMonth(d.data.Fecha) + "</h6>"+
                       //" <p class='text-primary'>"  + d.key + "</p>" +
-                      " <p class='text-primary'>"  + (d[1]-d[0]) + "</p>")
+                      " <p class='text-primary'>"  + (+(d[1]-d[0])).toLocaleString() + "</p>")
                           .style("left", (d3.event.pageX) + "px")
                           .style("top", (d3.event.pageY - 28) + "px");
                         })
@@ -147,7 +147,7 @@ d3.csv(urlNuevos, function(data) {
               .style("opacity", .9);
           tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                     " <p class='text-primary'>Pruebas totales" + "</p>" +
-                    " <p class='text-primary'>" + (d.positivos+d.pendientes+d.negativos) + "</p>")
+                    " <p class='text-primary'>" + (+(d.positivos+d.pendientes+d.negativos)).toLocaleString() + "</p>")
               .style("left", (d3.event.pageX) + "px")
               .style("top", (d3.event.pageY - 30) + "px");
       })
