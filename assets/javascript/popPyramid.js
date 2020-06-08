@@ -209,7 +209,7 @@ function pyramidBuilder(data, target, options) {
         .attr('width', function(d) {
             return xScale(percentage(d.male));
         })
-        .attr('height', (yScale.range()[0] / data.length) - margin.middle / 2)
+        .attr('height', (yScale.range()[0] / data.length) - margin.middle / 3)
         .on("mouseover", function(d) {
             tooltipDiv.transition()
                 .duration(200)
@@ -237,7 +237,7 @@ function pyramidBuilder(data, target, options) {
         .attr('width', function(d) {
             return xScale(percentage(d.female));
         })
-        .attr('height', (yScale.range()[0] / data.length) - margin.middle / 2)
+        .attr('height', (yScale.range()[0] / data.length) - margin.middle / 3)
         .on("mouseover", function(d) {
             tooltipDiv.transition()
                 .duration(200)
