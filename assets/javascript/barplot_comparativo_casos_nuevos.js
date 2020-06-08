@@ -12,16 +12,16 @@ var margin = {top: 10, right: 10, bottom: 50, left: 40},
     w = w - margin.left - margin.right,
     h = h - margin.top - margin.bottom;
 
-var urlNuevos = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos_abiertos/formato_especial/comparativo_muertes_nuevas.csv";
+var urlNuevos = "https://raw.githubusercontent.com/LeonardoCastro/Mexico-datos/master/datos_abiertos/formato_especial/comparativo_casos_nuevos.csv";
 
 var widthBar = 6;
 
-var tipH = d3.select("#barplot_comparativo_muertes").append("div")
+var tipH = d3.select("#barplot_nuevos").append("div")
       .attr("class", "tipH")
       .style("opacity", 0);
 
 // append the svg object to the body of the page
-var svgBarC = d3.select("#barplot_comparativo_muertes")
+var svgBarC = d3.select("#barplot_nuevos")
   .append("svg")
     .attr("width", w_full)
     .attr("height", h_full)
@@ -36,15 +36,15 @@ var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 
-var mindate = new Date(2020,2,18);
+var mindate = new Date(2020,2,8);
 
-var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay()-14);
+var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay()-5);
 
-console.log(two_weeks_ago)
 
 var x = d3.scaleTime()
           .domain([mindate, today])
           .range([0, w]);
+
 var xAxis = svgBarC.append("g")
   .attr("transform", "translate(0," + h + ")")
   .attr("class","graph_date")
@@ -73,12 +73,16 @@ function update(selectedVar) {
           });
 
     // Add Y axis
-    y.domain([0, d3.max(data, function(d) { return +d.Nuevas_JH }) ]);
+    y.domain([0, d3.max(data, function(d) { return +d.Nuevos_JH }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
     var u = svgBarC.selectAll("rect")
       .data(data)
+
+    var u_dot = svgBarC
+              .selectAll("dot")
+              .data(data)
 
     // update bars
     u
@@ -92,7 +96,7 @@ function update(selectedVar) {
         .attr("y", function(d) { return y(d[selectedVar]); })
         .attr("width", widthBar)
         .attr("height", function(d) { return h - y(d[selectedVar]); })
-        .attr("fill", "mediumorchid")
+        .attr("fill", function(d){ if (selectedVar == "Nuevos_JH") { return '#1f9bcf'} else {return "darkorange"}})
         .on("mouseover", function(d) {
           tipH.transition()
               .duration(200)
@@ -106,10 +110,39 @@ function update(selectedVar) {
               .duration(500)
               .style("opacity", 0);
             })
-        .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedVar != "Nuevas_JH"){ return 0.5 } else { return 1. }})
-  })
+        .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedVar != "Nuevos_JH"){ return 0.5 } else { return 1. }});
 
-  
+/*
+        u_dot.exit().remove()
+
+        u_dot.enter()
+            .append("circle")
+            .merge(u_dot)
+            .attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
+            .attr("cy", function(d) { return y(d[selectedVar+"_promedio"])})
+            .attr("r", 3)
+            .attr("opacity",function(d){if (d.Fecha > two_weeks_ago && selectedVar == "Nuevas_abiertos"){ return 0. } else { return .95 }})
+            .style("fill", "darkorange")
+            .on("mouseover", function(d) {
+                tip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                          " <p class='text-primary'>Promedio 7 dias" + "</p>" +
+                          " <p class='text-primary'>" + (d[selectedVar+"_promedio"]) + "</p>")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 30) + "px");
+            })
+            .on("mouseout", function(d) {
+                tip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+*/
+
+
+
+  })
 };
 
 //Lineas fases
@@ -184,4 +217,4 @@ svgBarC.append("text")
     .attr("font-family", "sans-serif");
 
 // Initialize plot
-update('Nuevas_JH')
+update('Nuevos_JH')
