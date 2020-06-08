@@ -4,7 +4,17 @@
 <loc>/about.html</loc>
 </url>
 <url>
+<<<<<<< HEAD:docs/_site/sitemap.xml
+<loc>http://localhost:4000/posts/aplanar-la-curva.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/datos_abiertos.html</loc>
+=======
 <loc>/datos_abiertos.html</loc>
+>>>>>>> ffaaf37e45dfed46d7004d58bc7ee08c002e081c:_site/sitemap.xml
 </url>
 <url>
 <loc>/defunciones.html</loc>

@@ -128,16 +128,8 @@ layout: default
 </div>
 
 
-  <div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos confirmados por día</h1><p id="tiempo_actualizacion_5"></p>
-    <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
-      <!-- Add 2 buttons -->
-      <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" onclick="update('Nuevos_JH')">Fecha de resultados</button>
-      <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" onclick="update('Nuevos_abiertos')">Fecha de prueba</button>
-
-      <script src="{{ "/assets/javascript/barplot_comparativo_casos_nuevos.js" | relative_url }}"></script>
-
-    </div>
-  </div>
+<div class="justify-content-center" id="barplot_nuevos"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Confirmaciones de casos por día</h1><p id="tiempo_actualizacion_4"> </p></div>
+<script src="{{ "/assets/javascript/barplot_nuevos.js" | relative_url }}"></script>
 
 
 
