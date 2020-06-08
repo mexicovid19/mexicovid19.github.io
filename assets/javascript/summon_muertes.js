@@ -9,7 +9,7 @@ d3.csv(urlMuertesNuevas,function(data) {
   var largo = data.length;
   var tope =largo-1;
   var div = document.getElementById('muertes_nuevas');
-      div.innerHTML = data[tope]["Nacional"];
+      div.innerHTML = (+data[tope]["Nacional"]).toLocaleString();
   });
 
 
@@ -17,7 +17,7 @@ d3.csv(urlMuertes,function(data) {
   var largo = data.length;
   var tope =largo-1;
   var div = document.getElementById('muertes');
-      div.innerHTML = data[tope]["Nacional"];
+      div.innerHTML = (+data[tope]["Nacional"]).toLocaleString();
   });
 
 d3.csv(urlUpdateTime,function(data) {
