@@ -13,7 +13,7 @@ function pyramidBuilder(data, target, options) {
             right: 10,
             bottom: 40,
             left: 10,
-            middle: 20
+            middle: 25
         },
         sectorWidth = (w / 2) - margin.middle,
         leftBegin = sectorWidth - margin.left,
