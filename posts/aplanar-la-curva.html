@@ -12,9 +12,9 @@ layout: default
 
     <h3 style='text-transform: none; margin-top: 5%;'>"Aplanar la curva" no se ve como una curva plana: la conferencia matutina del 5 de mayo en contexto</h3>
 
-    <h5 style='text-transform: none;'>6 de mayo del 2020</h5>
+    <h5 style='text-transform: none;'>Rodrigo Leal Cervantes • 6 de mayo, 2020</h5>
 
-    <p class='text-justify' style='margin-top: 3%'>En la conferencia de prensa matutina del día martes 5 de mayo (aquí la nota que publicó El Universal),
+    <p class='text-justify' style='margin-top: 3%'>En la conferencia de prensa matutina del día martes 5 de mayo (<a href="https://www.eluniversal.com.mx/nacion/mexico-ha-aplanado-la-curva-epidemica-de-covid-19-lopez-gatell" class="alert-link">aquí</a> la nota que publicó El Universal),
       el Dr Hugo López-Gattel explicó que México ha aplanado la curva ya que la velocidad a la que se propaga el virus
       (medida con el tiempo de duplicación) ha disminuido.</p>
 
@@ -49,14 +49,22 @@ layout: default
       Esto se debe a que la mayoría de las pruebas tardan entre 3 y 7 días.</p>
 
     <p class='text-justify'>La primera forma de contabilizar los casos que llamaremos la forma "diaria" es la que se utiliza para
-      la primer gráfica de la conferencia matutina Es común en el ámbito internacional y se utiliza por Worldometers y la Universidad Johns Hopkins.
-      También se encuentra en el tablero de Mexicovid aquí.</p>
+      la primer gráfica de la conferencia matutina Es común en el ámbito internacional y se utiliza por <a href="https://www.worldometers.info/coronavirus/" class="alert-link">Worldometers</a> y <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" class="alert-link">la Universidad Johns Hopkins</a>.
+      También se encuentra en la <a href="/" class="alert-link">página principal de nuestro tablero</a>.</p>
 
     <p class='text-justify'>La segunda forma que llamaremos "retroactiva" se utiliza para la gráfica que compara los estados y
-      también en el tablero oficial del gobierno. Mexicovid tiene una pestaña dedicada aquí.</p>
+      también en <a href="https://coronavirus.gob.mx/datos/" class="alert-link">el tablero oficial</a> del gobierno. Nuestro tablero tiene una pestaña dedicada <a href="/datos_abiertos.html" class="alert-link">aquí</a>.</p>
 
     <p class='text-justify'>Utilizando el recuento retroactivo hemos replicado la gráfica de la conferencia a continuación.
-      Esto es posible gracias a que la DGE publica la información de cada caso (pocos países publican información tan detallada). </p>
+      Esto es posible gracias a que la DGE publica la información de cada caso (pocos países publican información tan detallada).</p>
+
+
+    <div class="justify-content-center">
+        <figure style='max-width: 800px;'>
+            <img src="/posts/static/interpretacion_da.png" alt="Evolución de los casos totales (conteo diario)">
+            <figcaption class="text-center"><span class="highlight">Figura 1</span>: Evolución de los totales por estado cuando los casos se asignan el día que se hace la prueba (conteo retroactivo)</figcaption>
+        </figure>
+    </div>
 
     <p class='text-justify'>Podemos notar que las curvas se aplanan hacia el final, del lado derecho, pero esto se debe a la manera
       en que se contabilizan los casos. Puesto que aún no conocemos el resultado de las pruebas que se hicieron ayer, anteayer, etc,
@@ -70,7 +78,22 @@ layout: default
 
     <p class='text-justify'>Si ahora utilizamos el recuento diario y contabilizamos los casos el día que se conoce el resultado, la gráfica luce distinto.</p>
 
+    <div class="justify-content-center">
+        <figure style='max-width: 800px;'>
+            <img src="/posts/static/interpretacion_jh.png" alt="Evolución de los casos totales (conteo retroactivo)">
+            <figcaption class="text-center"><span class="highlight">Figura 2</span>: Evolución de los totales por estado cuando los casos se contabilizan el día que se conoce el resultado de las pruebas (conteo diario)</figcaption>
+        </figure>
+    </div>
+
     <p class='text-justify'>Abajo comparamos tres estados para observar como se ven las curvas lado a lado y resaltamos algunos aspectos que tienen interpretación epidemiológica.</p>
+
+    <!-- nada mas no logro centrar las figuras con nada :( -->
+    <div class="justify-content-center">
+        <figure style='max-width: 800px;'>
+            <img src="/posts/static/interpretaciones_anotadas.png" alt="Comparación de las dos formas de recuento">
+            <figcaption class='text-center'><span class="highlight">Figura 3</span>: Comparación de las dos formas de recuento para tres estados de la República</figcaption>
+        </figure>
+    </div>
 
     <p class='text-justify'>En conclusión, ambas formas de contabilizar los casos tienen ventajas y desventajas,
       y no hay una que sea correcta y la otra incorrecta.  Es importante entender que las gráficas y los datos tienen asociado un contexto,
