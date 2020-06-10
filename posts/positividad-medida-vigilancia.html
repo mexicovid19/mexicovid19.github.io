@@ -1,0 +1,112 @@
+---
+layout: default
+---
+<article>
+
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+  </header>
+
+
+  <section>
+
+      <h3 style='text-transform: none; margin-top: 5%;'> La positividad como medida de vigilancia: un panorama poco alentador para México</h3>
+
+      <h5 style='text-transform: none;'>Rodrigo Leal Cervantes • 10 de junio, 2020</h5>
+
+    <p class='text-justify'>La Jornada Nacional de Sana Distancia estuvo en vigor desde el 23 de marzo hasta el día 30 de mayo. A partir del mes de junio, la estrategia en cada estado depende del nivel de riesgo, que se resume utilizando un semáforo.</p>
+
+    <p class='text-justify'>Según los <a href="https://github.com/mexicovid19/Mexico-datos/blob/master/documentos/lineamiento_semaforo_05Jun.pdf" class="alert-link">lineamientos</a> de la Secretaría de Salud (SSa) el color del semáforo se determina siguiendo 4 criterios:</p>
+
+    <ol style="text-align: left;">
+        <li>La ocupación hospitalaria.</li>
+        <li> <span class="highlight">La positividad de las pruebas</span> (que se realizan dentro del sistema de vigilancia SISVER).</li>
+        <li>La tendencia del número de casos hospitalizados</li>
+        <li>La tendencia del número de casos sospechosos.</li>
+    </ol>
+
+    <p class='text-justify'>En este artículo queremos discutir algunos puntos relacionados al segundo criterio.</p>
+
+    <p class='text-justify'>La positividad es el porcentaje de pruebas que son positivas cada día (100x&nbsp;# casos confirmados ese día / # pruebas realizadas ese día).</p>
+
+    <p class='text-justify'>Dado que depende de dos variables que interactúan, la positivad es un poco más difícil de interpretar que el número total de casos, por ejemplo.&nbsp;Pero a estas alturas de la epidemia el número de casos confirmados nos dice muy poco porque es imposible que detectemos a todas las personas que tienen el virus (hasta el día 9 de junio se han estudiado a poco más de 117 mil personas, que representan 0.9% de la población mexicana).</p>
+    Esto nos lleva a una idea sencilla pero muy importante. Contrario a lo que uno podría intuir, una prueba negativa no es para nada un desperdicio. Al contrario, una prueba negativa nos puede dar muchísima información, y parte de esta información se mide utilizando la positividad.
+
+    <p class='text-justify'>Si la positividad es alta, esto puede indicar que solamente se le están haciendo pruebas a los más enfermos. En cambio, si la positividad es baja, tal vez no se detecten todos los casos positivos pero tenemos más certeza de que se ha estudiado a un sector más amplio de la población (no solo a los más enfermos), y estaremos mejor parados para darnos una idea de la evolución de la epidemia.</p>
+
+    <p class='text-justify'>Vamos a ver como han evolucionado el número de pruebas que se hacen y el número de casos confirmados que se obtienen a diario. Utilizamos los datos abiertos que publicó la SSa el día lunes 8 de junio.</p>
+
+    <div class="separator" style="clear: both; text-align: center;">
+        <img src="/posts/static/pruebas_diarias.png" alt="Número de pruebas diarias y confirmadas en México"/>
+    </div>
+
+    <p class='text-justify'>En esta gráfica podemos ver que nuestro país a incrementado considerablemente el número de test que administra todos los días, pasando de menos de mil a principios de marzo a 8 mil en promedio actualmente (entre semana se alcanzan casi 10 mil pero en fin de semana el número disminuye considerablemente).</p>
+
+    <p class='text-justify'>Los últimos 14 días están sombreados en la gráfica anterior porque queremos reflejar que muchas pruebas no están listas y los datos van a cambiar (más detalles al final del post). Es por eso que ignoramos sacar conclusiones de la región gris (sobre todo de la tendencia a la baja que simplemente refleja que hay pruebas que aún no se registran en el sistema).</p>
+
+    <p class='text-justify'>Bien, ¿cuál ha sido la evolución de la positividad? Podemos verlo a continuación.</p>
+
+    <div class="separator" style="clear: both; text-align: center;">
+        <img src="/posts/static/positividad.png" alt="Evolución de la postividad en México"/>
+    </div>
+
+    <p class='text-justify'>De nuevo, ignoramos la región en gris. Podemos ver que la positividad se encuentra rondando 40% a mediados y finales de mayo, y los días malos alcanzó casi 50%. Esto quiere decir que, <span class="highlight">según el día, 1 de cada dos personas ó 1 de cada 3 personas da positivo al virus. La <a href="https://coronavirus.jhu.edu/testing/testing-positivity" class="alert-link">recomendación de la OMS</a> es que este número debería de ser 1 de cada 20.</span> Por lo tanto, nuestro país está muy pero muy por encima de esta recomendación.</p>
+
+    <p class='text-justify'>Esto no tiene por que ser así. Si bien nuestro país no tiene los recursos de los disponen los países más ricos y es poco realista alcanzar 100 mil pruebas a diario, las pruebas de las que sí se disponen se podrían utilizar para estudiar a una muestra aleatoria de la población y no solo a los enfermos que llegan a los hospitales del sector Salud. Una excelente opinión al respecto por Rafael Prieto y Ángel Robles se encuentra&nbsp;<a href="https://puntodecimal.mx/politica/que-nos-podran-indicar-las-pocas-pruebas-de-covid-que-hagamos" class="alert-link">aquí</a>.</p>
+
+    <p class='text-justify'>Algo preocupante de los <a href="https://github.com/mexicovid19/Mexico-datos/blob/master/documentos/lineamiento_semaforo_05Jun.pdf" class="alert-link"">lineamientos</a> para determinar el color del nuevo semáforo son los valores que se utilizan en el ámbito de la positividad: arriba de 40% el riesgo es Máximo (rojo); entre 30 y 39% es Alto (naranja)ñ entre 20 y 29% es Medio (amarillo) y por debajo de 19% es Bajo (verde).</p>
+
+    <p class='text-justify'>En semáforo verde ya no se aplican medidas de prevención. Sin embargo una positividad del 20% significa que 1 de cada 5 personas sigue dando positivo al virus y esto es cuatro veces más de lo que recomienda la OMS. Más aún, suponiendo 10 mil pruebas diarias, esto significa 2 mil casos de COVID19 confirmados todos los días, y muchos más que darían positivo pero que no pueden ser estudiados con tan pocas pruebas.</p>
+
+    <p class='text-justify'>En la <a href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?" class="alert-link">comparación de países</a> de Our World in Data, México es uno de los países con positividad más alta, y este sitio no toma en cuenta el retraso de 14 días. Si nos guiamos por este mapa, podemos ver que una positividad del 20% para nada es un riesgo bajo.</p>
+
+    <p class='text-justify'>En conclusión, el análisis de la evolución de la positividad es poco alentador. Los datos públicos del gobierno nos llevan a concluir que <span class="highlight">es muy probable que en la vigilancia que se está haciendo nos estemos enfocando en un sector muy específico y que no tengamos un panorama completo de la epidemia en nuestro país</span>.</p>
+
+    <p class='text-justify'>Sin embargo, aún estamos a tiempo de cambiar la estrategia. Lo que se debería de hacer es dirigir las pruebas disponibles a un sector mucho más amplio de la población con el fin de aproximarnos lo más posible a una muestra aleatoria. Tenemos que hacer pruebas dentro pero también fuera de los hospitales, incluyendo a personas que no presentan síntomas, y cubriendo la mayor extensión posible del país.</p>
+
+    <br><br>
+    <p><span class="highlight">Extra</span>: ¿por qué ignoramos los últimos 14 días?</p>
+    <p class='text-justify'>Abajo presentamos el porcentaje de pruebas que están listas según el tiempo que ha transcurrido desde que el paciente visitó alguna unidad médica de la SSa (que suponemos es la fecha en que se toma la muestra, pero no hay manera de confirmar esto). Los datos son los publicados el lunes 8 de junio.</p>
+
+    <div class="separator" style="clear: both; text-align: center;">
+        <img src="/posts/static/pruebas_listas.png" alt="Porcentaje de pruebas listas según días transcurridos" />
+    </div>
+
+    <p class='text-justify'>Podemos ver que del total de pruebas casi el 50% están listas en 5 días, 80% en 10 días y aproximadamente el 90% están listas en dos semanas. (También hay pruebas de las que todavía no se tiene registro pero por definición no podemos saber nada de ellas). En nuestro análisis, consideramos que 90% de pruebas listas nos permite estar relativamente seguros de nuestras conclusiones.</p>
+
+    <p class='text-justify'>Cabe destacar que dentro de la base de datos de Salud hay pacientes con un resultado pendiente desde principios de Marzo. Dado que han pasado más de 90 días para algunos de ellos, es probable que la base de datos incluye a personas a las que nunca se les hizo la prueba y se les marcó Resultado-pendiente para indicar que eran sospechosos. Sería útil que la SSa confirmara esto, y que distinguiera ambos casos.</p>
+
+    <br><br>
+    <p><span class="highlight">Actualización</span>: (10 de junio)</p>
+
+    <p class='text-justify'>Mientras terminábamos de escribir esta entrada el documento PDF con los lineaminentos para calcular el color del semáforo que se encontraba ayer en un página oficial del gobierno (<a href="https://coronavirus.gob.mx/semaforo/" class="alert-link">aquí</a>) fue removido. Hemos recurrido a hacerlo público nosotros en el <a href="https://github.com/mexicovid19/Mexico-datos" class="alert-link">repositorio</a> que mantenemos para nuestro <a href="/">tablero de monitoreo</a>.
+
+    <p class='text-justify'>Consideramos que esta información es muy importante y la SSa debería de manejarse con transparencia y difundir tanto como le sea posible esta información.</p>
+
+    </section>
+
+
+      {%- if site.posts.size > 0 -%}
+        <p class="h4">{{ page.list_title | default: "Posts" }}</p>
+        <ul class="list-unstyled">
+          {%- for post in site.posts -%}
+          <li>
+            <span class="text-muted">
+              {%- assign date_format = "%b %-d, %Y" -%}
+              {{ post.date | date: date_format }}
+            </span>
+            <p class="h5">
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </p>
+            {%- if site.show_excerpts -%}
+              {{ post.excerpt }}
+            {%- endif -%}
+          </li>
+          {%- endfor -%}
+        </ul>
+
+        <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+      {%- endif -%}
+</article>
