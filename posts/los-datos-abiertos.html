@@ -1,0 +1,84 @@
+---
+layout: default
+---
+<article>
+
+  <header>
+     <h1>{{ page.title | escape }}</h1>
+   </header>
+
+
+    <section>
+
+      <h3 style='text-transform: none; margin-top: 5%;'>¿Cómo cuenta el gobierno los nuevos casos confirmados de COVID-19? Una explicación a su base de datos abiertos</h3>
+
+     <h5 style='text-transform: none;'><a href="/about.html" class="alert-link">Leonardo Castro González</a> • 22 de abril, 2020<a href="https://twitter.com/leonardo_c25"><i class="fa fa-twitter"></i></a></h5>
+
+     <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+       <p class='text-justify'> Esta es una explicación más a detalla de la diferencia entre los números mostrados en <a href='/'>nuestra página principal</a> y aquellos en <a href='datos-abiertos.html'>nuestra página</a> dedicada a la base de datos de la
+         <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link">Dirección General de Epidemiología (DGE).</a>
+         Esto también ayuda a entender por qué las series de tiempo se muestran distintas en los distintos botones en <a href='/'>nuestra página principal</a> y la <a href='defunciones.html'>página dedicada a las defunciones.</a>
+         </p>
+       </div>
+
+     <p class='text-justify'>Hasta el 13 de abril, la manera en la que el gobierno daba a conocer el número de casos confirmados era con respecto a las pruebas positivas conocidas hasta ese día.
+     Es decir, el 12 de abril se contabilizaron como nuevos confirmados todos aquellos casos antes sospechosos pero cuyas pruebas resultaron postivas entre el 11 y el 12 de abril.
+     </p>
+     <p class='text-justify mb-0'>
+     Sin embargo, a partir del 13 de abril, la
+     <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127" class="alert-link" style="color:#FF8654 !important;">Dirección General de Epidemiología (DGE) </a>
+      comenzó a publicar una base de datos con una mayor cantidad de información con respecto a los casos sospechosos y positivos.
+     Dentro de la nueva información publicada, se puede encontrar la fecha en la que el caso sospechoso visitó la Unidad Médica y se le realizó la prueba para detectar coronavirus.
+     </p>
+     <p class='text-justify'>Esto permite contabilizar los casos contagiados no con respecto a la fecha del resultado de la prueba, sino con respecto a la fecha de su realización.
+     Es este nuevo enfoque el que está tomando el gobierno, como se puede ver no solo en la base de datos, sino también
+     <a href="https://coronavirus.gob.mx/datos/#DOView" class="alert-link" style="color:#FF8654 !important;">aquí</a>.
+     </p>
+     <p class='text-justify'> Esto tiene como consecuencia que
+       <a class="alert-link" style="color:#FF8654 !important;">TODA</a>
+       la base de datos de la DGE está sujeta a cambios con respecto a nuevos resultados de pruebas aparezcan.
+     Ambas maneras de interpretar cuándo contar un caso (el día que se realizó la prueba o el día que se conoce el resultado positivo) son complementarias y aportan distintas formas de interpretar la misma información.
+     Es por esto que hemos decidido mantener una pestaña con visualizaciones para ambas.
+     </p>
+     <p class='text-justify mb-0'>La primer manera (casos nuevos con respecto al día del resultado) es la que se encuentra en nuestra página principal y representa la que se ha usado hasta el momento y que sigue la línea de las conferencias vespertinas,
+     así como otras páginas importantes como el trabajo de la
+     <a href="https://coronavirus.jhu.edu/map.html" class="alert-link" style="color:#FF8654 !important;">John Hopkins University</a>,
+     <a href="https://ourworldindata.org/coronavirus" class="alert-link" style="color:#FF8654 !important;">Our World in Data</a>
+     de la Universidad de Oxford, o
+     <a href="https://www.worldometers.info/coronavirus/#countries" class="alert-link" style="color:#FF8654 !important;">worldometers</a>.
+      Un pequeño esquema representando ambas maneras se observa a continuación. La diferencia en cómo visualizar los datos se pueden ver en distintos lugares.
+      Por ejemplo, en <a href='/'>nuestra página principal</a> presentamos la manera usada por la John Hopkins University o Our World in data.
+      En <a href='datos-abiertos.html'>nuestra página dedicada a la base de datos abiertos de la DGE</a>, observamos la segunda manera. 
+     </p>
+
+     <div class="separator" style="clear: both; text-align: center; width: 70%">
+       <img src="/posts/static/diagrama.jpeg" class='resposive'>
+     </div>
+
+     </section>
+
+
+     {%- if site.posts.size > 0 -%}
+       <p class="h4">{{ page.list_title | default: "Posts" }}</p>
+       <ul class="list-unstyled">
+         {%- for post in site.posts -%}
+         <li>
+           <span class="text-muted">
+             {%- assign date_format = "%b %-d, %Y" -%}
+             {{ post.date | date: date_format }}
+           </span>
+           <p class="h5">
+             <a href="{{ post.url | relative_url }}">
+               {{ post.title | escape }}
+             </a>
+           </p>
+           {%- if site.show_excerpts -%}
+             {{ post.excerpt }}
+           {%- endif -%}
+         </li>
+         {%- endfor -%}
+       </ul>
+
+       <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+     {%- endif -%}
+   </article>
