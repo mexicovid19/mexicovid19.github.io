@@ -20,7 +20,7 @@ var tipH = d3.select("#barplot_comparativo_muertes").append("div")
       .attr("class", "tipH")
       .style("opacity", 0);
 
-var tip = d3.select("#barplot_comparativo_muertes").append("div")
+var tipP = d3.select("#barplot_comparativo_muertes").append("div")
       .attr("class", "tip")
       .style("opacity", 0);
 
@@ -123,10 +123,10 @@ function update2(selectedVar, selectedOption) {
                   .attr("opacity", .8)
                   .style("fill", "#1f9bcf")
                   .on("mouseover", function(d) {
-                      tip.transition()
+                      tipP.transition()
                           .duration(200)
                           .style("opacity", .9);
-                      tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                      tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                                 " <p class='text-primary'>Promedio 7 dias" + "</p>" +
                                 " <p class='text-primary'>" + (d["Nuevas_JH_promedio"]) + "</p>")
                           .style("left", (d3.event.pageX) + "px")
@@ -148,6 +148,21 @@ function update2(selectedVar, selectedOption) {
                     //.attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
                     .attr("cy", function(d) { return y(+d[selectedOption+"_promedio"]) })
                     .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevas_JH"){ return 0.5 } else { return 1. }});
+                    .on("mouseover", function(d) {
+                        tipP.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                                  " <p class='text-primary'>Promedio 7 dias" + "</p>" +
+                                  " <p class='text-primary'>" + (d[selectedOption+'_promedio']) + "</p>")
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 30) + "px");
+                    })
+                    .on("mouseout", function(d) {
+                        tipP.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    })
               }
 
               update(selectedVar)
