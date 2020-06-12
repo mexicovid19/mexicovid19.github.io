@@ -72,20 +72,24 @@ layout: default
       </div>
 
 
-      <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
-        <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
-        <p class="mb-0"> Los puntos de color lila corresponden al número total de defunciones reportadas día por día por las autoridades.
-          Las barras verticales de color lila corresponden al incremento diario de defunciones nacionales.
-        </p>
-      </div>
+       <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
+         <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
+         <p class="mb-0"> Los puntos lilas corresponden al número de defunciones reportadas día por día por las autoridades.
+           Los puntos naranjas representan el número de defunciones por la fecha de deceso.
+          La información análoga es mostrada en la gráfica inferior. En ese caso presentamos también la media móvil de 7 días.
+           Para saber más sobre la diferencia entre la información en lila y la información en naranja, por favor lee
+           <a href="/posts/los-datos-abiertos.html" class="alert-link"  style="color:#FF8654 !important;">esto</a> o dirígite
+            <a href="/datos_abiertos.html" class="alert-link"  style="color:#FF8654 !important;">aquí.</a>
+         </p>
+       </div>
 
       <div class="justfy-content-center" id="barplot_comparativo_muertes">
         <h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones diarias</h1>
         <p id="tiempo_actualizacion_4"> </p>
         <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
             <!-- Add 2 buttons -->
-            <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" onclick="update('Nuevas_JH')">Fecha de anuncio</button>
-            <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" onclick="update('Nuevas_abiertos')">Fecha de deceso</button>
+            <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" onclick="update2('Nuevas_JH')">Fecha de anuncio</button>
+            <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" onclick="update2('Nuevas_abiertos')">Fecha de deceso</button>
         </div>
 
           <script src="{{ "/assets/javascript/barplot_comparativo_muertes_nuevas.js" | relative_url }}"></script>
