@@ -142,9 +142,9 @@ function update2(selectedVar, selectedOption) {
 
                 dot
                   .data(data)
-                  //.transition()
+                  .transition()
                   .style("fill", function(d){if (selectedOption=="Nuevas_JH") {return "#1f9bcf";} else {return "tomato";}})
-                  //.duration(1000)
+                  .duration(1000)
                     //.attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
                     .attr("cy", function(d) { return y(+d[selectedOption+"_promedio"]) })
                     .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevas_JH"){ return 0.5 } else { return 1. }})

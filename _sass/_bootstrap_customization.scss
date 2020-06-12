@@ -316,6 +316,19 @@ circle:hover{
     pointer-events: none;
 }
 
+#barplot_comparativo_muertes .tipP {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 110px;
+    padding: 2px;
+    font: 12px;
+    background: #c0e3f2;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
 #grafica_recu .tip {
     position: absolute;
     text-align: center;
@@ -329,7 +342,7 @@ circle:hover{
     pointer-events: none;
 }
 
-#grafica_comparativo_muertes .tipP {
+#grafica_comparativo_muertes .tip {
     position: absolute;
     text-align: center;
     width: 70px;
