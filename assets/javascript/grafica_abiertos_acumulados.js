@@ -341,7 +341,6 @@ d3.csv(url, function(data) {
         .attr('class', 'curtain')
         .attr('transform', 'rotate(180)')
         .style('fill', '#ffffff');
-
     /* Optionally add a guideline */
     /*
     var guideline = svgT.append('line')
@@ -352,7 +351,6 @@ d3.csv(url, function(data) {
         .attr('y1', 1)
         .attr('x2', 1)
         .attr('y2', h_full)//height
-
     /* Create a shared transition for anything we're animating */
     /*
     var t = svgT.transition()
@@ -365,12 +363,10 @@ d3.csv(url, function(data) {
                 .style('opacity', 0)
                 .remove()
         });
-
     t.select('rect.curtain')
         .attr('width', 0);
     t.select('line.guide')
         .attr('transform', 'translate(' + w + ', 0)')//width
-
     d3.select("#show_guideline").on("change", function(e) {
         guideline.attr('stroke-width', this.checked ? 1 : 0);
         curtain.attr("opacity", this.checked ? 0.75 : 1);

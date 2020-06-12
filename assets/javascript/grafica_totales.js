@@ -36,6 +36,7 @@ var svgT = d3.select("#grafica_totales")
 
 //Read the data
 d3.csv(url, function(data) {
+    console.log(data);
     var tope = data.length - 1;
 
     data.forEach(function(d) {

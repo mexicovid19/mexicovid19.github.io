@@ -60,8 +60,16 @@ layout: default
 
 
     <div class="row d-flex justify-content-center" id="cont_graf">
-      <div class="justify-content-center" id="grafica_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones totales</h1><p id="tiempo_actualizacion_3"> </p></div>
-      <script src="{{ "/assets/javascript/grafica_muertes.js" | relative_url }}"></script>
+      <div class="justify-content-center" id="grafica_muertes"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Defunciones totales</h1><p id="tiempo_actualizacion_3"></p>
+        <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
+          <!-- Add 2 buttons -->
+          <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" id="Nuevas_JH" value="Nuevas_JH">Fecha de anuncio</button>
+          <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" id="Nuevas_abiertos" value="Nuevas_abiertos">Fecha de deceso</button>
+
+         <script src="{{ "/assets/javascript/grafica_comparativo_muertes.js" | relative_url }}"></script>
+
+       </div>
+      </div>
 
 
       <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
