@@ -20,9 +20,9 @@ var tipH = d3.select("#barplot_comparativo_muertes").append("div")
       .attr("class", "tipH")
       .style("opacity", 0);
 
-      var tip = d3.select("#barplot_comparativo_muertes").append("div")
-            .attr("class", "tip")
-            .style("opacity", 0);
+var tip = d3.select("#barplot_comparativo_muertes").append("div")
+      .attr("class", "tip")
+      .style("opacity", 0);
 
 // append the svg object to the body of the page
 var svgBarC = d3.select("#barplot_comparativo_muertes")
