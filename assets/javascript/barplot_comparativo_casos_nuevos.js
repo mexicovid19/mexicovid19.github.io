@@ -163,7 +163,7 @@ function update(selectedVar) {
                         tipP.transition()
                             .duration(500)
                             .style("opacity", 0);
-                    })
+                    });
               }
 
               update(selectedVar)
