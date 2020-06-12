@@ -128,7 +128,7 @@ function update2(selectedVar, selectedOption) {
                           .style("opacity", .9);
                       tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                                 " <p class='text-primary'>Promedio 7 dias" + "</p>" +
-                                " <p class='text-primary'>" + (d["Nuevas_JH_promedio"]) + "</p>")
+                                " <p class='text-primary'>" + (+d["Nuevas_JH_promedio"]).toLocaleString() + "</p>")
                           .style("left", (d3.event.pageX) + "px")
                           .style("top", (d3.event.pageY - 30) + "px");
                   })
@@ -154,13 +154,13 @@ function update2(selectedVar, selectedOption) {
                             .style("opacity", .9);
                         tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                                   " <p class='text-primary'>Promedio 7 dias" + "</p>" +
-                                  " <p class='text-primary'>" + (d[selectedOption+'_promedio']) + "</p>")
+                                  " <p class='text-primary'>" + (+d[selectedOption+'_promedio']).toLocaleString() + "</p>")
                             .style("left", (d3.event.pageX) + "px")
                             .style("top", (d3.event.pageY - 30) + "px");
                     })
                     .on("mouseout", function(d) {
                         tipP.transition()
-                            .duration(500)
+                            .duration(100)
                             .style("opacity", 0);
                     });
               }
