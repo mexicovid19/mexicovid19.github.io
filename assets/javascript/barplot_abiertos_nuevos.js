@@ -157,78 +157,101 @@ d3.csv(urlNuevos, function(data) {
               .style("opacity", 0);
       });
 
-  var fase3=new Date(2020,3,20);
-  //Añade línea de fase 3
-  var fase = svgBar.append("line")
-      .attr("x1", x(fase3))
-      .attr("y1", y(y.domain()[0]))
-      .attr("x2", x(fase3))
-      .attr("y2", y(y.domain()[1])+17)
-      .attr("stroke", "#000000") //fd7e14
-      .style("stroke-width", 1)
-      .style("fill", "none")
-      .style("stroke-dasharray", "5,5");
+ 
+      //Lineas fases
 
-      // texto fase 12
+      //Fase 3
+      var fase3=new Date(2020,3,20);
+
+      var fase = svgBar.append("line")
+          .attr("x1", x(fase3))
+          .attr("y1", y(y.domain()[0]))
+          .attr("x2", x(fase3))
+          .attr("y2", y(y.domain()[1]))
+          .attr("stroke", "#000000")
+          .style("stroke-width", 1)
+          .style("fill", "none")
+          .style("stroke-dasharray", "5,5");
+
       svgBar.append("text")
-          //.attr("transform", "rotate(-90)")
-          .attr("y", y(y.domain()[1])) //-0 - margin.left
-          .attr("x", x(fase3) - 30)
+          .attr("y", x(fase3)-15)
+          .attr("x", y(y.domain()[1])-70)
           .attr("dy", "1em")
           .style("text-anchor", "middle")
           .style("font-size","10px")
           .text("Comienza la fase 3")
           .attr("stroke", "#000000")
+          .attr("font-family", "sans-serif")
+          .attr("transform", "rotate(-90)");
+
+      //Fase 2
+      var fase12 = new Date(2020, 2, 23);
+
+      var fase = svgBar.append("line")
+          .attr("x1", x(fase12))
+          .attr("y1", y(y.domain()[0]))
+          .attr("x2", x(fase12))
+          .attr("y2", y(y.domain()[1]))
+          .attr("stroke", "#000000")
+          .style("stroke-width", 1)
+          .style("fill", "none")
+          .style("stroke-dasharray", "5,5");
+
+      svgBar.append("text")
+          .attr("y", x(fase12)-15)
+          .attr("x", y(y.domain()[1])-70)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("font-size","10px")
+          .text("Comienza la fase 2")
+          .attr("stroke", "#000000")
+          .attr("font-family", "sans-serif")
+          .attr("transform", "rotate(-90)");
+      //Emergencia sanitaria
+      var faseExt=new Date(2020, 2, 30);;
+
+      var fase = svgBar.append("line")
+          .attr("x1", x(faseExt))
+          .attr("y1", y(y.domain()[0]))
+          .attr("x2", x(faseExt))
+          .attr("y2", y(y.domain()[1]))
+          .attr("stroke", "#000000")
+          .style("stroke-width", 1)
+          .style("fill", "none")
+          .style("stroke-dasharray", "5,5");
+
+      svgBar.append("text")
+          .attr("y", x(faseExt)-15)
+          .attr("x", y(y.domain()[1])-70)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("font-size","10px")
+          .text("Emergencia sanitaria")
+          .attr("stroke", "#000000")
+          .attr("font-family", "sans-serif")
+          .attr("transform", "rotate(-90)");
+
+      var faseFin=new Date(2020, 5, 1);;
+
+      var fase = svgBar.append("line")
+          .attr("x1", x(faseFin))
+          .attr("y1", y(y.domain()[0]))
+          .attr("x2", x(faseFin))
+          .attr("y2", y(y.domain()[1]))
+          .attr("stroke", "#000000")
+          .style("stroke-width", 1)
+          .style("fill", "none")
+          .style("stroke-dasharray", "5,5");
+
+      svgBar.append("text")
+          .attr("y", y(y.domain()[1]))
+          .attr("x", x(faseFin)-80)
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("font-size","10px")
+          .text("Fin de la jornada nacional")
+          .attr("stroke", "#000000")
           .attr("font-family", "sans-serif");
-
-  var fase12=new Date(2020,2,23);
-  //Añade línea de fase 2
-  var fase = svgBar.append("line")
-      .attr("x1", x(fase12))
-      .attr("y1", y(y.domain()[0]))
-      .attr("x2", x(fase12))
-      .attr("y2", y(y.domain()[1])+57)
-      .attr("stroke", "#000000") //fd7e14
-      .style("stroke-width", 1)
-      .style("fill", "none")
-      .style("stroke-dasharray", "5,5");
-
-  // texto fase 12
-  svgBar.append("text")
-      //.attr("transform", "rotate(-90)")
-      .attr("y", y(y.domain()[1])+40) //-0 - margin.left
-      .attr("x", x(fase12) - 5)
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("font-size","10px")
-      .text("Comienza la fase 2")
-      .attr("stroke", "#000000")
-      .attr("font-family", "sans-serif");
-
-  var faseExt=new Date(2020, 2, 30);;
-
-  //Añade línea de emergencia
-  var fase = svgBar.append("line")
-      .attr("x1", x(faseExt))
-      .attr("y1", y(y.domain()[0]))
-      .attr("x2", x(faseExt))
-      .attr("y2", y(y.domain()[1])+37)
-      .attr("stroke", "#000000") //fd7e14
-      .style("stroke-width", 1)
-      .style("fill", "none")
-      .style("stroke-dasharray", "5,5");
-
-    // texto emergencia
-    svgBar.append("text")
-    //.attr("transform", "rotate(-90)")
-    .attr("y", y(y.domain()[1])+20) //-0 - margin.left
-    .attr("x", x(faseExt) - 5)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Emergencia sanitaria")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
 
 
     //Leyenda
@@ -240,38 +263,37 @@ d3.csv(urlNuevos, function(data) {
      //Leyenda Negativas
      svgBar.append('circle')
              .attr("cx", coordX-20)
-             .attr("cy", coordY+40)
+             .attr("cy", coordY+110)
              .attr("r", 5)
              .attr("opacity",0.95)
              .style("fill", "darkmagenta")
-     svgBar.append("text").attr("x", coordX-12).attr("y", coordY+40).text("Pruebas totales").style("font-size", "10px").attr("alignment-baseline","middle")
+     svgBar.append("text").attr("x", coordX-12).attr("y", coordY+110).text("Pruebas totales").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Negativas
     svgBar.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+60)
+            .attr("cy", coordY+130)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkorange")
-    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+60).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+130).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Positivas
     svgBar.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+80)
+            .attr("cy", coordY+150)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "steelblue")
-    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+80).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+150).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Pendientes
     svgBar.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+100)
+            .attr("cy", coordY+170)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkolivegreen")
-    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+100).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
-
+    svgBar.append("text").attr("x", coordX-12).attr("y", coordY+170).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 
 });

@@ -223,77 +223,100 @@ d3.csv(url, function(data) {
         });
 
 
+        //Lineas fases
 
-    //Lineas fases
+        //Fase 3
+        var fase3=new Date(2020,3,20);
 
-    //Fase 3
-    var fase3=new Date(2020,3,20);
+        var fase = svgT.append("line")
+            .attr("x1", x(fase3))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase3))
+            .attr("y2", y(y.domain()[1]))
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
 
-    var fase = svgT.append("line")
-        .attr("x1", x(fase3))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(fase3))
-        .attr("y2", y(y.domain()[1])+17)
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
+        svgT.append("text")
+            .attr("y", x(fase3)-15)
+            .attr("x", y(y.domain()[1])-70)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 3")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif")
+            .attr("transform", "rotate(-90)");
 
-    svgT.append("text")
-        .attr("y", y(y.domain()[1]))
-        .attr("x", x(fase3) - 50)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Comienza la fase 3")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
+        //Fase 2
+        var fase12 = new Date(2020, 2, 23);
 
-    //Fase 2
-    var fase12 = new Date(2020, 2, 23);
+        var fase = svgT.append("line")
+            .attr("x1", x(fase12))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(fase12))
+            .attr("y2", y(y.domain()[1]))
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
 
-    var fase = svgT.append("line")
-        .attr("x1", x(fase12))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(fase12))
-        .attr("y2", y(y.domain()[1])+57)
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
+        svgT.append("text")
+            .attr("y", x(fase12)-15)
+            .attr("x", y(y.domain()[1])-70)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Comienza la fase 2")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif")
+            .attr("transform", "rotate(-90)");
+        //Emergencia sanitaria
+        var faseExt=new Date(2020, 2, 30);;
 
-    svgT.append("text")
-        .attr("y", y(y.domain()[1])+40)
-        .attr("x", x(fase12) - 5)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Comienza la fase 2")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
+        var fase = svgT.append("line")
+            .attr("x1", x(faseExt))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(faseExt))
+            .attr("y2", y(y.domain()[1]))
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
 
-    //Emergencia sanitaria
-    var faseExt=new Date(2020, 2, 30);;
+        svgT.append("text")
+            .attr("y", x(faseExt)-15)
+            .attr("x", y(y.domain()[1])-70)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size","10px")
+            .text("Emergencia sanitaria")
+            .attr("stroke", "#000000")
+            .attr("font-family", "sans-serif")
+            .attr("transform", "rotate(-90)");
 
-    var fase = svgT.append("line")
-        .attr("x1", x(faseExt))
-        .attr("y1", y(y.domain()[0]))
-        .attr("x2", x(faseExt))
-        .attr("y2", y(y.domain()[1])+37)
-        .attr("stroke", "#000000")
-        .style("stroke-width", 1)
-        .style("fill", "none")
-        .style("stroke-dasharray", "5,5");
+        var faseFin=new Date(2020, 5, 1);;
 
-    svgT.append("text")
-        .attr("y", y(y.domain()[1])+20)
-        .attr("x", x(faseExt) - 5)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size","10px")
-        .text("Emergencia sanitaria")
-        .attr("stroke", "#000000")
-        .attr("font-family", "sans-serif");
+        var fase = svgT.append("line")
+            .attr("x1", x(faseFin))
+            .attr("y1", y(y.domain()[0]))
+            .attr("x2", x(faseFin))
+            .attr("y2", y(y.domain()[1]))
+            .attr("stroke", "#000000")
+            .style("stroke-width", 1)
+            .style("fill", "none")
+            .style("stroke-dasharray", "5,5");
+
+            svgT.append("text")
+                .attr("y", y(y.domain()[1]))
+                .attr("x", x(faseFin)-80)
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .style("font-size","10px")
+                .text("Fin de la jornada nacional")
+                .attr("stroke", "#000000")
+                .attr("font-family", "sans-serif");
 
 
      //Leyenda
@@ -305,71 +328,27 @@ d3.csv(url, function(data) {
     //Leyenda Negativas
     svgT.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+40)
+            .attr("cy", coordY+110)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkorange")
-    svgT.append("text").attr("x", coordX-12).attr("y", coordY+40).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+110).text("Pruebas negativas").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda Pendientes
     svgT.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+60)
+            .attr("cy", coordY+130)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "steelblue")
-    svgT.append("text").attr("x", coordX-12).attr("y", coordY+60).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+130).text("Pruebas pendientes").style("font-size", "10px").attr("alignment-baseline","middle")
 
     //Leyenda positivas
     svgT.append('circle')
             .attr("cx", coordX-20)
-            .attr("cy", coordY+80)
+            .attr("cy", coordY+150)
             .attr("r", 5)
             .attr("opacity",0.95)
             .style("fill", "darkolivegreen")
-    svgT.append("text").attr("x", coordX-12).attr("y", coordY+80).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
-
-    // Animation
-    /* Add 'curtain' rectangle to hide entire graph */
-
-    /*
-    var curtain = svgT.append('rect')
-        .attr('x', -1 * w_full)//width
-        .attr('y', -1 * y(y.domain()[0]))//height
-        .attr('height', y(y.domain()[0]))//height
-        .attr('width', w_full)//width
-        .attr('class', 'curtain')
-        .attr('transform', 'rotate(180)')
-        .style('fill', '#ffffff');
-    /* Optionally add a guideline */
-    /*
-    var guideline = svgT.append('line')
-        .attr('stroke', '#333')
-        .attr('stroke-width', 0)
-        .attr('class', 'guide')
-        .attr('x1', 1)
-        .attr('y1', 1)
-        .attr('x2', 1)
-        .attr('y2', h_full)//height
-    /* Create a shared transition for anything we're animating */
-    /*
-    var t = svgT.transition()
-        .delay(1000)
-        .duration(3700)
-        .ease(d3.easeLinear)
-        .on('end', function() {
-            d3.select('line.guide')
-                .transition()
-                .style('opacity', 0)
-                .remove()
-        });
-    t.select('rect.curtain')
-        .attr('width', 0);
-    t.select('line.guide')
-        .attr('transform', 'translate(' + w + ', 0)')//width
-    d3.select("#show_guideline").on("change", function(e) {
-        guideline.attr('stroke-width', this.checked ? 1 : 0);
-        curtain.attr("opacity", this.checked ? 0.75 : 1);
-    })
-  */
+    svgT.append("text").attr("x", coordX-12).attr("y", coordY+150).text("Pruebas positivas").style("font-size", "10px").attr("alignment-baseline","middle")
 });
