@@ -18,16 +18,16 @@
    w = (w- (margin.left + margin.right) );
     h = (h - (margin.top + margin.bottom));
 
-var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos_abiertos/formato_especial/comparativo_muertes_acumuladas.csv";
+var url = "https://raw.githubusercontent.com/mexicovid19/Mexico-datos/master/datos_abiertos/formato_especial/comparativo_casos_acumulados.csv";
 
-var tip = d3.select("#grafica_muertes").append("div")
+var tip = d3.select("#grafica_totales").append("div")
     .attr("class", "tip")
     .style("opacity", 0);
 
-    d3.select("#grafica_muertes").append('style')
+    d3.select("#grafica_totales").append('style')
     .text('svg {max-width:100%}')
 
-var svgT = d3.select("#grafica_muertes")
+var svgT = d3.select("#grafica_totales")
     .append("svg")
     .attr("width", w_full)//weight + margin.left + margin.right + 0)
     .attr("height", h_full)//height + margin.top + margin.bottom + 70)
@@ -38,7 +38,7 @@ var svgT = d3.select("#grafica_muertes")
 // define the x scale (horizontal)
 
 var today = new Date();
-var mindate = new Date(2020, 2, 18);
+var mindate = new Date(2020, 1, 28);
 var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay()-14);
 
 // Add X axis --> it is a date format
@@ -69,7 +69,7 @@ d3.csv(url, function(data) {
     // Add Y axis
     var y = d3.scaleLinear()
         .range([h, 0])//height - 10
-        .domain([0, 1.1*data[tope]["Nuevas_JH"]])//1.1*d3.max(data, function(d) {return d.Nuevas_abiertos;})])
+        .domain([0, 1.1*data[tope]["Nuevos_JH"]])//1.1*d3.max(data, function(d) {return d.Nuevos_abiertos;})])
     svgT.append("g")
         .call(d3.axisLeft(y));
 
@@ -83,17 +83,17 @@ d3.csv(url, function(data) {
             return x(d.Fecha)
         })
         .attr("cy", function(d) {
-            return y(+d.Nuevas_JH)
+            return y(+d.Nuevos_JH)
         })
         .attr("r", 5)
         .attr("opacity",0.7)
         .attr("visibility", function(d, i) {if (d.Fecha < mindate) return "hidden";})
-        .style("fill", "mediumorchid")
+        .style("fill", "#1F9BCF")
         .on("mouseover", function(d) {
             tip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + (+d.Nuevas_JH).toLocaleString() + "</p>")
+            tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + (+d.Nuevos_JH).toLocaleString() + "</p>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 30) + "px");
         })
@@ -108,20 +108,20 @@ d3.csv(url, function(data) {
           dot
             .data(data)
             .transition()
-            .style("fill", function(d){if (selectedOption=="Nuevas_JH") {return "mediumorchid";} else {return "darkorange";}})
+            .style("fill", function(d){if (selectedOption=="Nuevos_JH") {return "#1F9BCF";} else {return "darkorange";}})
             .duration(1000)
               .attr("cx", function(d) { return x(d.Fecha) })
               .attr("cy", function(d) { return y(+d[selectedOption]) })
           }
 
-    d3.select("#Nuevas_JH").on("click", function(d) {
+    d3.select("#Nuevos_JH").on("click", function(d) {
         // recover the option that has been chosen
         var selectedOption = d3.select(this).property("value")
         // run the updateChart function with this selected option
         update1(selectedOption)
     })
 
-    d3.select("#Nuevas_abiertos").on("click", function(d) {
+    d3.select("#Nuevos_abiertos").on("click", function(d) {
         // recover the option that has been chosen
         var selectedOption = d3.select(this).property("value")
         // run the updateChart function with this selected option
