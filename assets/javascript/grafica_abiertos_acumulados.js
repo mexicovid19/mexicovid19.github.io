@@ -12,7 +12,7 @@ var margin = {
         top: 10,
         right: 10,
         bottom: 50,
-        left: 45
+        left: 50
     },
 
 w = (w- (margin.left + margin.right) );
