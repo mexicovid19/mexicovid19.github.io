@@ -113,7 +113,14 @@ layout: default
 
  <div class="justify-content-center" id="grafica_totales"><h1 class="text-center" style='margin-top: 5%; text-transform: none;'>Casos totales reportados por día</h1><p id="tiempo_actualizacion_3"> </p></div>
 
-<script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
+ <div class="btn-block justify-content-center" role="group" aria-label="Basic example">
+   <!-- Add 2 buttons -->
+   <button class="btn btn-lg btn-dark mx-2" style="max-width: 40%" id="Nuevos_JH" value="Nuevos_JH">Fecha de anuncio</button>
+   <button class="btn btn-lg btn-dark mx-1" style="max-width: 40%" id="Nuevos_abiertos" value="Nuevos_abiertos">Fecha de prueba</button>
+
+   <script src="{{ "/assets/javascript/grafica_totales.js" | relative_url }}"></script>
+
+  </div>
 
 <div class="alert alert-dismissible alert-info" style="margin-top:5%;">
   <!--h4 class="alert-heading" style="text-transform:none;">Acerca de nuestras proyecciones</h4-->
