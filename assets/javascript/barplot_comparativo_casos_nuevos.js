@@ -21,7 +21,7 @@ var tipH = d3.select("#barplot_nuevos").append("div")
       .style("opacity", 0);
 
 var tipP = d3.select("#barplot_nuevos").append("div")
-      .attr("class", "tip")
+      .attr("class", "tipP")
       .style("opacity", 0);
 
 // append the svg object to the body of the page

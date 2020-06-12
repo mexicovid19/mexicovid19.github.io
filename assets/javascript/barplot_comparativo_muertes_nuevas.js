@@ -21,7 +21,7 @@ var tipH = d3.select("#barplot_comparativo_muertes").append("div")
       .style("opacity", 0);
 
 var tipP = d3.select("#barplot_comparativo_muertes").append("div")
-      .attr("class", "tip")
+      .attr("class", "tipP")
       .style("opacity", 0);
 
 // append the svg object to the body of the page
@@ -147,7 +147,7 @@ function update2(selectedVar, selectedOption) {
                   //.duration(1000)
                     //.attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
                     .attr("cy", function(d) { return y(+d[selectedOption+"_promedio"]) })
-                    .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevas_JH"){ return 0.5 } else { return 1. }});
+                    .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevas_JH"){ return 0.5 } else { return 1. }})
                     .on("mouseover", function(d) {
                         tipP.transition()
                             .duration(200)
@@ -162,7 +162,7 @@ function update2(selectedVar, selectedOption) {
                         tipP.transition()
                             .duration(500)
                             .style("opacity", 0);
-                    })
+                    })ñ
               }
 
               update(selectedVar)
