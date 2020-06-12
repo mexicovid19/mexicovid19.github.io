@@ -162,7 +162,7 @@ function update2(selectedVar, selectedOption) {
                         tipP.transition()
                             .duration(500)
                             .style("opacity", 0);
-                    })ñ
+                    });
               }
 
               update(selectedVar)
