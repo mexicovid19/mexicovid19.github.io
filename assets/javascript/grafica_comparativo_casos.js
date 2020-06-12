@@ -38,7 +38,7 @@ var svgT = d3.select("#grafica_totales")
 // define the x scale (horizontal)
 
 var today = new Date();
-var mindate = new Date(2020, 1, 28);
+var mindate = new Date(2020, 2, 8);
 var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay()-14);
 
 // Add X axis --> it is a date format
@@ -112,6 +112,19 @@ d3.csv(url, function(data) {
             .duration(1000)
               .attr("cx", function(d) { return x(d.Fecha) })
               .attr("cy", function(d) { return y(+d[selectedOption]) })
+              .on("mouseover", function(d) {
+                  tip.transition()
+                      .duration(200)
+                      .style("opacity", .9);
+                  tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" + " <p class='text-primary'>" + (+d[selectedOption]).toLocaleString() + "</p>")
+                      .style("left", (d3.event.pageX) + "px")
+                      .style("top", (d3.event.pageY - 30) + "px");
+              })
+              .on("mouseout", function(d) {
+                  tip.transition()
+                      .duration(500)
+                      .style("opacity", 0);
+              });
           }
 
     d3.select("#Nuevos_JH").on("click", function(d) {

@@ -20,7 +20,7 @@ var tipH = d3.select("#barplot_nuevos").append("div")
       .attr("class", "tipH")
       .style("opacity", 0);
 
-var tip = d3.select("#barplot_nuevos").append("div")
+var tipP = d3.select("#barplot_nuevos").append("div")
       .attr("class", "tip")
       .style("opacity", 0);
 
@@ -124,17 +124,17 @@ function update(selectedVar) {
                   .attr("opacity", .8)
                   .style("fill", "mediumorchid")
                   .on("mouseover", function(d) {
-                      tip.transition()
+                      tipP.transition()
                           .duration(200)
                           .style("opacity", .9);
-                      tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                      tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                                 " <p class='text-primary'>Promedio 7 dias" + "</p>" +
                                 " <p class='text-primary'>" + (d["Nuevos_JH_promedio"]) + "</p>")
                           .style("left", (d3.event.pageX) + "px")
                           .style("top", (d3.event.pageY - 30) + "px");
                   })
                   .on("mouseout", function(d) {
-                      tip.transition()
+                      tipP.transition()
                           .duration(500)
                           .style("opacity", 0);
                   })
@@ -150,17 +150,17 @@ function update(selectedVar) {
                     .attr("cy", function(d) { return y(+d[selectedOption+"_promedio"]) })
                     .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevos_JH"){ return 0.5 } else { return 1. }})
                     .on("mouseover", function(d) {
-                        tip.transition()
+                        tipP.transition()
                             .duration(200)
                             .style("opacity", .9);
-                        tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                        tipP.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
                                   " <p class='text-primary'>Promedio 7 dias" + "</p>" +
                                   " <p class='text-primary'>" + (d[selectedOption+'_promedio']) + "</p>")
                             .style("left", (d3.event.pageX) + "px")
                             .style("top", (d3.event.pageY - 30) + "px");
                     })
                     .on("mouseout", function(d) {
-                        tip.transition()
+                        tipP.transition()
                             .duration(500)
                             .style("opacity", 0);
                     })
