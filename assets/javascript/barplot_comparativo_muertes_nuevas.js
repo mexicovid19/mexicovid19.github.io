@@ -20,6 +20,10 @@ var tipH = d3.select("#barplot_comparativo_muertes").append("div")
       .attr("class", "tipH")
       .style("opacity", 0);
 
+      var tip = d3.select("#barplot_comparativo_muertes").append("div")
+            .attr("class", "tip")
+            .style("opacity", 0);
+
 // append the svg object to the body of the page
 var svgBarC = d3.select("#barplot_comparativo_muertes")
   .append("svg")
@@ -39,6 +43,7 @@ var yyyy = today.getFullYear();
 var mindate = new Date(2020,2,18);
 
 var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay()-14);
+
 
 var x = d3.scaleTime()
           .domain([mindate, today])
@@ -60,9 +65,8 @@ var y = d3.scaleLinear()
 var yAxis = svgBarC.append("g")
   .attr("class", "myYaxis")
 
-
 // A function that create / update the plot for a given variable:
-function update(selectedVar) {
+function update2(selectedVar, selectedOption) {
 
   // Parse the Data
   d3.csv(urlNuevos, function(data) {
@@ -85,7 +89,7 @@ function update(selectedVar) {
       .append("rect")
       .merge(u)
       //.transition()
-      //.duration(400)
+      //.duration(1000)
       //.delay(function(d,i){ return(i*100)})
         .attr("x", function(d) { return x(d.Fecha)-widthBar/2; })
         .attr("y", function(d) { return y(d[selectedVar]); })
@@ -96,7 +100,7 @@ function update(selectedVar) {
           tipH.transition()
               .duration(200)
               .style("opacity", .9);
-          tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + (+d[selectedVar]).toLocaleString() + "</p>")
+          tipH.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>"+ " <p class='text-primary'>"  + d[selectedVar] + "</p>")
               .style("left", (d3.event.pageX) + "px")
               .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -105,11 +109,55 @@ function update(selectedVar) {
               .duration(500)
               .style("opacity", 0);
             })
-        .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedVar != "Nuevas_JH"){ return 0.5 } else { return 1. }})
+        .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedVar != "Nuevas_JH"){ return 0.5 } else { return .7 }});
+
+        var dot = svgBarC
+                  .selectAll("circle")
+                  .data(data)
+
+              dot.enter()
+                  .append("circle")
+                  .attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
+                  .attr("cy", function(d) { return y(+d.Nuevas_JH_promedio)})
+                  .attr("r", 4)
+                  .attr("opacity", .8)
+                  .style("fill", "#1f9bcf")
+                  .on("mouseover", function(d) {
+                      tip.transition()
+                          .duration(200)
+                          .style("opacity", .9);
+                      tip.html("<h6>" + formatDay(d.Fecha) + "/" + formatMonth(d.Fecha) + "</h6>" +
+                                " <p class='text-primary'>Promedio 7 dias" + "</p>" +
+                                " <p class='text-primary'>" + (d["Nuevas_JH_promedio"]) + "</p>")
+                          .style("left", (d3.event.pageX) + "px")
+                          .style("top", (d3.event.pageY - 30) + "px");
+                  })
+                  .on("mouseout", function(d) {
+                      tip.transition()
+                          .duration(500)
+                          .style("opacity", 0);
+                  })
+
+              function update(selectedOption) {
+
+                dot
+                  .data(data)
+                  //.transition()
+                  .style("fill", function(d){if (selectedOption=="Nuevas_JH") {return "#1f9bcf";} else {return "tomato";}})
+                  //.duration(1000)
+                    //.attr("cx", function(d) { if (d.Fecha > mindate ) {return x(d.Fecha)}})
+                    .attr("cy", function(d) { return y(+d[selectedOption+"_promedio"]) })
+                    .attr("opacity", function(d){if (d.Fecha > two_weeks_ago && selectedOption != "Nuevas_JH"){ return 0.5 } else { return 1. }});
+              }
+
+              update(selectedVar)
+
   })
-
-
 };
+
+// Initialize plot
+update2('Nuevas_JH')
+
 
 //Lineas fases
 
@@ -120,21 +168,22 @@ var fase = svgBarC.append("line")
     .attr("x1", x(fase3))
     .attr("y1", y(y.domain()[0]))
     .attr("x2", x(fase3))
-    .attr("y2", y(y.domain()[1])+17)
+    .attr("y2", y(y.domain()[1]))
     .attr("stroke", "#000000")
     .style("stroke-width", 1)
     .style("fill", "none")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", y(y.domain()[1]))
-    .attr("x", x(fase3) - 50)
+    .attr("y", x(fase3)-15)
+    .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-size","10px")
     .text("Comienza la fase 3")
     .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
+    .attr("font-family", "sans-serif")
+    .attr("transform", "rotate(-90)");
 
 //Fase 2
 var fase12 = new Date(2020, 2, 23);
@@ -143,22 +192,22 @@ var fase = svgBarC.append("line")
     .attr("x1", x(fase12))
     .attr("y1", y(y.domain()[0]))
     .attr("x2", x(fase12))
-    .attr("y2", y(y.domain()[1])+57)
+    .attr("y2", y(y.domain()[1]))
     .attr("stroke", "#000000")
     .style("stroke-width", 1)
     .style("fill", "none")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", y(y.domain()[1])+40)
-    .attr("x", x(fase12)+35)
+    .attr("y", x(fase12)-15)
+    .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-size","10px")
     .text("Comienza la fase 2")
     .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
-
+    .attr("font-family", "sans-serif")
+    .attr("transform", "rotate(-90)");
 //Emergencia sanitaria
 var faseExt=new Date(2020, 2, 30);;
 
@@ -166,21 +215,41 @@ var fase = svgBarC.append("line")
     .attr("x1", x(faseExt))
     .attr("y1", y(y.domain()[0]))
     .attr("x2", x(faseExt))
-    .attr("y2", y(y.domain()[1])+37)
+    .attr("y2", y(y.domain()[1]))
     .attr("stroke", "#000000")
     .style("stroke-width", 1)
     .style("fill", "none")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", y(y.domain()[1])+20)
-    .attr("x", x(faseExt)+30)
+    .attr("y", x(faseExt)-15)
+    .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-size","10px")
     .text("Emergencia sanitaria")
     .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif");
+    .attr("font-family", "sans-serif")
+    .attr("transform", "rotate(-90)");
 
-// Initialize plot
-update('Nuevas_JH')
+var faseFin=new Date(2020, 5, 1);;
+
+var fase = svgBarC.append("line")
+    .attr("x1", x(faseFin))
+    .attr("y1", y(y.domain()[0]))
+    .attr("x2", x(faseFin))
+    .attr("y2", y(y.domain()[1]))
+    .attr("stroke", "#000000")
+    .style("stroke-width", 1)
+    .style("fill", "none")
+    .style("stroke-dasharray", "5,5");
+
+    svgBarC.append("text")
+        .attr("y", y(y.domain()[1]))
+        .attr("x", x(faseFin)-80)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size","10px")
+        .text("Fin de la jornada nacional")
+        .attr("stroke", "#000000")
+        .attr("font-family", "sans-serif");
