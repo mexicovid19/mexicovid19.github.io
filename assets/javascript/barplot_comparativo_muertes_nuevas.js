@@ -42,7 +42,8 @@ var yyyy = today.getFullYear();
 
 var mindate = new Date(2020,2,18);
 
-var two_weeks_ago = new Date(today.getFullYear(),today.getMonth(),today.getDay())-14;
+var diff_two_weeks = Math.abs(new Date(2020, 0, 16) - new Date(2020, 0, 1));
+var two_weeks_ago = new Date(today.getTime()-diff_two_weeks);
 
 
 var x = d3.scaleTime()
