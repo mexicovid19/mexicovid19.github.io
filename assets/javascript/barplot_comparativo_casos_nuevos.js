@@ -1,4 +1,4 @@
-var w = 600,
+var w = 610,
     h = 400,
     w_full = w,
     h_full = h;
@@ -8,7 +8,7 @@ if (w > $( window ).width()) {
 }
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 50, left: 40},
+var margin = {top: 10, right: 10, bottom: 50, left: 50},
     w = w - margin.left - margin.right,
     h = h - margin.top - margin.bottom;
 
@@ -78,7 +78,7 @@ function update(selectedVar) {
           });
 
     // Add Y axis
-    y.domain([0, d3.max(data, function(d) { return +d.Nuevos_JH }) ]);
+    y.domain([0, 1.25*d3.max(data, function(d) { return +d[selectedVar] }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
@@ -192,7 +192,7 @@ var fase = svgBarC.append("line")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", x(fase3)-15)
+    .attr("y", x(fase3))
     .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
@@ -216,7 +216,7 @@ var fase = svgBarC.append("line")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", x(fase12)-15)
+    .attr("y", x(fase12))
     .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
@@ -239,7 +239,7 @@ var fase = svgBarC.append("line")
     .style("stroke-dasharray", "5,5");
 
 svgBarC.append("text")
-    .attr("y", x(faseExt)-15)
+    .attr("y", x(faseExt))
     .attr("x", y(y.domain()[1])-70)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
@@ -263,7 +263,7 @@ var fase = svgBarC.append("line")
 
 svgBarC.append("text")
     .attr("y", y(y.domain()[1]))
-    .attr("x", x(faseFin)-80)
+    .attr("x", x(faseFin)+80)
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-size","10px")
