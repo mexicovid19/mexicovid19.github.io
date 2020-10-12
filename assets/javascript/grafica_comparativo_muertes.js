@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-    var w = 600,
+    var w = 610,
         h = 400,
         w_full = w,
         h_full = h;
@@ -12,7 +12,7 @@
             top: 10,
             right: 10,
             bottom: 50,
-            left: 50
+            left: 60
         },
 
    w = (w- (margin.left + margin.right) );
@@ -158,7 +158,7 @@ d3.csv(url, function(data) {
         .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", x(fase3)-15)
+        .attr("y", x(fase3))
         .attr("x", y(y.domain()[1])-70)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -182,7 +182,7 @@ d3.csv(url, function(data) {
         .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", x(fase12)-15)
+        .attr("y", x(fase12))
         .attr("x", y(y.domain()[1])-70)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -205,7 +205,7 @@ d3.csv(url, function(data) {
         .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", x(faseExt)-15)
+        .attr("y", x(faseExt))
         .attr("x", y(y.domain()[1])-70)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -229,7 +229,7 @@ d3.csv(url, function(data) {
 
         svgT.append("text")
             .attr("y", y(y.domain()[1]))
-            .attr("x", x(faseFin)-80)
+            .attr("x", x(faseFin)+80)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .style("font-size","10px")
