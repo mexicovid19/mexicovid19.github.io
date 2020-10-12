@@ -77,7 +77,7 @@ function update2(selectedVar, selectedOption) {
           });
 
     // Add Y axis
-    y.domain([0, 1.25*d3.max(data, function(d) { return +d.[selectedVar] }) ]);
+    y.domain([0, 1.25*d3.max(data, function(d) { return +d[selectedVar] }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
