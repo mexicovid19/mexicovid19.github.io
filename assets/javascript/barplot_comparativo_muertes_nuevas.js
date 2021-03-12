@@ -175,80 +175,10 @@ function update2(selectedVar, selectedOption) {
 update2('Nuevas_JH')
 
 
-//Lineas fases
+//Lineas
 
-//Fase 3
-var fase3=new Date(2020,3,20);
 
-var fase = svgBarC.append("line")
-    .attr("x1", x(fase3))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(fase3))
-    .attr("y2", y(y.domain()[1]))
-    .attr("stroke", "#000000")
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
-
-svgBarC.append("text")
-    .attr("y", x(fase3))
-    .attr("x", y(y.domain()[1])-70)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Comienza la fase 3")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif")
-    .attr("transform", "rotate(-90)");
-
-//Fase 2
-var fase12 = new Date(2020, 2, 23);
-
-var fase = svgBarC.append("line")
-    .attr("x1", x(fase12))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(fase12))
-    .attr("y2", y(y.domain()[1]))
-    .attr("stroke", "#000000")
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
-
-svgBarC.append("text")
-    .attr("y", x(fase12))
-    .attr("x", y(y.domain()[1])-70)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Comienza la fase 2")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif")
-    .attr("transform", "rotate(-90)");
-//Emergencia sanitaria
-var faseExt=new Date(2020, 2, 30);;
-
-var fase = svgBarC.append("line")
-    .attr("x1", x(faseExt))
-    .attr("y1", y(y.domain()[0]))
-    .attr("x2", x(faseExt))
-    .attr("y2", y(y.domain()[1]))
-    .attr("stroke", "#000000")
-    .style("stroke-width", 1)
-    .style("fill", "none")
-    .style("stroke-dasharray", "5,5");
-
-svgBarC.append("text")
-    .attr("y", x(faseExt))
-    .attr("x", y(y.domain()[1])-70)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .text("Emergencia sanitaria")
-    .attr("stroke", "#000000")
-    .attr("font-family", "sans-serif")
-    .attr("transform", "rotate(-90)");
-
-var faseFin=new Date(2020, 5, 1);;
+var faseFin=new Date(2020, 11, 24);;
 
 var fase = svgBarC.append("line")
     .attr("x1", x(faseFin))
@@ -266,6 +196,6 @@ var fase = svgBarC.append("line")
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("font-size","10px")
-        .text("Fin de la jornada nacional")
+        .text("Primera vacuna aplicada")
         .attr("stroke", "#000000")
         .attr("font-family", "sans-serif");
