@@ -179,7 +179,7 @@ d3.csv(url, function(data) {
 
       svgT.append("text")
           .attr("y", y(y.domain()[1]))
-          .attr("x", x(faseVacunas)+10)
+          .attr("x", x(faseVacunas)+70)
           .attr("dy", "1em")
           .style("text-anchor", "middle")
           .style("font-size","10px")
