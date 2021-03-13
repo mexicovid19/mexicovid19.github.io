@@ -177,8 +177,8 @@ d3.csv(url, function(data) {
       .style("stroke-dasharray", "5,5");
 
     svgT.append("text")
-        .attr("y", y(y.domain()[1]))
-        .attr("x", x(faseVacunas)+50)
+        .attr("y", y(y.domain()[1])+20)
+        .attr("x", x(faseVacunas)-70)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("font-size","10px")
