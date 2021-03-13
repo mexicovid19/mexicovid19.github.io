@@ -212,7 +212,7 @@ var fase = svgBarC.append("line")
 
     svgBarC.append("text")
         .attr("y", y(y.domain()[1]))
-        .attr("x", x(faseVacunas)+80)
+        .attr("x", x(faseVacunas)+10)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("font-size","10px")
