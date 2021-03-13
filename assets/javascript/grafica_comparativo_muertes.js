@@ -145,7 +145,7 @@ d3.csv(url, function(data) {
     //Lineas fases
     var faseFin=new Date(2020, 5, 1);
 
-    var fase = svgBarC.append("line")
+    var fase = svgT.append("line")
         .attr("x1", x(faseFin))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(faseFin))
@@ -155,7 +155,7 @@ d3.csv(url, function(data) {
         .style("fill", "none")
         .style("stroke-dasharray", "5,5");
 
-    svgBarC.append("text")
+    svgT.append("text")
         .attr("y", y(y.domain()[1]))
         .attr("x", x(faseFin)+80)
         .attr("dy", "1em")
@@ -167,7 +167,7 @@ d3.csv(url, function(data) {
 
     var faseVacunas=new Date(2020, 11, 24);
 
-    var fase = svgBarC.append("line")
+    var fase = svgT.append("line")
         .attr("x1", x(faseVacunas))
         .attr("y1", y(y.domain()[0]))
         .attr("x2", x(faseVacunas))
@@ -177,7 +177,7 @@ d3.csv(url, function(data) {
         .style("fill", "none")
         .style("stroke-dasharray", "5,5");
 
-      svgBarC.append("text")
+      svgT.append("text")
           .attr("y", y(y.domain()[1]))
           .attr("x", x(faseFin)+80)
           .attr("dy", "1em")

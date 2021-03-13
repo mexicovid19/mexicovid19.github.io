@@ -176,7 +176,7 @@ update2('Nuevas_JH')
 
 
 //Lineas
-var faseFin=new Date(2020, 5, 1);
+var faseFin=new Date(2020, 5, 1);;
 
 var fase = svgBarC.append("line")
     .attr("x1", x(faseFin))
@@ -198,7 +198,7 @@ svgBarC.append("text")
     .attr("stroke", "#000000")
     .attr("font-family", "sans-serif");
 
-var faseVacunas=new Date(2020, 11, 24);
+var faseVacunas=new Date(2020, 11, 24);;
 
 var fase = svgBarC.append("line")
     .attr("x1", x(faseVacunas))
@@ -212,7 +212,7 @@ var fase = svgBarC.append("line")
 
     svgBarC.append("text")
         .attr("y", y(y.domain()[1]))
-        .attr("x", x(faseFin)+80)
+        .attr("x", x(faseVacunas)+80)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("font-size","10px")
